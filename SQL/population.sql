@@ -1,3 +1,5 @@
+SET search_path TO lbaw2292;
+
 INSERT INTO Users (id_User, name, email, password, url) VALUES (1, 'Alyssa', 'amustoe0@bravesites.com', '6FhOlzo53qu', null);
 INSERT INTO Users (id_User, name, email, password, url) VALUES (2, 'Priscella', 'ptorvey1@free.fr', 'JrzwZwa', null);
 INSERT INTO Users (id_User, name, email, password, url) VALUES (3, 'Elizabeth', 'estanex2@twitpic.com', '8MZPxwqsxM', null);
