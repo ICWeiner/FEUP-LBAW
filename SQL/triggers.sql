@@ -1,3 +1,5 @@
+SET search_path TO lbaw2292;
+
 -- TRIGGER06
 -- This trigger will make users unable to buy more than there is available in stock.
 
