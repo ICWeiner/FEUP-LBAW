@@ -1,69 +1,97 @@
 SET search_path TO lbaw2292;
 
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS banned CASCADE;
 DROP TABLE IF EXISTS addressBook CASCADE;
 DROP TABLE IF EXISTS paymentInfo CASCADE;
-DROP TABLE IF EXISTS Ord CASCADE;
-DROP TABLE IF EXISTS Review CASCADE;
-DROP TABLE IF EXISTS Product CASCADE;
-DROP TABLE IF EXISTS productOrder CASCADE;
-DROP TABLE IF EXISTS Collection CASCADE;
+DROP TABLE IF EXISTS ord CASCADE;
+DROP TABLE IF EXISTS review CASCADE;
+DROP TABLE IF EXISTS comment CASCADE;
+DROP TABLE IF EXISTS product CASCADE;
+DROP TABLE IF EXISTS flagged CASCADE;
+DROP TABLE IF EXISTS productOrd CASCADE;
+DROP TABLE IF EXISTS collection CASCADE;
 DROP TABLE IF EXISTS funkoPop CASCADE;
-DROP TABLE IF EXISTS Publisher CASCADE;
-DROP TABLE IF EXISTS Book CASCADE;
-DROP TABLE IF EXISTS Author CASCADE;
+DROP TABLE IF EXISTS publisher CASCADE;
+DROP TABLE IF EXISTS book CASCADE;
+DROP TABLE IF EXISTS author CASCADE;
 DROP TABLE IF EXISTS authorBook CASCADE;
-DROP TABLE IF EXISTS Shoe CASCADE;
-DROP TABLE IF EXISTS Color CASCADE;
-DROP TABLE IF EXISTS Size CASCADE;
+DROP TABLE IF EXISTS shoe CASCADE;
+DROP TABLE IF EXISTS color CASCADE;
+DROP TABLE IF EXISTS size CASCADE;
 DROP TABLE IF EXISTS shoeColorSize CASCADE;
 
-CREATE TABLE users(
-  id_User SERIAL PRIMARY KEY,
+CREATE TABLE users( --table name is plural because "user" is a reserved keyword
+  id_user SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   email TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL,
-  url TEXT 
+  user_is_banned BOOLEAN,
+  user_is_admin BOOLEAN
 );
 
+CREATE TABLE banned(
+  id_banned SERIAL PRIMARY KEY,
+  reason TEXT NOT NULL,
+  official_date DATE NOT NULL,
+  id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
+);
+
+
 CREATE TABLE addressBook(
-  id_addressBook SERIAL PRIMARY KEY,
+  id_address_book SERIAL PRIMARY KEY,
   address TEXT NOT NULL,
-  phoneNumber TEXT NOT NULL,
+  phone_number TEXT NOT NULL,
   name TEXT NOT NULL,
-  id_User INTEGER REFERENCES users (id_User) ON UPDATE CASCADE
+  id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
 );
 
 CREATE TABLE paymentInfo(
-  id_paymentInfo SERIAL PRIMARY KEY,
+  id_payment_info SERIAL PRIMARY KEY,
   address TEXT NOT NULL,
   name TEXT NOT NULL,
-  cardNumber TEXT NOT NULL UNIQUE,-- put this back CHECK (length(cardNumber) = 16),
-  id_User INTEGER REFERENCES users (id_User) ON UPDATE CASCADE
+  card_number TEXT NOT NULL UNIQUE CHECK (length(card_number) = 16),
+  id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
 );
 
-create table Ord(
-  id_Ord SERIAL PRIMARY KEY,
-  price FLOAT NOT NULL CHECK (price >= 0),
-  trackingNumber TEXT,
-  buyDate DATE, -- NOT NULL, Constraints removed TEMPORARILY for students sanity while inputing mock data:^)
-  shippingDate DATE, -- CHECK (shippingDate > buyDate),
-  arrivalDate DATE,--  CHECK (arrivalDate > shippingDate),
-  id_User INTEGER REFERENCES users (id_User) ON UPDATE CASCADE
+CREATE TABLE ord(
+  id_ord SERIAL PRIMARY KEY,
+  total_price FLOAT NOT NULL CHECK (total_price >= 0),
+  tracking_number TEXT,
+  buy_date DATE NOT NULL,
+  shipping_date DATE CHECK (shipping_date > buy_date),
+  arrival_date DATE CHECK (arrival_date > shipping_date),
+  id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
 );
 
-CREATE TABLE Review(
-  id_Review SERIAL PRIMARY KEY,
+CREATE TABLE review(
+  id_review SERIAL PRIMARY KEY,
   comment TEXT NOT NULL,
   rating FLOAT NOT NULL CHECK (rating >=0 AND rating <= 5),
-  reviewDate DATE NOT NULL,
-  id_Ord INTEGER REFERENCES Ord (id_Ord) ON UPDATE CASCADE
+  review_date DATE NOT NULL,
+  id_ord INTEGER REFERENCES ord (id_ord) ON UPDATE CASCADE,
+  id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
 );
 
-CREATE TABLE Product(
-  id_Product SERIAL PRIMARY KEY,
+CREATE TABLE comment(
+  id_comment SERIAL PRIMARY KEY,
+  content TEXT,
+  rating FLOAT NOT NULL,
+  id_review INTEGER REFERENCES review (id_review) ON UPDATE CASCADE,
+  id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
+);
+
+CREATE TABLE flagged(
+  id_flagged SERIAL PRIMARY KEY,
+  reason TEXT NOT NULL,
+  id_review INTEGER REFERENCES review (id_review) ON UPDATE CASCADE,
+  id_comment INTEGER REFERENCES comment (id_comment) ON UPDATE CASCADE
+);
+
+CREATE TABLE product(
+  id_product SERIAL PRIMARY KEY,
   price FLOAT NOT NULL CHECK (price >=0),
-  quantity INTEGER NOT NULL CHECK (quantity >= 0),
+  stock_quantity INTEGER NOT NULL CHECK (stock_quantity >= 0),
   name TEXT NOT NULL,
   url TEXT NOT NULL,
   year INTEGER NOT NULL,
@@ -71,71 +99,70 @@ CREATE TABLE Product(
   sku TEXT NOT NULL
 );
 
-CREATE TABLE productOrder(
-  id_Product INTEGER NOT NULL REFERENCES Product (id_Product) ON UPDATE CASCADE,
-  id_Ord INTEGER NOT NULL REFERENCES Ord (id_Ord) ON UPDATE CASCADE,
-  PRIMARY KEY(id_Product, id_Ord)
+CREATE TABLE productOrd(
+  quantity INTEGER NOT NULL CHECK (quantity >= 0),
+  id_product INTEGER NOT NULL REFERENCES product (id_product) ON UPDATE CASCADE,
+  id_ord INTEGER NOT NULL REFERENCES ord (id_ord) ON UPDATE CASCADE,
+  PRIMARY KEY(id_product, id_ord)
 );
 
-CREATE TABLE Collection(
-  id_Collection SERIAL PRIMARY KEY,
+CREATE TABLE collection(
+  id_collection SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  id_Product INTEGER REFERENCES Product (id_Product) ON UPDATE CASCADE
+  id_product INTEGER REFERENCES product (id_product) ON UPDATE CASCADE
 );
 
 CREATE TABLE funkoPop(
-  id_funkoPop SERIAL PRIMARY KEY,
-  numberPop INTEGER NOT NULL UNIQUE,
-  id_Product INTEGER REFERENCES Product (id_Product) ON UPDATE CASCADE
+  id_product INTEGER PRIMARY KEY REFERENCES product (id_product) ON UPDATE CASCADE,
+  number_pop INTEGER NOT NULL UNIQUE
 );
 
-CREATE TABLE Publisher(
-  id_Publisher SERIAL PRIMARY KEY,
+CREATE TABLE publisher(
+  id_publisher SERIAL PRIMARY KEY,
   name TEXT NOT NULL
 );
 
-CREATE TABLE Book(
-  id_Book SERIAL PRIMARY KEY,
+CREATE TABLE book(
+  id_product INTEGER PRIMARY KEY REFERENCES product (id_product) ON UPDATE CASCADE,
   edition INTEGER NOT NULL,
   isbn TEXT NOT NULL UNIQUE,
-  id_Publisher INTEGER REFERENCES Publisher (id_Publisher) ON UPDATE CASCADE,
-  id_Product INTEGER REFERENCES Product (id_Product) ON UPDATE CASCADE
+  id_publisher INTEGER REFERENCES publisher (id_publisher) ON UPDATE CASCADE
 );
 
-CREATE TABLE Author(
-  id_Author SERIAL PRIMARY KEY,
+CREATE TABLE author(
+  id_author SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   url TEXT NOT NULL
 );
 
 CREATE TABLE authorBook(
-  id_Author INTEGER NOT NULL REFERENCES Author (id_Author) ON UPDATE CASCADE,
-  id_Book INTEGER NOT NULL REFERENCES Book (id_Book) ON UPDATE CASCADE,
-  PRIMARY KEY(id_Author, id_Book)
+  id_author INTEGER NOT NULL REFERENCES author (id_author) ON UPDATE CASCADE,
+  id_book INTEGER NOT NULL REFERENCES book (id_product) ON UPDATE CASCADE,
+  PRIMARY KEY(id_author, id_book)
 );
 
-CREATE TABLE Shoe(
-  id_Shoe SERIAL PRIMARY KEY,
+CREATE TABLE shoe(
+  id_product INTEGER PRIMARY KEY REFERENCES product (id_product) ON UPDATE CASCADE,
   name TEXT NOT NULL,
-  typeName TEXT NOT NULL,
-  brandName TEXT NOT NULL
+  type_name TEXT NOT NULL,
+  brand_name TEXT NOT NULL
 );
 
-CREATE TABLE Color(
-  id_Color SERIAL PRIMARY KEY,
-  colorName TEXT NOT NULL
+CREATE TABLE color(
+  id_color SERIAL PRIMARY KEY,
+  color_name TEXT NOT NULL
 );
 
-CREATE TABLE Size(
-  id_Size SERIAL PRIMARY KEY,
-  sizeEU INTEGER NOT NULL,
-  sizeUS INTEGER 
+CREATE TABLE size(
+  id_size SERIAL PRIMARY KEY,
+  size_eu INTEGER NOT NULL,
+  size_us INTEGER
 );
 
 CREATE TABLE shoeColorSize(
-  id_Shoe INTEGER NOT NULL REFERENCES Shoe (id_Shoe) ON UPDATE CASCADE,
-  id_Color INTEGER NOT NULL REFERENCES Color (id_Color) ON UPDATE CASCADE,
-  id_Size INTEGER NOT NULL REFERENCES Size (id_Size) ON UPDATE CASCADE,
-  PRIMARY KEY(id_Shoe, id_Color, id_Size)
+  id_shoe INTEGER NOT NULL REFERENCES shoe (id_product) ON UPDATE CASCADE,
+  id_primaryColor INTEGER NOT NULL REFERENCES color (id_color) ON UPDATE CASCADE,
+  id_secondaryColor INTEGER NOT NULL REFERENCES color (id_color) ON UPDATE CASCADE,
+  id_size INTEGER NOT NULL REFERENCES size (id_size) ON UPDATE CASCADE,
+  PRIMARY KEY(id_shoe, id_primaryColor, id_secondaryColor, id_size)
 );
-
