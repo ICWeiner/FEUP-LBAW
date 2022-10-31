@@ -37,7 +37,6 @@ CREATE TABLE banned(
   id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
 );
 
-
 CREATE TABLE addressBook(
   id_address_book SERIAL PRIMARY KEY,
   address TEXT NOT NULL,
@@ -64,6 +63,17 @@ CREATE TABLE ord(
   id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
 );
 
+CREATE TABLE product(
+  id_product SERIAL PRIMARY KEY,
+  price FLOAT NOT NULL CHECK (price >=0),
+  stock_quantity INTEGER NOT NULL CHECK (stock_quantity >= 0),
+  name TEXT NOT NULL,
+  url TEXT NOT NULL,
+  year INTEGER NOT NULL,
+  rating FLOAT NOT NULL CHECK (rating >=0 AND rating <= 5),
+  sku TEXT NOT NULL
+);
+
 CREATE TABLE review(
   id_review SERIAL PRIMARY KEY,
   comment TEXT NOT NULL,
@@ -88,16 +98,6 @@ CREATE TABLE flagged(
   id_comment INTEGER REFERENCES comment (id_comment) ON UPDATE CASCADE
 );
 
-CREATE TABLE product(
-  id_product SERIAL PRIMARY KEY,
-  price FLOAT NOT NULL CHECK (price >=0),
-  stock_quantity INTEGER NOT NULL CHECK (stock_quantity >= 0),
-  name TEXT NOT NULL,
-  url TEXT NOT NULL,
-  year INTEGER NOT NULL,
-  rating FLOAT NOT NULL CHECK (rating >=0 AND rating <= 5),
-  sku TEXT NOT NULL
-);
 
 CREATE TABLE productOrd(
   quantity INTEGER NOT NULL CHECK (quantity >= 0),
