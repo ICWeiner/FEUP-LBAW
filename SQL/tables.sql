@@ -69,7 +69,7 @@ CREATE TABLE review(
   comment TEXT NOT NULL,
   rating FLOAT NOT NULL CHECK (rating >=0 AND rating <= 5),
   review_date DATE NOT NULL,
-  id_ord INTEGER REFERENCES ord (id_ord) ON UPDATE CASCADE,
+  id_product INTEGER REFERENCES product (id_product) ON UPDATE CASCADE,
   id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
 );
 
