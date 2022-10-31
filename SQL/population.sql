@@ -168,16 +168,16 @@ INSERT INTO ord (id_ord, total_price, tracking_number, buy_date, shipping_date, 
 INSERT INTO ord (id_ord, total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES (99, 178.23, 'VL3297075AL', '12/2/2021', null, null, 20);
 INSERT INTO ord (id_ord, total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES (100, 40.49, 'DW5970309JW', '4/7/2022', null, null, 4);
 
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (1, 'Persistent incremental monitoring', 2, '9/24/2022', 1, 4);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (2, 'Phased 5th generation workforce', 5, '7/18/2022', 2, 6);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (3, 'Total homogeneous product', 4, '7/18/2022', 3, 9);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (4, 'Multi-channelled multi-tasking matrices', 1, '7/20/2022', 4, 12);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (5, 'Synergistic background intranet', 4, '5/6/2022', 5, 14);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (6, 'Virtual system-worthy extranet', 1, '10/14/2022', 6, 1);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (7, 'Quality-focused intangible access', 2, '2/9/2022', 7, 13);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (8, 'Focused impactful help-desk', 2, '10/7/2022', 8, 3);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (9, 'Diverse holistic moderator', 1, '6/10/2022', 9, 9);
-INSERT INTO review (id_review, comment, rating, review_date, id_ord, id_user) VALUES (10, 'Grass-roots interactive framework', 4, '2/12/2022', 10, 21);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (1, 'Persistent incremental monitoring', 2, '9/24/2022', 1, 4);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (2, 'Phased 5th generation workforce', 5, '7/18/2022', 2, 6);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (3, 'Total homogeneous product', 4, '7/18/2022', 3, 9);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (4, 'Multi-channelled multi-tasking matrices', 1, '7/20/2022', 4, 12);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (5, 'Synergistic background intranet', 4, '5/6/2022', 5, 14);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (6, 'Virtual system-worthy extranet', 1, '10/14/2022', 6, 1);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (7, 'Quality-focused intangible access', 2, '2/9/2022', 7, 13);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (8, 'Focused impactful help-desk', 2, '10/7/2022', 8, 3);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (9, 'Diverse holistic moderator', 1, '6/10/2022', 9, 9);
+INSERT INTO review (id_review, comment, rating, review_date, id_product, id_user) VALUES (10, 'Grass-roots interactive framework', 4, '2/12/2022', 10, 21);
 
 INSERT INTO comment (id_comment, Content, Rating, id_review, id_user) VALUES (1, 'Multi-lateral bi-directional circuit', 3, 4, 11);
 INSERT INTO comment (id_comment, Content, Rating, id_review, id_user) VALUES (2, 'Right-sized grid-enabled capacity', 4, 6, 3);
