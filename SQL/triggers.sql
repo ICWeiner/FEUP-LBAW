@@ -31,7 +31,7 @@ CREATE OR REPLACE FUNCTION check_if_enough_stock() RETURNS TRIGGER AS
     BEGIN
         IF EXISTS (
           SELECT productOrd.quantity
-          FROM productOrd, product, ord WHERE productOrd.id_product = product.id_product AND productOrd.id_ord = Ord.id_ord AND productOrd.quantity > product.quantity) THEN
+          FROM productOrd, product, ord WHERE productOrd.id_product = product.id_product AND productOrd.id_ord = Ord.id_ord AND productOrd.quantity > product.stock_quantity) THEN
            RAISE EXCEPTION 'There isn''t enough stock of products for the order.';
         END IF;
         RETURN NEW;
