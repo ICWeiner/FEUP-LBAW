@@ -60,10 +60,17 @@ CREATE OR REPLACE FUNCTION check_own_review() RETURNS TRIGGER AS
     $BODY$
 LANGUAGE plpgsql;
 
-CREATE TRIGGER check_own_review
-    BEFORE INSERT OR UPDATE ON review
+CREATE TRIGGER check_own_review_flag
+    BEFORE INSERT OR UPDATE ON flagged
     FOR EACH ROW
     EXECUTE PROCEDURE check_own_review();
+
+
+CREATE TRIGGER check_own_review_comment
+    BEFORE INSERT OR UPDATE ON comment
+    FOR EACH ROW
+    EXECUTE PROCEDURE check_own_review();
+
 
 
 -- TRIGGER04
