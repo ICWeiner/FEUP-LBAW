@@ -1,3 +1,5 @@
+--TX01 Commit user purchase
+
 BEGIN TRANSACTION;
 
 SET TRANSACTION ISOLATION LEVEL SERIALIZATION ANOMALY
@@ -13,5 +15,19 @@ UPDATE product SET stock_quantity = stock_quantity - $quantity
 
 UPDATE ord SET total_price = total_price + ($quantity * price)
   WHERE ord.id_ord = productOrd.id_ord AND productOrd.id_product = $idProduct;  
+
+COMMIT;
+
+
+--TX02  Commit user deletion
+BEGIN TRANSACTION;
+
+SET TRANSACTION ISOLATION LEVEL NON REPEATABLE READ;
+
+UPDATE users SET 
+        name = CONCAT('DELETED',id_user),
+        email = CONCAT('DELETED@mail.com',id_user) ,
+        password = $random_hash
+        WHERE users.id_user = $id_user;
 
 COMMIT;
