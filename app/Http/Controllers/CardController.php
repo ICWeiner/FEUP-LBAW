@@ -30,11 +30,11 @@ class CardController extends Controller
      */
     public function list()
     {
+        /*
         if (!Auth::check()) return redirect('/login');
-        //$this->authorize('list', Card::class);
-        //$cards = Auth::user()->cards()->orderBy('id')->get();
-        $cards = [];
-        return view('pages.cards', ['cards' => $cards]);
+        $this->authorize('list', Card::class);
+        $cards = Auth::user()->cards()->orderBy('id')->get();
+        return view('pages.cards', ['cards' => $cards]);*/
     }
 
     /**

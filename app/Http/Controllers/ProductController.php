@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
+
 
 class ProductController extends Controller
 {
@@ -47,7 +50,20 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        //return view('pages.card', ['card' => $card]);
+        return view('pages.product', ['product' => $product]);
+    }
+
+    /**
+     * Shows all products
+     *
+     * @return Response
+     */
+    public function list()
+    {
+        //if (!Auth::check()) return redirect('/login');
+        //$this->authorize('list', Card::class);
+        $products = Product::all();//products()->orderBy('id')->get();
+        return view('pages.products', ['products' => $products]);
     }
 
     /**
