@@ -23,7 +23,7 @@
   <body>
     <main>
       <header>
-        <h1><a href="{{ url('/cards') }}">Thingy!</a></h1>
+        <h1><a href="{{ url('/') }}">ATGO</a></h1>
         @if (Auth::check())
         <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
         @endif
@@ -31,6 +31,12 @@
       <section id="content">
         @yield('content')
       </section>
+      <footer>
+        <h6><a href="{{ url('/about') }}">About</a></h6>
+        <h6><a href="{{ url('/services') }}">Services</a></h6>
+        <h6><a href="{{ url('/faq') }}">FAQ</a></h6>
+        <h6><a href="{{ url('/contact') }}">Contact Us</a></h6>
+      </footer>
     </main>
   </body>
 </html>

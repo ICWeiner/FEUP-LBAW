@@ -35,14 +35,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', #'remember_token', #TODO: figure this out
     ];
 
-    /**
-     * The cards this user owns.
-     */
+    /*
+     The cards this user owns. TODO: change this to orders, reviews, etc.?
+
     public function cards()
     {
         return $this->hasMany('App\Models\Card');
-    }
+    }*/
 }
