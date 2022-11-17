@@ -24,4 +24,8 @@ class Shoe extends Model
         'type_name' => 'string',
         'brand_name' => 'string',
     ];
+
+    public function owner() {
+        return $this->belongsTo('App\Models\Product');
+    }
 }

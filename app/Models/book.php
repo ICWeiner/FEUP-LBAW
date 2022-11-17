@@ -28,4 +28,16 @@ class book extends Model
         'isbn' => 'string',
         'id_publisher' => 'integer',
     ];
+
+    public function owner() {
+        return $this->belongsTo('App\Models\Product');
+    }
+
+    public function authors() {
+        return $this->belongsToMany('App\Models\Person');
+    }
+
+    public function publisher() {
+        return $this->belongsTo('App\Models\Publisher');
+    }
 }

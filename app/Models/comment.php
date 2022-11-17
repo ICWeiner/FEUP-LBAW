@@ -29,4 +29,12 @@ class comment extends Model
         'id_review' => 'integer',
         'id_user' => 'integer',
     ];
+
+    public function reviewOwner() {
+        return $this->belongsTo('App\Models\review');
+    }
+
+    public function usersOwner() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

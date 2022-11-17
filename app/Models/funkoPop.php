@@ -20,4 +20,8 @@ class funkoPop extends Model
         'id_funkoPop' => 'integer',
         'number_pop' => 'integer',
     ];
+
+    public function owner() {
+        return $this->belongsTo('App\Models\Product');
+    }
 }

@@ -31,4 +31,12 @@ class ord extends Model
         'arrival_date' => 'datetime:d-m-Y',
         'id_user' => 'integer',
     ];
+
+    public function products() {
+        return $this->belongsToMany('App\Models\Product');
+    }
+
+    public function owner() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

@@ -29,4 +29,8 @@ class addressBook extends Model
         'name' => 'string',
         'id_user' => 'integer',
     ];
+
+    public function owner() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

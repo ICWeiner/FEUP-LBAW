@@ -26,4 +26,8 @@ class publisher extends Model
         'id_publisher' => 'integer',
         'name' => 'string',
     ];
+
+    public function book() {
+        return $this->hasMany('App\Models\book');
+    }
 }

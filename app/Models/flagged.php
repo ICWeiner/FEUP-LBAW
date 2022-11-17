@@ -28,4 +28,8 @@ class flagged extends Model
         'id_review' => 'integer',
         'id_comment' => 'integer',
     ];
+
+    public function reviews() {
+        return $this->hasMany('App\Models\review');
+    }
 }

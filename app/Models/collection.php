@@ -23,4 +23,8 @@ class collection extends Model
         'name' => 'string',
         'id_product' => 'integer',
     ];
+
+    public function products() {
+        return $this->hasMany('App\Models\Product');
+    }
 }

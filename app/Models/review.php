@@ -30,4 +30,20 @@ class review extends Model
         'id_product' => 'integer',
         'id_user' => 'integer',
     ];
+
+    public function productOwner() {
+        return $this->belongsTo('App\Models\Product');
+    }
+
+    public function reviewOwner() {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function comments() {
+        return $this->hasMany('App\Models\comment');
+    }
+
+    public function flagged() {
+        return $this->hasMany('App\Models\flagged');
+    }
 }

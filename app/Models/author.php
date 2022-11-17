@@ -27,4 +27,8 @@ class author extends Model
         'name' => 'string',
         'url' => 'string',
     ];
+
+    public function owners() {
+        return $this->belongsToMany('App\Models\book');  
+    }
 }

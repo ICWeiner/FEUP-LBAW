@@ -29,4 +29,8 @@ class paymentInfo extends Model
         'card_number' => 'string',
         'id_user' => 'integer',
     ];
+
+    public function owner() {
+        return $this->belongsTo('App\Models\User');
+    }
 }
