@@ -24,4 +24,12 @@ class color extends Model
         'id_color' => 'integer',
         'color_name' => 'string',
     ];
+
+    public function primaryOwner() {
+        return $this->belongsTo('App\Models\shoeColorSize');
+    }
+
+    public function secondaryOwner() {
+        return $this->belongsTo('App\Models\shoeColorSize');
+    }
 }

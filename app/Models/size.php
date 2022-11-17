@@ -27,4 +27,8 @@ class size extends Model
         'size_eu' => 'integer',
         'size_us' => 'integer',
     ];
+
+    public function owner() {
+        return $this->belongsTo('App\Models\shoeColorSize');
+    }
 }
