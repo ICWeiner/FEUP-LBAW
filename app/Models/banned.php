@@ -28,4 +28,8 @@ class banned extends Model
         'official_date' => 'datetime:d-m-Y',
         'id_user' => 'integer'
     ];
+
+    public function owner() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

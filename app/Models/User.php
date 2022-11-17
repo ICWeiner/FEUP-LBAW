@@ -65,4 +65,8 @@ class User extends Authenticatable
     public function paymentInfo() {
         return $this->hasOne('App\Models\paymentInfo');
     }
+
+    public function banned() {
+        return $this->hasMany('App\Models\banned');
+    }
 }
