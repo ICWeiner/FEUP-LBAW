@@ -18,8 +18,8 @@ Route::get('/', 'Auth\LoginController@home');
 #Route::get('cards/{id}', 'CardController@show');
 
 //products
-Route::get('products','ProductController@list');
-Route::get('products/{id}','ProductController@show');
+Route::get('products', 'ProductController@list');
+Route::get('products/{id}', 'ProductController@show');
 
 // API
 #Route::put('api/cards', 'CardController@create');
@@ -34,3 +34,8 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+
+//User Management
+Route::get('user', 'UserController@show')->name('user');
+Route::get('editUser', 'UserController@showEditForm')->name('editUser');
+Route::post('editUser', 'UserController@edit');
