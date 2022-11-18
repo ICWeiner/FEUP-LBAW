@@ -25,11 +25,7 @@ class color extends Model
         'color_name' => 'string',
     ];
 
-    public function primaryOwner() {
-        return $this->belongsTo('App\Models\shoeColorSize');
-    }
-
-    public function secondaryOwner() {
+    public function owner() {
         return $this->belongsTo('App\Models\shoeColorSize');
     }
 }
