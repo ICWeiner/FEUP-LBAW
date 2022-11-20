@@ -25,7 +25,7 @@
       <header>
         <h1><a href="{{ url('/') }}">ATGO</a></h1>
         @if (Auth::check())
-        <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
+        <a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a> <a class="button" href="{{ url('/logout') }}"> Logout </a> 
         @endif
       </header>
       <section id="content">
