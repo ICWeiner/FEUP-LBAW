@@ -23,15 +23,19 @@ class shoeColorSize extends Model
         'id_size' => 'integer',
     ];
 
+    public function shoe() {
+        return $this->belongsTo('App\Models\shoe');
+    }
+
     public function primaryColor() {
-        return $this->hasOne('App\Models\color');
+        return $this->hasOne(color::class, 'id_color');
     }
 
     public function secondaryColor() {
-        return $this->hasOne('App\Models\color');
+        return $this->hasOne(color::class, 'id_color');
     }
 
     public function size() {
-        return $this->hasOne('App\Models\size');
+        return $this->hasOne(size::class, 'id_size');
     }
 }
