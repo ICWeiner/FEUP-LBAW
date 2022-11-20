@@ -65,7 +65,7 @@ class UserController extends Controller
         //
         #if (Auth::check()) { TODO: change this, or else users will see other users :^)
         $user = Auth::user();
-        return view('pages.user', ['user' => $user]);
+        return view('pages.userEdit', ['user' => $user]);
         #}
     }
 
