@@ -9,9 +9,9 @@ class StaticController extends Controller
      * Show the application home page.
      *
      */
-    public function index()
+    public function index() //TODO: This is unused
     {
-        return view('pages.home');
+        //return view('staticPages.home');
     }
 
     /**
@@ -20,7 +20,7 @@ class StaticController extends Controller
      */
     public function about()
     {
-        return view('pages.about');
+        return view('staticPages.about');
     }
 
     /**
@@ -29,7 +29,7 @@ class StaticController extends Controller
      */
     public function services()
     {
-        return view('pages.services');
+        return view('staticPages.services');
     }
 
     /**
@@ -38,7 +38,7 @@ class StaticController extends Controller
      */
     public function faq()
     {
-        return view('pages.faq');
+        return view('staticPages.faq');
     }
 
     /**
@@ -47,6 +47,6 @@ class StaticController extends Controller
      */
     public function contact()
     {
-        return view('pages.contact');
+        return view('staticPages.contact');
     }
 }
