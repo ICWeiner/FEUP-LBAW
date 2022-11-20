@@ -6,7 +6,7 @@
 
 <section id="shoes">
   @each('partials.shoe', $shoes, 'shoe')
-  <article class="shpe">
+  <article class="shoe">
   </article>
 </section>
 
