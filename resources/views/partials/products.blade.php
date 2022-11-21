@@ -6,6 +6,5 @@
     <li> Price = {{ $product->price }} </li>
     <li> Year = {{ $product->year }}</li>
     <li> Rating = {{ $product->rating }}</li>
-    <li> Stock = {{ $product->stock_quantity }} </li>
 </ul>
 </article>

@@ -6,6 +6,5 @@
     <li> Price = {{ $funkoPop->owner->price }} </li>
     <li> Year = {{ $funkoPop->owner->year }}</li>
     <li> Rating = {{ $funkoPop->owner->rating }}</li>
-    <li> Stock =  {{ $funkoPop->owner->stock_quantity }}</li>
 </ul>
 </article>

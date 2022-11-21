@@ -3,14 +3,14 @@
   <h2><a href="/books/{{ $book->id_product }}">{{ $book->owner->name }}</a></h2>
 </header>
 <ul>  <!-- important info -->
-    <li>{{ $book->owner->price }}</li>
-    <li>{{ $book->edition }}</li>
-    <li>{{ $book->owner->rating }}</li>
-    <li> @foreach($book->authors as $category)
-                <td>{{$category->id_author}}</td>
+    <li> Price = {{ $book->owner->price }}</li>
+    <li> edition = {{ $book->edition }}</li>
+    <li> rating = {{ $book->owner->rating }}</li>
+    <li> Author: =  @foreach($book->authors as $category)
                 <td>{{$category->name}}</td>
             @endforeach</li>
-    <li>{{ $book->publisher->name }}</li>
-    <li>{{ $book->owner->year }}</li>
+    <li> Publisher = {{ $book->publisher->name }}</li>
+    <li> Year = {{ $book->owner->year }}</li>
+    <li> Stock =  {{ $book->owner->stock_quantity }}</li>
 </ul>
 </article>

@@ -3,8 +3,8 @@
   <h2><a href="/books/{{ $book->id_product }}">{{ $book->owner->name }}</a></h2>
 </header>
 <ul>  <!-- important info -->
-    <li>{{ $book->owner->price }}</li>
-    <li>{{ $book->edition }}</li>
-    <li>{{ $book->owner->rating }}</li>
+    <li> Price = {{ $book->owner->price }}</li>
+    <li> edition = {{ $book->edition }}</li>
+    <li> rating = {{ $book->owner->rating }}</li>
 </ul>
 </article>

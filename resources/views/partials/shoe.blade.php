@@ -3,10 +3,11 @@
   <h2><a href="/shoes/{{ $shoe->id_product }}">{{ $shoe->name }}</a></h2>
 </header>
 <ul>  <!-- info about shoeColorSize missing  -->
-    <li>{{ $shoe->owner->price }}</li>
-    <li>{{ $shoe->brand_name }}</li>
-    <li>{{ $shoe->owner->rating }}</li>
-    <li>{{ $shoe->type_name }}</li>
-    <li>{{ $shoe->owner->year }}</li>
+    <li> Price = {{ $shoe->owner->price }}</li>
+    <li> Name = {{ $shoe->brand_name }}</li>
+    <li> Rating = {{ $shoe->owner->rating }}</li>
+    <li> Type = {{ $shoe->type_name }}</li>
+    <li> Year = {{ $shoe->owner->year }}</li>
+    <li> Stock = {{ $shoe->owner->stock_quantity }}</li>
 </ul>
 </article>
