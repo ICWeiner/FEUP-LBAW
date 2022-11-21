@@ -45,9 +45,7 @@
         </div>  
 
         @if (Auth::check())
-        <a class="button" href="{{ url('/logout') }}"> Logout </a><!--<span>{{ Auth::user()->name }}</span>
-        <!--<a class="button" href="{{ url('/logout') }}"> Cart </a>-->
-
+        <a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a> <a class="button" href="{{ url('/logout') }}"> Logout </a> 
         @endif
       </header>
       <section id="content">

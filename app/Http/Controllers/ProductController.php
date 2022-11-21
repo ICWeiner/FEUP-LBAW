@@ -53,6 +53,8 @@ class ProductController extends Controller
         return view('pages.product', ['product' => $product]);
     }
 
+    #com o id procurar o shoe que tem id correspondente e depois mandar pra view
+
     /**
      * Shows all products
      *

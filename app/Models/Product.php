@@ -33,6 +33,30 @@ class Product extends Model
         'sku' => 'integer',
     ];
 
+    public function shoe() {
+        return $this->hasOne('App\Models\shoe');
+    }
+
+    public function funkoPop() {
+        return $this->hasOne('App\Models\funkoPop');
+    }
+
+    public function book() {
+        return $this->hasOne('App\Models\book');
+    }
+
+    public function reviews() {
+        return $this->hasMany('App\Models\review');
+    }
+
+    public function ownerCollection() {
+        return $this->belongsTo('App\Models\collection');
+    }
+
+    public function ownerOrd() {
+        return $this->belongsToMany('App\Models\ord');
+    }
+
     /*public function type() TODO:unsure about this, one product can have one of multiple types, that isnt stored on the product table
         return $this->hasOne('App\Models\Type');
     }*/
