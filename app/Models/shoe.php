@@ -30,6 +30,6 @@ class Shoe extends Model
     }
 
     public function options() {
-        return $this->hasOne(shoeColorSize::class, 'id_shoe');
+        return $this->hasMany(shoeColorSize::class, 'id_shoe');
     }
 }

@@ -12,6 +12,9 @@
 
     <a class="button" href="{{ url('/editUser') }}"><span>Edit Profile</span></a>
 
+    <p> {{ Auth::user()->address->address }} </p>
+    <p> {{ Auth::user()->paymentInfo->card_number }} </p>
+
     <form method="GET" action="">
       <input type="submit" value="Order History" />
     </form>

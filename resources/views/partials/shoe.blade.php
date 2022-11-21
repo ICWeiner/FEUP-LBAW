@@ -6,7 +6,6 @@
     <li>{{ $shoe->owner->price }}</li>
     <li>{{ $shoe->brand_name }}</li>
     <li>{{ $shoe->owner->rating }}</li>
-    <li>{{ $shoe->options->id_primaryColor}}</li>
 </ul>
 <!--<ul>   info that should appear when inspection a single shoe
     <li>{{ $shoe->owner->stock_quantity }}</li>

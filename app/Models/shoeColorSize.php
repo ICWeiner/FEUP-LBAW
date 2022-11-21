@@ -12,7 +12,7 @@ class shoeColorSize extends Model
         'id_shoe', 'id_primaryColor', 'id_secondaryColor', 'id_size',
     ];
 
-    protected $table = 'shoeColorSize';
+    protected $table = 'shoecolorsize';
 
     public $timestamps = false;
 
@@ -24,7 +24,7 @@ class shoeColorSize extends Model
     ];
 
     public function shoe() {
-        return $this->belongsTo('App\Models\shoe');
+        return $this->belongsTo(shoe::class, 'id_shoe', 'id_shoe');
     }
 
     public function primaryColor() {
