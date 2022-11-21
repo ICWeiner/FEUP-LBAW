@@ -27,7 +27,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/products';
 
-    /**
+    /**Route::post('login', 'Auth\LoginController@home');
      * Create a new controller instance.
      *
      * @return void
