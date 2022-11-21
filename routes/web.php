@@ -13,9 +13,13 @@
 // Home
 Route::get('/', 'Auth\LoginController@home');
 
-// Cards
-#Route::get('cards', 'CardController@list');
-#Route::get('cards/{id}', 'CardController@show');
+//static pages
+//Route::get('/', 'StaticController@index');
+Route::get('about', 'StaticController@about');
+Route::get('services', 'StaticController@services');
+Route::get('faq', 'StaticController@faq');
+Route::get('contact', 'StaticController@contact');
+
 
 //products
 Route::get('products', 'ProductController@list');
