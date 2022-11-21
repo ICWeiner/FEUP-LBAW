@@ -14,7 +14,7 @@ class funkoPop extends Model
 
     public $timestamps = false;
 
-    protected $fillable = 'number_pop';
+    protected $fillable = ['number_pop'];
 
     protected $casts = [
         'id_product' => 'integer',
