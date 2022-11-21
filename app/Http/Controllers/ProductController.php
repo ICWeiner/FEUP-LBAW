@@ -101,4 +101,8 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function cart()  {
+        return view('pages.cart');
+    }
 }

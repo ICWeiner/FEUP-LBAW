@@ -20,6 +20,7 @@ Route::get('/', 'Auth\LoginController@home');
 //products
 Route::get('products', 'ProductController@list');
 Route::get('products/{id}', 'ProductController@show');
+Route::post('cart', 'ProductController@cart')->name('cart');
 
 // API
 #Route::put('api/cards', 'CardController@create');
@@ -34,6 +35,7 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+Route::get('recoverPassword', 'Auth\RegisterController@recoverPassword')->name('recoverPassword');
 
 //User Management
 Route::get('user', 'UserController@show')->name('user');
