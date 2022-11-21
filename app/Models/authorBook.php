@@ -12,7 +12,7 @@ class authorBook extends Model
         'id_author', 'id_book',
     ];
 
-    protected $table = 'authorBook';
+    protected $table = 'authorbook';
 
     public $timestamps = false;
 
@@ -20,4 +20,8 @@ class authorBook extends Model
         'id_author' => 'integer',
         'id_book' => 'integer',
     ];
+
+    public function owner() {
+        return $this->belongsTo(book::class, 'id_product');
+    }
 }

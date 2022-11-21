@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $book->name)
+@section('title', $book->edition)
 
 @section('content')
   @include('partials.book', ['book' => $book])

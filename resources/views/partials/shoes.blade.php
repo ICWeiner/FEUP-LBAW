@@ -2,11 +2,9 @@
 <header>
   <h2><a href="/shoes/{{ $shoe->id_product }}">{{ $shoe->name }}</a></h2>
 </header>
-<ul>  <!-- info about shoeColorSize missing  -->
+<ul>  <!-- important info -->
     <li>{{ $shoe->owner->price }}</li>
     <li>{{ $shoe->brand_name }}</li>
     <li>{{ $shoe->owner->rating }}</li>
-    <li>{{ $shoe->type_name }}</li>
-    <li>{{ $shoe->owner->year }}</li>
 </ul>
 </article>
