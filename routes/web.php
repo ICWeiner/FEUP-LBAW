@@ -25,6 +25,10 @@ Route::get('products/{id}', 'ProductController@show');
 Route::get('shoes', 'ShoeController@list');
 Route::get('shoes/{id}', 'ShoeController@show');
 
+//books
+Route::get('books', 'BookController@list');
+Route::get('books/{id}', 'BookController@show');
+
 // API
 #Route::put('api/cards', 'CardController@create');
 #Route::delete('api/cards/{card_id}', 'CardController@delete');

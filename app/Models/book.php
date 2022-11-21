@@ -8,7 +8,7 @@ class book extends Model
 {
     #use HasFactory;
 
-    protected $primaryKey = 'id_book';
+    protected $primaryKey = 'id_product';
 
     protected $table = 'book';
 
@@ -23,21 +23,21 @@ class book extends Model
     ];
 
     protected $casts = [
-        'id_book' => 'integer',
+        'id_product' => 'integer',
         'edition' => 'integer',
         'isbn' => 'string',
         'id_publisher' => 'integer',
     ];
 
     public function owner() {
-        return $this->belongsTo('App\Models\Product');
+        return $this->belongsTo(Product::class, 'id_product');
     }
 
     public function authors() {
-        return $this->belongsToMany('App\Models\Person');
+        return $this->belongsToMany('App\Models\author');
     }
 
     public function publisher() {
-        return $this->belongsTo('App\Models\Publisher');
+        return $this->belongsTo('App\Models\publisher');
     }
 }
