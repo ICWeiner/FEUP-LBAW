@@ -71,20 +71,6 @@ class UserController extends Controller
 
     public function edit(Request $request)
     {
-
-        /*if($request['email'] === ''){ TODO: Make fields optional, maybe make a seperate page for each field?
-            $this->validate($request, [
-                'name'      => 'required|string|max:255',
-                'password'  => 'required|string|min:6|confirmed'
-            ]);
-        }else{
-            $this->validate($request, [
-                'name'      => 'required|string|max:255',
-                'email'     => 'required|string|email|max:255|unique:users',
-                'password'  => 'required|string|min:6|confirmed'
-            ]);
-        }*/
-
         $this->validate($request, [
             'name'      => 'required|string|max:255',
             'email'     => 'required|string|email|max:255|unique:users',
@@ -100,10 +86,6 @@ class UserController extends Controller
         $user->update();
 
         return redirect('products');
-
-        /*return redirect('/todo')
-            ->with('flash_notification.message', 'Profile updated successfully')
-            ->with('flash_notification.level', 'success');*/
     }
 
 

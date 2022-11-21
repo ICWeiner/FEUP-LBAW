@@ -28,6 +28,8 @@ Route::get('products/{id}', 'ProductController@show');
 //shoes
 Route::get('shoes', 'ShoeController@list');
 Route::get('shoes/{id}', 'ShoeController@show');
+Route::get('addShoes', 'ShoeController@showCreateForm')->name('addShoes');
+Route::post('addShoes', 'ShoeController@create');
 
 //books
 Route::get('books', 'BookController@list');

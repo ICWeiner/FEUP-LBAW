@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\shoe;
+use App\Models\Product;
 
 class ShoeController extends Controller
 {
@@ -19,15 +20,48 @@ class ShoeController extends Controller
         //
     }
 
+    public function showCreateForm() {
+        return view('pages.addShoes');        
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Request $request) {
+        $this->validate($request, [
+            'name'      => 'required|string|max:255',
+            'type_name' => 'required|string|max:255',
+            'brand_name'=> 'required|string|max:255',
+            'price'     => 'required|integer',
+            'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required|integer',
+            'sku'       => 'required|string',
+        ]);
+
+        $product = new Product;
+        $shoe = new shoe;
+        $product->name = $request->get('name');
+        $shoe->name = $request->get('name');
+        $shoe->type_name = $request->get('type_name');
+        $shoe->brand_name = $request->get('brand_name');
+        $product->price = $request->get('price');
+        $product->stock_quantity = $request->get('stock');
+        $product->url = $request->get('url');
+        $product->year = $request->get('year');
+        $product->rating = 0;
+        $product->sku = $request->get('sku');
+
+        $product = $product->create();
+        $shoe->id_product = $product->id_product;
+        $shoe->save();
+
+        return redirect('products');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
