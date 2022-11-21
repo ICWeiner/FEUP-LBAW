@@ -26,6 +26,10 @@ class Shoe extends Model
     ];
 
     public function owner() {
-        return $this->belongsTo('App\Models\Product');
+        return $this->belongsTo(Product::class, 'id_product');
+    }
+
+    public function options() {
+        return $this->hasMany(shoeColorSize::class, 'id_shoe');
     }
 }

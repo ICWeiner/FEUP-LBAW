@@ -25,6 +25,18 @@ Route::get('contact', 'StaticController@contact');
 Route::get('products', 'ProductController@list');
 Route::get('products/{id}', 'ProductController@show');
 
+//shoes
+Route::get('shoes', 'ShoeController@list');
+Route::get('shoes/{id}', 'ShoeController@show');
+
+//books
+Route::get('books', 'BookController@list');
+Route::get('books/{id}', 'BookController@show');
+
+//funkoPops
+Route::get('funkoPops', 'FunkoPopController@list');
+Route::get('funkoPops/{id}', 'FunkoPopController@show');
+
 // API
 #Route::put('api/cards', 'CardController@create');
 #Route::delete('api/cards/{card_id}', 'CardController@delete');

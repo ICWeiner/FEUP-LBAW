@@ -28,7 +28,7 @@ class author extends Model
         'url' => 'string',
     ];
 
-    public function owners() {
-        return $this->belongsToMany('App\Models\book');  
+    public function books() {
+        return $this->belongsToMany(book::class,'authorbook','id_author','id_book');  
     }
 }

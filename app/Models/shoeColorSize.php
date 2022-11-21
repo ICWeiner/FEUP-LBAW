@@ -12,7 +12,7 @@ class shoeColorSize extends Model
         'id_shoe', 'id_primaryColor', 'id_secondaryColor', 'id_size',
     ];
 
-    protected $table = 'shoeColorSize';
+    protected $table = 'shoecolorsize';
 
     public $timestamps = false;
 
@@ -23,15 +23,19 @@ class shoeColorSize extends Model
         'id_size' => 'integer',
     ];
 
+    public function shoe() {
+        return $this->belongsTo(shoe::class, 'id_shoe', 'id_shoe');
+    }
+
     public function primaryColor() {
-        return $this->hasOne('App\Models\color');
+        return $this->hasOne(color::class, 'id_color');
     }
 
     public function secondaryColor() {
-        return $this->hasOne('App\Models\color');
+        return $this->hasOne(color::class, 'id_color');
     }
 
     public function size() {
-        return $this->hasOne('App\Models\size');
+        return $this->hasOne(size::class, 'id_size');
     }
 }

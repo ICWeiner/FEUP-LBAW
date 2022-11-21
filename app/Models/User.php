@@ -52,9 +52,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\ord');
     }
 
-    public function comments()
-    {
-        return $this->hasMany('App\Models\comment');
+    public function comments() {
+        return $this->hasMany(comment::class);
     }
 
     public function reviews()
@@ -62,14 +61,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\review');
     }
 
-    public function address()
-    {
-        return $this->hasOne('App\Models\addressBook');
+    public function address() {
+        return $this->hasOne(addressBook::class, 'id_address_book');
     }
 
-    public function paymentInfo()
-    {
-        return $this->hasOne('App\Models\paymentInfo');
+    public function paymentInfo() {
+        return $this->hasOne(paymentInfo::class, 'id_payment_info');
     }
 
     public function banned()

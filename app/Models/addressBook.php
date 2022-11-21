@@ -10,7 +10,7 @@ class addressBook extends Model
 
     protected $primaryKey = 'id_address_book';
 
-    protected $table = 'addressBook';
+    protected $table = 'addressbook';
 
     public $timestamps = false;
 
