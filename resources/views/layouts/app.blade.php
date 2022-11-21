@@ -36,6 +36,14 @@
         </div>
 
         <h1><a href="{{ url('/') }}">ATGO</a></h1>
+
+        <div class="search">
+          <form action="/search" method="get">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">Go</button>
+          </form>
+        </div>  
+
         @if (Auth::check())
         <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
         @endif

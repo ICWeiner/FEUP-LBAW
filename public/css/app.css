@@ -34,10 +34,10 @@ main {
 }
 main > header {
   height: 5em;
-  background-color: #21325E ;
-  display: flex;
+  background-color: #21325E;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
 	align-items: center;
-	justify-content: space-around;
 }
 
 main > header h1 {
@@ -202,6 +202,57 @@ input[type=text]:focus,
 input[type=email]:focus,
 input[type=password]:focus {
   border-color: #F1D00A;
+}
+
+.productPage{
+  margin: 5em auto;
+  margin-left: 1em;
+  margin-right: 1em;
+  display: grid;
+  grid-template-columns: 1.5fr .3fr 2fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.insideProductPage{
+  grid-column-start: 3;
+  border: solid;
+  display: grid;
+}
+
+.search input{
+  margin: 0;
+  padding: 0;
+  width: 65%;
+  background-color: #F0F0F0
+}
+
+.search button{
+  margin: 0;
+  padding: 0;
+  margin-left: .2em;
+  width: 35%;
+}
+
+.search form{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+}
+
+.productImage>img{
+  width: auto;
+	height: auto;
+	object-position: center;
+}
+
+.productImage{
+  display: flex;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+	height: auto;
 }
 
 /*Hambuguer menu*/
