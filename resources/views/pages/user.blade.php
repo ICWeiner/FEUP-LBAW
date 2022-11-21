@@ -6,7 +6,7 @@
 
     <label for="name">Name</label>
     <p id="name"  name="name">{{ Auth::user()->name }}
-    
+
     <label for="email">E-Mail Address</label>
     <p id="email" name="email">{{ Auth::user()->email }}
 
