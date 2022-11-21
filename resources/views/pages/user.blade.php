@@ -6,15 +6,23 @@
 
     <label for="name">Name</label>
     <p id="name"  name="name">{{ Auth::user()->name }}
-    
+
     <label for="email">E-Mail Address</label>
     <p id="email" name="email">{{ Auth::user()->email }}
 
-    <a class="button" href="{{ url('/editUser') }}"><span>Edit Profile</span></a>
+    <form method="GET" action="{{ url('/editUser') }}">
+        <input type="submit" value="Edit Profile" />
+      </form>
 
     <form method="GET" action="">
       <input type="submit" value="Order History" />
     </form>
+
+    @if (Auth::user()->user_is_admin === true)
+        <form method="GET" action="{{ url('adminPages') }}">
+            <input type="submit" value="Administration Area" />
+        </form>
+    @endif
 
 </div>
 @endsection
