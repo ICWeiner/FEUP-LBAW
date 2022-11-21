@@ -3,5 +3,5 @@
 @section('title', $funkoPop->number_pop)
 
 @section('content')
-  @include('partials.shoe', ['shoe' => $shoe])
+  @include('partials.funkoPop', ['funkoPop' => $funkoPop])
 @endsection

@@ -5,7 +5,7 @@
 <ul>  <!-- important info -->
     <li>{{ $funkoPop->owner->price }}</li>
     <li>{{ $funkoPop->owner->year }}</li>
-    <li>{{ $shoe->owner->rating }}</li>
+    <li>{{ $funkoPop->owner->rating }}</li>
 </ul>
 <!--<ul>   info that should appear when inspection a single shoe
     <li>{{ $funkoPop->owner->stock_quantity }}</li>

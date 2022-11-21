@@ -8,7 +8,7 @@ class funkoPop extends Model
 {
     #use HasFactory;
 
-    protected $primaryKey = 'id_funkoPop';
+    protected $primaryKey = 'id_product';
 
     protected $table = 'funkopop';
 
@@ -17,11 +17,11 @@ class funkoPop extends Model
     protected $fillable = 'number_pop';
 
     protected $casts = [
-        'id_funkoPop' => 'integer',
+        'id_product' => 'integer',
         'number_pop' => 'integer',
     ];
 
     public function owner() {
-        return $this->belongsTo('App\Models\Product');
+        return $this->belongsTo(Product::class, 'id_product');
     }
 }
