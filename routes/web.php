@@ -11,10 +11,9 @@
 |
 */
 // Home
-Route::get('/', 'Auth\LoginController@home');
+Route::get('/', 'ProductController@list');
 
 //static pages
-//Route::get('/', 'StaticController@index');
 Route::get('about', 'StaticController@about');
 Route::get('services', 'StaticController@services');
 Route::get('faq', 'StaticController@faq');
@@ -45,7 +44,7 @@ Route::get('funkoPops/{id}', 'FunkoPopController@show');
 #Route::delete('api/item/{id}', 'ItemController@delete');
 
 // Authentication
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');;
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
