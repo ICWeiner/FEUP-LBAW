@@ -217,6 +217,20 @@ input[type=password]:focus {
   grid-column-start: 3;
   border: solid;
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.insideProductPage>form{
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.insideProductPage h3{
+  pointer-events: none;
 }
 
 .search input{
