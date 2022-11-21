@@ -19,7 +19,7 @@
     </form>
 
     @if (Auth::user()->user_is_admin === true)
-        <form method="GET" action="{{ url('adminPages') }}">
+        <form method="GET" action="{{ url('adminDashboard') }}">
             <input type="submit" value="Administration Area" />
         </form>
     @endif
