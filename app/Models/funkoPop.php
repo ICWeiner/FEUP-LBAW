@@ -10,7 +10,7 @@ class funkoPop extends Model
 
     protected $primaryKey = 'id_funkoPop';
 
-    protected $table = 'funkoPop';
+    protected $table = 'funkopop';
 
     public $timestamps = false;
 
