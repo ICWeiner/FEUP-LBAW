@@ -29,7 +29,7 @@
 
         <div id="stock" class="form-group">
             <label for="stock-input">Stock: </label>
-            <input id="stock-input" name="stock" type="number" required min="1" step="1">
+            <input id="stock-input" name="stock_quantity" type="number" required min="1" step="1">
         </div>
 
         <div id="url" class="form-group">
@@ -39,7 +39,7 @@
 
         <div id="year" class="form-group">
             <label for="year-input">Year: </label>
-            <input id="year-input" name="year" type="number" required min="200" step="1">
+            <input id="year-input" name="year" type="number" required min="2000" step="1">
         </div>
 
         <div id="sku" class="form-group">
@@ -50,7 +50,7 @@
         <button id="submission" type="submit" class="form-group">
             Add Shoes!
         </button>
-            
+
     </form>
 </div>
 @endsection

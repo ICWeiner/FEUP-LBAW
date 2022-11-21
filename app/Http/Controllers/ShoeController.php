@@ -20,8 +20,9 @@ class ShoeController extends Controller
         //
     }
 
-    public function showCreateForm() {
-        return view('pages.addShoes');        
+    public function showCreateForm()
+    {
+        return view('pages.addShoes');
     }
 
     /**
@@ -29,11 +30,12 @@ class ShoeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $this->validate($request, [
             'name'      => 'required|string|max:255',
             'type_name' => 'required|string|max:255',
-            'brand_name'=> 'required|string|max:255',
+            'brand_name' => 'required|string|max:255',
             'price'     => 'required|integer',
             'stock'     => 'required|integer',
             'url'       => 'required|string',
@@ -41,6 +43,7 @@ class ShoeController extends Controller
             'sku'       => 'required|string',
         ]);
 
+        /*
         $product = new Product;
         $shoe = new shoe;
         $product->name = $request->get('name');
@@ -56,7 +59,27 @@ class ShoeController extends Controller
 
         $product = $product->create();
         $shoe->id_product = $product->id_product;
-        $shoe->save();
+        $shoe->save();*/
+
+
+        $product = Product::create([
+            'name' => $request['name'],
+            'price' => $request['price'],
+            'stock_quantity' => $request['stock_quantity'],
+            'url' => $request['url'],
+            'year' => $request['year'],
+            #'rating' => 1,
+            'sku' => $request['sku'],
+        ]);
+
+        /*Shoe::create([
+            'id_product' => $product->id_product,
+            'name' => $request['name'],
+            'type_name' => $request['type_name'],
+            'brand_name' => $request['brand_name'],
+        ]);*/
+
+
 
         return redirect('products');
     }
