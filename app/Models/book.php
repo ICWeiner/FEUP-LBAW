@@ -34,7 +34,7 @@ class book extends Model
     }
 
     public function authors() {
-        return $this->hasOne(authorBook::class, 'id_author');
+        return $this->hasOne(authorBook::class, 'id_book');
     }
 
     public function publisher() {
