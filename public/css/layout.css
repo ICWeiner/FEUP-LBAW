@@ -5,12 +5,13 @@
  * Copyright (c) 2017 CJ Patoilo
  * Licensed under the MIT license
  */
-/*
+
 *,*:after,*:before{
     box-sizing:inherit
 }
 html{
-    box-sizing:border-box;font-size:62.5%
+    box-sizing:border-box;
+    font-size:62.5%
 }
 body{
     color:#606c76;
@@ -30,8 +31,8 @@ blockquote *:last-child{
     margin-bottom:0
 }
 .button,button,input[type='button'],input[type='reset'],input[type='submit']{
-    background-color:#9b4dca;
-    border:0.1rem solid #9b4dca;
+    background-color:#F1D00A;
+    border:0.1rem solid #21325E;
     border-radius:.4rem;
     color:#fff;
     cursor:pointer;
@@ -390,5 +391,6 @@ img{
 .float-right{
     float:right
 }
-*/
+
+
 /*# sourceMappingURL=milligram.min.css.map */

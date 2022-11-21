@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/milligram.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script type="text/javascript">
         // Fix for Firefox autofocus CSS bug
@@ -23,7 +23,27 @@
   <body>
     <main>
       <header>
+
+        <div class="hamburger-menu">
+          <input id="menu__toggle" type="checkbox" />
+          <label class="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+
+          <ul class="menu__box">
+            <li><a class="menu__item" href="#">Home</a></li>
+          </ul>
+        </div>
+
         <h1><a href="{{ url('/') }}">ATGO</a></h1>
+
+        <div class="search">
+          <form action="/search" method="get">
+            <input type="text" name="search" placeholder="Search...">
+            <button type="submit">Go</button>
+          </form>
+        </div>  
+
         @if (Auth::check())
         <a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a> <a class="button" href="{{ url('/logout') }}"> Logout </a> 
         @endif
@@ -31,12 +51,12 @@
       <section id="content">
         @yield('content')
       </section>
+    </main>
       <footer>
         <h6><a href="{{ url('/about') }}">About</a></h6>
         <h6><a href="{{ url('/services') }}">Services</a></h6>
         <h6><a href="{{ url('/faq') }}">FAQ</a></h6>
         <h6><a href="{{ url('/contact') }}">Contact Us</a></h6>
       </footer>
-    </main>
   </body>
 </html>
