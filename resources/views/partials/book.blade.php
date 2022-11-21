@@ -6,8 +6,8 @@
     <li>{{ $book->owner->price }}</li>
     <li>{{ $book->edition }}</li>
     <li>{{ $book->owner->rating }}</li>
-    <li>{{ $book->authors->id_author }}</li>
-    <li>{ $book->publisher->name }</li>
+    <li>{{ $book->authors }}</li>
+    <li>{{ $book->publisher->name }}</li>
     <li>{{ $book->owner->year }}</li>
 </ul>
 </article>

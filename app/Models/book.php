@@ -34,10 +34,10 @@ class book extends Model
     }
 
     public function authors() {
-        return $this->hasOne(authorBook::class, 'id_book');
+        return $this->belongsToMany(author::class,'authorbook','id_book','id_author');
     }
 
     public function publisher() {
-        return $this->belongsTo('App\Models\publisher');
+        return $this->belongsTo(publisher::class,'id_publisher');
     }
 }
