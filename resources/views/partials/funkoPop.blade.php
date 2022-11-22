@@ -8,4 +8,5 @@
     <li> Rating = {{ $funkoPop->owner->rating }}</li>
     <li> Stock =  {{ $funkoPop->owner->stock_quantity }}</li>
 </ul>
+<a class="button" href="{{ url('/updateFunkoPop') }}/{{ $funkoPop->id_product }}"><span>Update FunkoPop</span></a>
 </article>

@@ -98,15 +98,9 @@ class FunkoPopController extends Controller
         return view('pages.funkoPops', ['funkoPops' => $funkoPops]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function showUpdateForm()
     {
-        //
+        return view('pages.updateFunkoPop');
     }
 
     /**
@@ -118,7 +112,17 @@ class FunkoPopController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name'      => 'required|string|max:255',
+            'number_pop' => 'required|integer',
+            'price'     => 'required|integer',
+            'stock'     => 'required|integer',
+        ]);
+
+        $funko = funkoPop::find($id);
+        $funko->done = $request->input('done');
+        $funko->save();
+        return $funko;
     }
 
     /**

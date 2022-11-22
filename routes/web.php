@@ -42,6 +42,8 @@ Route::get('funkoPops', 'FunkoPopController@list');
 Route::get('funkoPops/{id}', 'FunkoPopController@show');
 Route::get('addFunkoPops', 'FunkoPopController@showCreateForm')->name('addFunkoPops');
 Route::post('addFunkoPops', 'FunkoPopController@create');
+Route::get('updateFunkoPop/{id}', 'FunkoPopController@showUpdateForm')->name('updateFunkoPop');
+Route::get('updateFunkoPop/{id}', 'FunkoPopController@update');
 
 // API
 #Route::put('api/cards', 'CardController@create');
