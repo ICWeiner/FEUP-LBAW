@@ -15,7 +15,7 @@ class Product extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'name', 'price', 'stock_quantity', 'url', 'year', 'rating ', 'sku',
+        'name', 'price', 'stock_quantity', 'url', 'year', 'rating', 'sku',
     ];
 
     protected $hidden = [
@@ -29,27 +29,32 @@ class Product extends Model
         'stock_quantity' => 'integer',
         'url' => 'string',
         'year' => 'integer',
-        'rating' => 'float',
+        'rating' => 'double',
         'sku' => 'integer',
     ];
 
-    public function shoe() {
+    public function shoe()
+    {
         return $this->hasOne('App\Models\shoe');
     }
 
-    public function funkoPop() {
+    public function funkoPop()
+    {
         return $this->hasOne('App\Models\funkoPop');
     }
 
-    public function book() {
+    public function book()
+    {
         return $this->hasOne('App\Models\book');
     }
 
-    public function reviews() {
+    public function reviews()
+    {
         return $this->hasMany('App\Models\review');
     }
 
-    public function ownerCollection() {
+    public function ownerCollection()
+    {
         return $this->belongsTo('App\Models\collection');
     }
 

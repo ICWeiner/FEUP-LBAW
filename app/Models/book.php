@@ -15,7 +15,7 @@ class book extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'edition', 'isbn', 'id_publisher',
+        'id_product', 'edition', 'isbn', 'id_publisher',
     ];
 
     protected $hidden = [
@@ -29,15 +29,18 @@ class book extends Model
         'id_publisher' => 'integer',
     ];
 
-    public function owner() {
+    public function owner()
+    {
         return $this->belongsTo(Product::class, 'id_product');
     }
 
-    public function authors() {
-        return $this->belongsToMany(author::class,'authorbook','id_book','id_author');
+    public function authors()
+    {
+        return $this->belongsToMany(author::class, 'authorbook', 'id_book', 'id_author');
     }
 
-    public function publisher() {
-        return $this->belongsTo(publisher::class,'id_publisher');
+    public function publisher()
+    {
+        return $this->belongsTo(publisher::class, 'id_publisher');
     }
 }

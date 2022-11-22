@@ -32,38 +32,38 @@ class ShoeController extends Controller
      */
     public function create(Request $request)
     {
-        $this->validate($request, [
-            'name'      => 'required|string|max:255',
-            'type_name' => 'required|string|max:255',
-            'brand_name' => 'required|string|max:255',
-            'price'     => 'required|integer',
-            'stock'     => 'required|integer',
-            'url'       => 'required|string',
-            'year'      => 'required|integer',
-            'sku'       => 'required|string',
-        ]);
+        if (Auth::user()->user_is_admin === true) {
 
-        $product = Product::create([
-            'name' => $request['name'],
-            'price' => $request['price'],
-            'stock_quantity' => $request['stock_quantity'],
-            'url' => $request['url'],
-            'year' => $request['year'],
-            'rating' => 1,
-            'sku' => $request['sku'],
-        ]);
+            $this->validate($request, [
+                'name'      => 'required|string|max:255',
+                'type_name' => 'required|string|max:255',
+                'brand_name' => 'required|string|max:255',
+                'price'     => 'required|integer',
+                'stock_quantity'     => 'required|integer',
+                'url'       => 'required|string',
+                'year'      => 'required|integer',
+                'sku'       => 'required|string',
+            ]);
 
-        $product->save();
+            $product = Product::create([
+                'name' => $request['name'],
+                'price' => $request['price'],
+                'stock_quantity' => $request['stock_quantity'],
+                'url' => $request['url'],
+                'year' => $request['year'],
+                'rating' => 0,
+                'sku' => $request['sku'],
+            ]);
 
-        $shoe = Shoe::create([
-            'id_product' => $product->id_product,
-            'name' => $request['name'],
-            'type_name' => $request['type_name'],
-            'brand_name' => $request['brand_name'],
-        ]);
+            Shoe::create([
+                'id_product' => $product->id_product,
+                'name' => $request['name'],
+                'type_name' => $request['type_name'],
+                'brand_name' => $request['brand_name'],
+            ]);
 
-        $shoe->save();
-
+            return redirect('addShoes');
+        }
         return redirect('products');
     }
 
@@ -117,23 +117,32 @@ class ShoeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name'      => 'required|string|max:255',
-            'type_name'      => 'required|string|max:255',
-            'brand_name'      => 'required|string|max:255',
-            'price'     => 'required|integer',
-            'stock'     => 'required|integer',
-            'url'       => 'required|string',
-            'year'      => 'required!integer',
-        ]);
 
-        $shoes = shoe::find($id);
-        $shoes->done = $request->input('done');
-        $shoes->save();
-        $product = Product::find($id);
-        $product->done = $request->input('done');
-        $product->save();
-        return $shoes;
+        if (Auth::user()->user_is_admin === true) {
+
+            $this->validate($request, [
+                'name'      => 'required|string|max:255',
+                'type_name' => 'required|string|max:255',
+                'brand_name' => 'required|string|max:255',
+                'price'     => 'required|integer',
+                'stock_quantity'     => 'required|integer',
+                'url'       => 'required|string',
+                'year'      => 'required|integer',
+                'sku'       => 'required|string',
+            ]);
+
+
+            $shoes = shoe::find($id);
+            $shoes->done = $request->input('done');
+            $shoes->save();
+
+            $product = Product::find($id);
+            $product->done = $request->input('done');
+            $product->save();
+
+            return redirect('updateShoe');
+        }
+        return redirect('products');
     }
 
     /**

@@ -16,7 +16,7 @@
 
         <div id="author_url" class="form-group">
             <label for="author_url">Author's URL: </label>
-            <input id="author_url" name="url" type="text" required>
+            <input id="author_url" name="author_url" type="text" required>
         </div>
 
         <!-- For publisher creation -->
@@ -28,7 +28,7 @@
         <!-- For book and product creation -->
         <div id="book_name" class="form-group">
             <label for="book_name">Book Name: </label>
-            <input id="book_name" name="name" type="text" required>
+            <input id="book_name" name="book_name" type="text" required>
         </div>
 
         <div id="edition" class="form-group">

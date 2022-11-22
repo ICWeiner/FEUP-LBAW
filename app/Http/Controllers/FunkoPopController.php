@@ -32,35 +32,35 @@ class FunkoPopController extends Controller
      */
     public function create(Request $request)
     {
-        $this->validate($request, [
-            'name'      => 'required|string|max:255',
-            'number_pop' => 'required|integer',
-            'price'     => 'required|integer',
-            'stock'     => 'required|integer',
-            'url'       => 'required|string',
-            'year'      => 'required|integer',
-            'sku'       => 'required|string',
-        ]);
+        if (Auth::user()->user_is_admin === true) {
+            $this->validate($request, [
+                'name'      => 'required|string|max:255',
+                'number_pop' => 'required|integer',
+                'price'     => 'required|integer',
+                'stock_quantity'     => 'required|integer',
+                'url'       => 'required|string',
+                'year'      => 'required|integer',
+                'sku'       => 'required|string',
+            ]);
 
-        $product = Product::create([
-            'name' => $request['name'],
-            'price' => $request['price'],
-            'stock_quantity' => $request['stock_quantity'],
-            'url' => $request['url'],
-            'year' => $request['year'],
-            'rating' => 1,
-            'sku' => $request['sku'],
-        ]);
+            $product = Product::create([
+                'name' => $request['name'],
+                'price' => $request['price'],
+                'stock_quantity' => $request['stock_quantity'],
+                'url' => $request['url'],
+                'year' => $request['year'],
+                'rating' => 0,
+                'sku' => $request['sku'],
+            ]);
 
-        $product->save();
 
-        $funkoPop = funkoPop::create([
-            'id_product' => $product->id_product,
-            'number_pop' => $request['number_pop'],
-        ]);
+            funkoPop::create([
+                'id_product' => $product->id_product,
+                'number_pop' => $request['number_pop'],
+            ]);
 
-        $funkoPop->save();
-
+            return redirect('addFunkoPops');
+        }
         return redirect('products');
     }
 
@@ -117,6 +117,9 @@ class FunkoPopController extends Controller
             'number_pop' => 'required|integer',
             'price'     => 'required|integer',
             'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required|integer',
+            'sku'       => 'required|string',
         ]);
 
         $funko = funkoPop::find($id);

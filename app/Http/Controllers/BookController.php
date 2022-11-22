@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\book;
 use App\Models\publisher;
 use App\Models\author;
-use App\Models\product;
+use App\Models\Product;
 
 class BookController extends Controller
 {
@@ -34,55 +34,50 @@ class BookController extends Controller
      */
     public function create(Request $request)
     {
-        $this->validate($request, [
-            'author_name'      => 'required|string|max:255',
-            'author_url'       => 'required|string',
-            'publisher_name'      => 'required|string|max:255',
-            'book_name'      => 'required|string|max:255',
-            'edition'     => 'required|integer',
-            'ISBN'       => 'required|string',
-            'price'     => 'required|integer',
-            'stock'     => 'required|integer',
-            'url'       => 'required|string',
-            'year'      => 'required|integer',
-            'sku'       => 'required|string',
-        ]);
+        if (Auth::user()->user_is_admin === true) {
 
-        $product = Product::create([
-            'name' => $request['book_name'],
-            'price' => $request['price'],
-            'stock_quantity' => $request['stock_quantity'],
-            'url' => $request['url'],
-            'year' => $request['year'],
-            'rating' => 1,
-            'sku' => $request['sku'],
-        ]);
+            $this->validate($request, [
+                'author_name'      => 'required|string|max:255',
+                'author_url'       => 'required|string',
+                'publisher_name'      => 'required|string|max:255',
+                'book_name'      => 'required|string|max:255',
+                'edition'     => 'required|integer',
+                'ISBN'       => 'required|string',
+                'price'     => 'required|integer',
+                'stock_quantity'     => 'required|integer',
+                'url'       => 'required|string',
+                'year'      => 'required|integer',
+                'sku'       => 'required|string',
+            ]);
 
-        $product->save();
+            $product = Product::create([
+                'name' => $request['book_name'],
+                'price' => $request['price'],
+                'stock_quantity' => $request['stock_quantity'],
+                'url' => $request['url'],
+                'year' => $request['year'],
+                'rating' => 0,
+                'sku' => $request['sku'],
+            ]);
 
-        $author = author::create([
-            'name' => $request['author_name'],
-            'url' => $request['author_url'],
-        ]);
+            author::create([
+                'name' => $request['author_name'],
+                'url' => $request['author_url'],
+            ]);
 
-        $author->save();
+            $publisher = publisher::create([
+                'name' => $request['publisher_name'],
+            ]);
 
-        $publisher = publisher::create([
-            'name' => $request['author_name'],
-            'url' => $request['author_url'],
-        ]);
+            book::create([
+                'id_product' => $product->id_product,
+                'edition' => $request['edition'],
+                'isbn' => $request['ISBN'],
+                'id_publisher' => $publisher->id_publisher,
+            ]);
 
-        $publisher->save();
-
-        $book = book::create([
-            'id_product' => $product->id_product,
-            'edition' => $request['edition'],
-            'isbn' => $request['ISBN'],
-            'id_publisher' => $publisher->id_publisher,
-        ]);
-
-        $book->save();
-        
+            return redirect('addBooks');
+        }
         return redirect('products');
     }
 
@@ -140,10 +135,12 @@ class BookController extends Controller
             'publisher_name'      => 'required|string|max:255',
             'book_name'      => 'required|string|max:255',
             'edition'     => 'required|integer',
+            'ISBN'       => 'required|string',
             'price'     => 'required|integer',
             'stock'     => 'required|integer',
             'url'       => 'required|string',
-            'year'      => 'required!integer',
+            'year'      => 'required|integer',
+            'sku'       => 'required|string',
         ]);
     }
 
