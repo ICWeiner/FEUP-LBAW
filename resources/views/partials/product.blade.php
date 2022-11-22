@@ -9,6 +9,7 @@
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->price }} $</a></h2>
       <!--<a href="#" class="delete">&#10761;</a>-->
       <form method="POST" class="add_to_cart" action="{{ route('addToCart') }}">
+        {{ csrf_field() }}
         <input type="submit" name="addToCart" value="Add to Cart">
         <input name="id_product" value="{{ $product->id_product }}" hidden required>
       </form>

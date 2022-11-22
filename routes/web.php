@@ -20,6 +20,8 @@ Route::get('/', 'Auth\LoginController@home');
 //products
 Route::get('products', 'ProductController@list');
 Route::get('products/{id}', 'ProductController@show');
+
+//Cart
 Route::get('cart', 'CartController@showCart')->name('cart');
 Route::post('addToCart', 'CartController@addToCart')->name('addToCart');
 
