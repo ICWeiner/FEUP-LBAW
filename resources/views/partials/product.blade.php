@@ -8,10 +8,9 @@
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->rating }} Stars</a></h2>
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->price }} $</a></h2>
       <!--<a href="#" class="delete">&#10761;</a>-->
-      <form class="add_to_cart">
-        <!--<input type="button" name="addToCart" placeholder="Add to Cart">-->
-        <!--<button type="submit" href="{{ route('cart') }}">Add to Cart</button>-->
-        <a class="button button-outline" href="{{ route('cart') }}">Add to Cart</a>
+      <form method="POST" class="add_to_cart" action="{{ route('addToCart') }}">
+        <input type="submit" name="addToCart" value="Add to Cart">
+        <input name="id_product" value="{{ $product->id_product }}" hidden required>
       </form>
     </div>
     <a><p>Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 

@@ -39,12 +39,11 @@
             </li>
             <li>
               @if (Auth::check())
-                <a class="button" href="{{ url('/logout') }}"> Logout </a>
+                <a class="menu_item" href="{{ url('/logout') }}">Logout</a>
               @endif
             <li>
-              @if (Auth::check())
-                <a class="button" href="{{ url('/cart') }}"> Cart </a>
-              @endif
+                <a class="menu_item" href="{{ url('/cart') }}">Cart</a>
+            </li>
           </ul>
         </div>
 
