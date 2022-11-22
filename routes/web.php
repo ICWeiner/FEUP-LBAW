@@ -24,6 +24,8 @@ Route::get('contact', 'StaticController@contact');
 Route::get('products', 'ProductController@list');
 Route::get('products/{id}', 'ProductController@show');
 
+Route::get('orders/{id}', 'OrdController@show');
+
 //shoes
 Route::get('shoes', 'ShoeController@list');
 Route::get('shoes/{id}', 'ShoeController@show');
@@ -66,6 +68,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('user', 'UserController@show')->name('user');
 Route::get('editUser', 'UserController@showEditForm')->name('editUser');
 Route::post('editUser', 'UserController@edit');
+Route::get('showOrders/{user}', 'UserController@showOrders')->name('user');
 
 //Admin area
 Route::get('adminDashboard', 'AdminController@dashboard')->name('adminDashboard');
