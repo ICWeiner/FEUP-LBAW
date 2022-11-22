@@ -1,16 +1,16 @@
-@foreach($user->orders as $category)
-<article class="card" data-id="{{ $category->id_ord }}">
+@foreach($user->orders as $order)
+<article class="card" data-id="{{ $order->id_ord }}">
 <header>
-  <h2><a href="/orders/{{ $category->id_ord }}">{{ $category->id_ord }}</a></h2>
+  <h2><a href="/orders/{{ $order->id_ord }}">{{ $order->id_ord }}</a></h2>
 </header>
 <ul>  <!-- info  -->
-<li> @foreach($category->products as $cat)
-              <td>Product = {{$cat->id_product}}</td>
-              <td>Name = {{$cat->name}}</td>
-              <td>Quantity = {{$cat->quantity}}</td>
+<li> @foreach($order->products as $products)
+              <td>Product = {{$products->id_product}}</td>
+              <td>Name = {{$products->name}}</td>
+              <td>Quantity = {{$products->pivot->quantity}}</td>
             @endforeach </li>
-    <li> Price = {{ $category->total_price }}</li>
-    <li> Tracking Number = {{ $category->tracking_number }}</li>
+    <li> Price = {{ $order->total_price }}</li>
+    <li> Tracking Number = {{ $order->tracking_number }}</li>
 </ul>
 </article>
 @endforeach

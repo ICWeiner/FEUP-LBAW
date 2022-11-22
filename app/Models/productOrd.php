@@ -16,7 +16,7 @@ class productOrd extends Model
 
     public $timestamps = false;
 
-    protected $fillable = 'quantity';
+    protected $fillable = ['quantity']; 
 
     protected $casts = [
         'id_product' => 'integer',

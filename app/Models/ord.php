@@ -33,10 +33,10 @@ class ord extends Model
     ];
 
     public function products() {
-        return $this->belongsToMany(Product::class,'productord','id_ord','id_product');
+        return $this->belongsToMany(Product::class,'productord','id_ord','id_product')->withPivot('quantity');
     }
 
     public function owner() {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 }
