@@ -43,43 +43,26 @@ class ShoeController extends Controller
             'sku'       => 'required|string',
         ]);
 
-        /*
-        $product = new Product;
-        $shoe = new shoe;
-        $product->name = $request->get('name');
-        $shoe->name = $request->get('name');
-        $shoe->type_name = $request->get('type_name');
-        $shoe->brand_name = $request->get('brand_name');
-        $product->price = $request->get('price');
-        $product->stock_quantity = $request->get('stock');
-        $product->url = $request->get('url');
-        $product->year = $request->get('year');
-        $product->rating = 0;
-        $product->sku = $request->get('sku');
-
-        $product = $product->create();
-        $shoe->id_product = $product->id_product;
-        $shoe->save();*/
-
-
         $product = Product::create([
             'name' => $request['name'],
             'price' => $request['price'],
             'stock_quantity' => $request['stock_quantity'],
             'url' => $request['url'],
             'year' => $request['year'],
-            #'rating' => 1,
+            'rating' => 1,
             'sku' => $request['sku'],
         ]);
 
-        /*Shoe::create([
+        $product->save();
+
+        $shoe = Shoe::create([
             'id_product' => $product->id_product,
             'name' => $request['name'],
             'type_name' => $request['type_name'],
             'brand_name' => $request['brand_name'],
-        ]);*/
+        ]);
 
-
+        $shoe->save();
 
         return redirect('products');
     }

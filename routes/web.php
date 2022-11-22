@@ -34,6 +34,8 @@ Route::post('addShoes', 'ShoeController@create');
 //books
 Route::get('books', 'BookController@list');
 Route::get('books/{id}', 'BookController@show');
+Route::get('addBooks', 'BookController@showCreateForm')->name('addBooks');
+Route::post('addBooks', 'BookController@create');
 
 //funkoPops
 Route::get('funkoPops', 'FunkoPopController@list');

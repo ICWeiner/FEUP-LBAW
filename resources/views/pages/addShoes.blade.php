@@ -3,7 +3,7 @@
 @section('content')
 <!--New Product Form-->
 <div id="content">
-    <h1>Add product</h1>
+    <h1>Add Shoes</h1>
 
     <form method="POST" action="{{ route('addShoes') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
