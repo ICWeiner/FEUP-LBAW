@@ -19,11 +19,15 @@ Route::get('services', 'StaticController@services');
 Route::get('faq', 'StaticController@faq');
 Route::get('contact', 'StaticController@contact');
 
-
 //products
 Route::get('products', 'ProductController@list');
 Route::get('products/{id}', 'ProductController@show');
 
+//Cart
+Route::get('cart', 'CartController@showCart')->name('cart');
+Route::post('addToCart', 'CartController@addToCart')->name('addToCart');
+
+//Orders
 Route::get('orders/{id}', 'OrdController@show');
 
 //shoes
@@ -63,6 +67,7 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+Route::get('recoverPassword', 'Auth\RegisterController@recoverPassword')->name('recoverPassword');
 
 //User Management
 Route::get('user', 'UserController@show')->name('user');

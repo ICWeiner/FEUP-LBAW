@@ -31,11 +31,23 @@
           </label>
 
           <ul class="menu__box">
-            <li><a class="menu__item" href="{{ url('/products') }}">Home</a></li>
+            <li><a class="menu__item" href="{{ url('/') }}">Home</a></li>
+            <li>
+              @if (Auth::check())
+                <a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a>
+              @endif
+            </li>
+            <li>
+              @if (Auth::check())
+                <a class="menu_item" href="{{ url('/logout') }}">Logout</a>
+              @endif
+            <li>
+                <a class="menu_item" href="{{ url('/cart') }}">Cart</a>
+            </li>
           </ul>
         </div>
 
-        <h1><a href="{{ url('/') }}">ATGO</a></h1>
+        <h1><a>ATGO</a></h1>
 
         <div class="search">
           <form action="/search" method="get">
@@ -45,9 +57,7 @@
         </div>
 
         @if (Auth::check())
-        <a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a> <a class="button" href="{{ url('/logout') }}"> Logout </a>
-        @else
-        <a class="button" href="{{ url('/login') }}"><span>Login</span></a> <a class="button" href="{{ url('/register') }}"> Register </a>
+        <!--<a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a><a class="button" href="{{ url('/logout') }}"> Logout </a>--> 
         @endif
       </header>
       <section id="content">
