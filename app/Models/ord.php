@@ -23,20 +23,20 @@ class ord extends Model
     ];
 
     protected $casts = [
-        'id_product' => 'integer',
+        'id_ord' => 'integer',
         'total_price' => 'float',
         'tracking_number' => 'string',
-        'buy-date' => 'datetime:d-m-Y',
-        'shipping-date' => 'datetime:d-m-Y',
+        'buy_date' => 'datetime:d-m-Y',
+        'shipping_date' => 'datetime:d-m-Y',
         'arrival_date' => 'datetime:d-m-Y',
         'id_user' => 'integer',
     ];
 
     public function products() {
-        return $this->belongsToMany('App\Models\Product');
+        return $this->belongsToMany(Product::class,'productord','id_ord','id_product')->withPivot('quantity');
     }
 
     public function owner() {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 }

@@ -54,7 +54,7 @@ class Product extends Model
     }
 
     public function ownerOrd() {
-        return $this->belongsToMany('App\Models\ord');
+        return $this->belongsToMany(ord::class,'productOrd','id_product','id_ord')->withPivot('quantity');
     }
 
     /*public function type() TODO:unsure about this, one product can have one of multiple types, that isnt stored on the product table

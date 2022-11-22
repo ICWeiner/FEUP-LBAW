@@ -6,7 +6,7 @@
     <li> Price = {{ $book->owner->price }}</li>
     <li> edition = {{ $book->edition }}</li>
     <li> rating = {{ $book->owner->rating }}</li>
-    <li> Author: =  @foreach($book->authors as $category)
+    <li> Author =  @foreach($book->authors as $category)
                 <td>{{$category->name}}</td>
             @endforeach</li>
     <li> Publisher = {{ $book->publisher->name }}</li>

@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function orders()
     {
-        return $this->hasMany('App\Models\ord');
+        return $this->hasMany(ord::class, 'id_user');
     }
 
     public function comments()
