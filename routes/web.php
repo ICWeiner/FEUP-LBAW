@@ -24,6 +24,10 @@ Route::get('contact', 'StaticController@contact');
 Route::get('products', 'ProductController@list');
 Route::get('products/{id}', 'ProductController@show');
 
+//orders
+Route::get('orders', 'OrdController@list');
+Route::get('orders/{id}', 'OrdController@show');
+
 //shoes
 Route::get('shoes', 'ShoeController@list');
 Route::get('shoes/{id}', 'ShoeController@show');
