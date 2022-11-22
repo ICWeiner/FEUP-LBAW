@@ -48,4 +48,14 @@ class AdminController extends Controller
             return redirect('adminUsersDashboard');
         }
     }
+
+    public function banUser()
+    {
+        if (Auth::user()->user_is_admin === true) {
+            $user = User::find(Request::post('id_user'));
+            $user->user_is_banned = true;
+            $user->save();
+            return redirect('adminUsersDashboard');
+        }
+    }
 }

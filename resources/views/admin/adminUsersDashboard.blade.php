@@ -17,6 +17,15 @@
     </select>
     <input type="submit" value="Edit selected user's name" />
     </form>
+
+    <form method="POST" action="{{ route('adminBanUser') }}">
+        <select id="dropdown" name="id_user">
+        @foreach ($users as $user )
+            <option value="{{ $user->id_user }}">{{ $user->name }}</option>
+        @endforeach
+        </select>
+        <input type="submit" value="Ban selected user name" />
+    </form>
 </section>
 
 @endsection
