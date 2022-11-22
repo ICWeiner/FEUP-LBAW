@@ -103,15 +103,9 @@ class ShoeController extends Controller
         return view('pages.shoes', ['shoes' => $shoes]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function showUpdateForm()
     {
-        //
+        return view('pages.updateShoe');
     }
 
     /**
@@ -123,7 +117,23 @@ class ShoeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name'      => 'required|string|max:255',
+            'type_name'      => 'required|string|max:255',
+            'brand_name'      => 'required|string|max:255',
+            'price'     => 'required|integer',
+            'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required!integer',
+        ]);
+
+        $shoes = shoe::find($id);
+        $shoes->done = $request->input('done');
+        $shoes->save();
+        $product = Product::find($id);
+        $product->done = $request->input('done');
+        $product->save();
+        return $shoes;
     }
 
     /**

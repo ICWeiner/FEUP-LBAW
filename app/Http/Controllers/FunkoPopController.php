@@ -122,6 +122,9 @@ class FunkoPopController extends Controller
         $funko = funkoPop::find($id);
         $funko->done = $request->input('done');
         $funko->save();
+        $product = Product::find($id);
+        $product->done = $request->input('done');
+        $product->save();
         return $funko;
     }
 

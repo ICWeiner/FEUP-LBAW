@@ -30,6 +30,8 @@ Route::get('shoes', 'ShoeController@list');
 Route::get('shoes/{id}', 'ShoeController@show');
 Route::get('addShoes', 'ShoeController@showCreateForm')->name('addShoes');
 Route::post('addShoes', 'ShoeController@create');
+Route::get('updateShoe/{id}', 'ShoeController@showUpdateForm')->name('updateShoe');
+Route::post('updateFunkoPop/{id}', 'ShoeController@update');
 
 //books
 Route::get('books', 'BookController@list');
