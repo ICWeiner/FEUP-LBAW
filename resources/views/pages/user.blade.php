@@ -14,8 +14,17 @@
         <input type="submit" value="Edit Profile" />
       </form>
 
-    <p> {{ Auth::user()->address->address }} </p>
-    <p> {{ Auth::user()->paymentInfo->card_number }} </p>
+    @isset(Auth::user()->address->address)
+    <p>{{ Auth::user()->address->address }} </p>
+    @else
+    <p> No addresses found</p>
+    @endisset
+    
+    @isset(Auth::user()->paymentInfo->card_number)
+    <p>{{ Auth::user()->paymentInfo->card_number }} </p>
+    @else
+    <p> no payment methods found</p>
+    @endisset
 
     <form method="GET" action="">
       <input type="submit" value="Order History" />
