@@ -13,6 +13,7 @@ class User extends Authenticatable
     public $timestamps  = false;
 
 
+
     /**
      * The primary key associated with the table.
      *
@@ -26,7 +27,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'user_is_banned', 'user_is_admin',
+    ];
+
+    protected $casts = [
+        'name' => 'string',
+        'email' => 'string',
+        'user_is_banned' => 'boolean',
+        'user_is_admin' => 'boolean',
     ];
 
     /**
@@ -38,35 +46,34 @@ class User extends Authenticatable
         'password', #'remember_token', #TODO: figure this out
     ];
 
-    /*
-     The cards this user owns. TODO: change this to orders, reviews, etc.?
 
-    public function cards()
+    public function orders()
     {
-        return $this->hasMany('App\Models\Card');
-    }*/
-
-    public function orders() {
         return $this->hasMany('App\Models\ord');
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(comment::class);
     }
 
-    public function reviews() {
+    public function reviews()
+    {
         return $this->hasMany('App\Models\review');
     }
 
-    public function address() {
+    public function address()
+    {
         return $this->hasOne(addressBook::class, 'id_address_book');
     }
 
-    public function paymentInfo() {
+    public function paymentInfo()
+    {
         return $this->hasOne(paymentInfo::class, 'id_payment_info');
     }
 
-    public function banned() {
+    public function banned()
+    {
         return $this->hasMany('App\Models\banned');
     }
 }

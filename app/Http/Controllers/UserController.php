@@ -11,7 +11,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-            $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -51,10 +51,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show() #TODO: this function should return a view that has an overview of user info
+    public function show()
     {
         //
-        #if (Auth::check()) 
+        #if (Auth::check())
         $user = Auth::user();
         return view('pages.user', ['user' => $user]);
         #}
