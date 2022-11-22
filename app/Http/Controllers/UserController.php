@@ -60,6 +60,13 @@ class UserController extends Controller
         #}
     }
 
+    public function showOrders()
+    {
+        $user = Auth::user();
+        return view('pages.orders', ['user' => $user]);
+    }
+
+
     public function showEditForm()
     {
         //

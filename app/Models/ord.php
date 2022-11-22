@@ -23,7 +23,7 @@ class ord extends Model
     ];
 
     protected $casts = [
-        'id_product' => 'integer',
+        'id_ord' => 'integer',
         'total_price' => 'float',
         'tracking_number' => 'string',
         'buy_date' => 'datetime:d-m-Y',
@@ -33,7 +33,7 @@ class ord extends Model
     ];
 
     public function products() {
-        return $this->belongsToMany('App\Models\Product');
+        return $this->belongsToMany(Product::class,'productord','id_ord','id_product');
     }
 
     public function owner() {
