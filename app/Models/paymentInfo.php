@@ -10,7 +10,7 @@ class paymentInfo extends Model
 
     protected $primaryKey = 'id_payment_info';
 
-    protected $table = 'paymentInfo';
+    protected $table = 'paymentinfo';
 
     public $timestamps = false;
 

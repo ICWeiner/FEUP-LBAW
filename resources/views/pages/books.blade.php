@@ -4,9 +4,9 @@
 
 @section('content')
 
-<section id="products">
-  @each('partials.products', $products, 'product')
-  <article class="product">
+<section id="books">
+  @each('partials.books', $books, 'book')
+  <article class="book">
   </article>
 </section>
 

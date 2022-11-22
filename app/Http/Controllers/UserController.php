@@ -11,7 +11,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-            $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -51,14 +51,21 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show() #TODO: this function should return a view that has an overview of user info
+    public function show()
     {
         //
-        #if (Auth::check()) 
+        #if (Auth::check())
         $user = Auth::user();
         return view('pages.user', ['user' => $user]);
         #}
     }
+
+    public function showOrders()
+    {
+        $user = Auth::user();
+        return view('pages.orders', ['user' => $user]);
+    }
+
 
     public function showEditForm()
     {
@@ -71,20 +78,6 @@ class UserController extends Controller
 
     public function edit(Request $request)
     {
-
-        /*if($request['email'] === ''){ TODO: Make fields optional, maybe make a seperate page for each field?
-            $this->validate($request, [
-                'name'      => 'required|string|max:255',
-                'password'  => 'required|string|min:6|confirmed'
-            ]);
-        }else{
-            $this->validate($request, [
-                'name'      => 'required|string|max:255',
-                'email'     => 'required|string|email|max:255|unique:users',
-                'password'  => 'required|string|min:6|confirmed'
-            ]);
-        }*/
-
         $this->validate($request, [
             'name'      => 'required|string|max:255',
             'email'     => 'required|string|email|max:255|unique:users',
@@ -100,10 +93,6 @@ class UserController extends Controller
         $user->update();
 
         return redirect('products');
-
-        /*return redirect('/todo')
-            ->with('flash_notification.message', 'Profile updated successfully')
-            ->with('flash_notification.level', 'success');*/
     }
 
 

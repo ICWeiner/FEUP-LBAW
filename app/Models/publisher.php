@@ -15,7 +15,7 @@ class publisher extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'name',
+        'id_publisher', 'name',
     ];
 
     protected $hidden = [
@@ -27,7 +27,8 @@ class publisher extends Model
         'name' => 'string',
     ];
 
-    public function book() {
+    public function book()
+    {
         return $this->hasMany('App\Models\book');
     }
 }

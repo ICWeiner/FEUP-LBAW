@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Product;
+use App\Models\ord;
 
-
-class ProductController extends Controller
+class OrdController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,8 +24,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
-        
+    public function create()
+    {
+        //
     }
 
     /**
@@ -43,16 +43,14 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\ord  $ord
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        return view('pages.product', ['product' => $product]);
+        $ord = ord::find($id);
+        return view('pages.ord', ['ord' => $ord]);
     }
-
-    #com o id procurar o shoe que tem id correspondente e depois mandar pra view
 
     /**
      * Shows all products
@@ -61,19 +59,17 @@ class ProductController extends Controller
      */
     public function list()
     {
-        //if (!Auth::check()) return redirect('/login');
-        //$this->authorize('list', Card::class);
-        $products = Product::all();//products()->orderBy('id')->get();
-        return view('pages.products', ['products' => $products]);
+        $ords = ord::all();
+        return view('pages.ords', ['ords' => $ords]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         //
     }
@@ -82,10 +78,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -93,10 +89,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
         //
     }

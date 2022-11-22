@@ -15,7 +15,7 @@ class Shoe extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'name', 'type_name', 'brand_name',
+        'id_product', 'name', 'type_name', 'brand_name',
     ];
 
     protected $casts = [
@@ -25,7 +25,13 @@ class Shoe extends Model
         'brand_name' => 'string',
     ];
 
-    public function owner() {
-        return $this->belongsTo('App\Models\Product');
+    public function owner()
+    {
+        return $this->belongsTo(Product::class, 'id_product');
+    }
+
+    public function options()
+    {
+        return $this->hasMany(shoeColorSize::class, 'id_shoe');
     }
 }

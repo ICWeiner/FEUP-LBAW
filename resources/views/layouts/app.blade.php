@@ -54,7 +54,7 @@
             <input type="text" name="search" placeholder="Search...">
             <button type="submit">Go</button>
           </form>
-        </div>  
+        </div>
 
         @if (Auth::check())
         <!--<a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a><a class="button" href="{{ url('/logout') }}"> Logout </a>--> 

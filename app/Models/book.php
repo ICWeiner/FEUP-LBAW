@@ -8,14 +8,14 @@ class book extends Model
 {
     #use HasFactory;
 
-    protected $primaryKey = 'id_book';
+    protected $primaryKey = 'id_product';
 
     protected $table = 'book';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'edition', 'isbn', 'id_publisher',
+        'id_product', 'edition', 'isbn', 'id_publisher',
     ];
 
     protected $hidden = [
@@ -23,21 +23,24 @@ class book extends Model
     ];
 
     protected $casts = [
-        'id_book' => 'integer',
+        'id_product' => 'integer',
         'edition' => 'integer',
         'isbn' => 'string',
         'id_publisher' => 'integer',
     ];
 
-    public function owner() {
-        return $this->belongsTo('App\Models\Product');
+    public function owner()
+    {
+        return $this->belongsTo(Product::class, 'id_product');
     }
 
-    public function authors() {
-        return $this->belongsToMany('App\Models\Person');
+    public function authors()
+    {
+        return $this->belongsToMany(author::class, 'authorbook', 'id_book', 'id_author');
     }
 
-    public function publisher() {
-        return $this->belongsTo('App\Models\Publisher');
+    public function publisher()
+    {
+        return $this->belongsTo(publisher::class, 'id_publisher');
     }
 }
