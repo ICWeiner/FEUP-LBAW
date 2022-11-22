@@ -15,6 +15,7 @@
     <!-- Only for Admins --> 
     <a class="button" href="{{ url('/addShoes') }}"><span>Add Shoes</span></a>
     <a class="button" href="{{ url('/addBooks') }}"><span>Add Book</span></a>
+    <a class="button" href="{{ url('/addFunkoPops') }}"><span>Add FunkoPop</span></a>
 
     <p> {{ Auth::user()->address->address }} </p>
     <p> {{ Auth::user()->paymentInfo->card_number }} </p>

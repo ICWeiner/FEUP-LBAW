@@ -40,6 +40,8 @@ Route::post('addBooks', 'BookController@create');
 //funkoPops
 Route::get('funkoPops', 'FunkoPopController@list');
 Route::get('funkoPops/{id}', 'FunkoPopController@show');
+Route::get('addFunkoPops', 'FunkoPopController@showCreateForm')->name('addFunkoPops');
+Route::post('addFunkoPops', 'FunkoPopController@create');
 
 // API
 #Route::put('api/cards', 'CardController@create');
