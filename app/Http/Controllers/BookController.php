@@ -120,15 +120,9 @@ class BookController extends Controller
         return view('pages.books', ['books' => $books]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function showUpdateForm()
     {
-        //
+        return view('pages.updateBook');
     }
 
     /**
@@ -140,7 +134,17 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'author_name'      => 'required|string|max:255',
+            'author_url'       => 'required|string',
+            'publisher_name'      => 'required|string|max:255',
+            'book_name'      => 'required|string|max:255',
+            'edition'     => 'required|integer',
+            'price'     => 'required|integer',
+            'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required!integer',
+        ]);
     }
 
     /**
