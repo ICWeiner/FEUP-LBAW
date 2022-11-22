@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\shoe;
+use App\Models\Product;
 
 class ShoeController extends Controller
 {
@@ -19,15 +20,54 @@ class ShoeController extends Controller
         //
     }
 
+    public function showCreateForm()
+    {
+        return view('pages.addShoes');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'      => 'required|string|max:255',
+            'type_name' => 'required|string|max:255',
+            'brand_name' => 'required|string|max:255',
+            'price'     => 'required|integer',
+            'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required|integer',
+            'sku'       => 'required|string',
+        ]);
+
+        $product = Product::create([
+            'name' => $request['name'],
+            'price' => $request['price'],
+            'stock_quantity' => $request['stock_quantity'],
+            'url' => $request['url'],
+            'year' => $request['year'],
+            'rating' => 1,
+            'sku' => $request['sku'],
+        ]);
+
+        $product->save();
+
+        $shoe = Shoe::create([
+            'id_product' => $product->id_product,
+            'name' => $request['name'],
+            'type_name' => $request['type_name'],
+            'brand_name' => $request['brand_name'],
+        ]);
+
+        $shoe->save();
+
+        return redirect('products');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -63,15 +103,9 @@ class ShoeController extends Controller
         return view('pages.shoes', ['shoes' => $shoes]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function showUpdateForm()
     {
-        //
+        return view('pages.updateShoe');
     }
 
     /**
@@ -83,7 +117,23 @@ class ShoeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name'      => 'required|string|max:255',
+            'type_name'      => 'required|string|max:255',
+            'brand_name'      => 'required|string|max:255',
+            'price'     => 'required|integer',
+            'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required!integer',
+        ]);
+
+        $shoes = shoe::find($id);
+        $shoes->done = $request->input('done');
+        $shoes->save();
+        $product = Product::find($id);
+        $product->done = $request->input('done');
+        $product->save();
+        return $shoes;
     }
 
     /**

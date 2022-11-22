@@ -27,14 +27,26 @@ Route::get('products/{id}', 'ProductController@show');
 //shoes
 Route::get('shoes', 'ShoeController@list');
 Route::get('shoes/{id}', 'ShoeController@show');
+Route::get('addShoes', 'ShoeController@showCreateForm')->name('addShoes');
+Route::post('addShoes', 'ShoeController@create');
+Route::get('updateShoe/{id}', 'ShoeController@showUpdateForm')->name('updateShoe');
+Route::post('updateShoe/{id}', 'ShoeController@update');
 
 //books
 Route::get('books', 'BookController@list');
 Route::get('books/{id}', 'BookController@show');
+Route::get('addBooks', 'BookController@showCreateForm')->name('addBooks');
+Route::post('addBooks', 'BookController@create');
+Route::get('updateBook/{id}', 'ShoeController@showUpdateForm')->name('updateBook');
+Route::post('updateBook/{id}', 'ShoeController@update');
 
 //funkoPops
 Route::get('funkoPops', 'FunkoPopController@list');
 Route::get('funkoPops/{id}', 'FunkoPopController@show');
+Route::get('addFunkoPops', 'FunkoPopController@showCreateForm')->name('addFunkoPops');
+Route::post('addFunkoPops', 'FunkoPopController@create');
+Route::get('updateFunkoPop/{id}', 'FunkoPopController@showUpdateForm')->name('updateFunkoPop');
+Route::post('updateFunkoPop/{id}', 'FunkoPopController@update');
 
 // API
 #Route::put('api/cards', 'CardController@create');

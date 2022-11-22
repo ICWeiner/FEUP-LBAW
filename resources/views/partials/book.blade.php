@@ -13,4 +13,6 @@
     <li> Year = {{ $book->owner->year }}</li>
     <li> Stock =  {{ $book->owner->stock_quantity }}</li>
 </ul>
+
+<a class="button" href="{{ url('/updateBook') }}/{{ $book->id_product }}"><span>Update Book</span></a>
 </article>

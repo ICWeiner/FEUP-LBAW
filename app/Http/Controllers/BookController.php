@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\book;
+use App\Models\publisher;
+use App\Models\author;
+use App\Models\product;
 
 class BookController extends Controller
 {
@@ -19,14 +22,68 @@ class BookController extends Controller
         //
     }
 
+    public function showCreateForm()
+    {
+        return view('pages.addBooks');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $this->validate($request, [
+            'author_name'      => 'required|string|max:255',
+            'author_url'       => 'required|string',
+            'publisher_name'      => 'required|string|max:255',
+            'book_name'      => 'required|string|max:255',
+            'edition'     => 'required|integer',
+            'ISBN'       => 'required|string',
+            'price'     => 'required|integer',
+            'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required|integer',
+            'sku'       => 'required|string',
+        ]);
+
+        $product = Product::create([
+            'name' => $request['book_name'],
+            'price' => $request['price'],
+            'stock_quantity' => $request['stock_quantity'],
+            'url' => $request['url'],
+            'year' => $request['year'],
+            'rating' => 1,
+            'sku' => $request['sku'],
+        ]);
+
+        $product->save();
+
+        $author = author::create([
+            'name' => $request['author_name'],
+            'url' => $request['author_url'],
+        ]);
+
+        $author->save();
+
+        $publisher = publisher::create([
+            'name' => $request['author_name'],
+            'url' => $request['author_url'],
+        ]);
+
+        $publisher->save();
+
+        $book = book::create([
+            'id_product' => $product->id_product,
+            'edition' => $request['edition'],
+            'isbn' => $request['ISBN'],
+            'id_publisher' => $publisher->id_publisher,
+        ]);
+
+        $book->save();
+        
+        return redirect('products');
     }
 
     /**
@@ -63,15 +120,9 @@ class BookController extends Controller
         return view('pages.books', ['books' => $books]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function showUpdateForm()
     {
-        //
+        return view('pages.updateBook');
     }
 
     /**
@@ -83,7 +134,17 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'author_name'      => 'required|string|max:255',
+            'author_url'       => 'required|string',
+            'publisher_name'      => 'required|string|max:255',
+            'book_name'      => 'required|string|max:255',
+            'edition'     => 'required|integer',
+            'price'     => 'required|integer',
+            'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required!integer',
+        ]);
     }
 
     /**
