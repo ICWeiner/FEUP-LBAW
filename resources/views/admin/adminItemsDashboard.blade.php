@@ -5,8 +5,16 @@
 @section('content')
 
 <section id="admin">
-    <form method="GET" action="">
-        <input type="submit" value="Add Product" />
+    <form method="GET" action="{{ url('/addShoes') }}">
+        <input type="submit" value="Add Shoe" />
+    </form>
+
+    <form method="GET" action="{{ url('/addBooks') }}">
+        <input type="submit" value="Add Shoe" />
+    </form>
+
+    <form method="GET" action="{{ url('/addFunkoPops') }}">
+        <input type="submit" value="Add Shoe" />
     </form>
 
     <form method="GET" action="">

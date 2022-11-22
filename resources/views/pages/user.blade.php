@@ -10,10 +10,6 @@
     <label for="email">E-Mail Address</label>
     <p id="email" name="email">{{ Auth::user()->email }}
 
-    <!-- Only for Admins --> 
-    <a class="button" href="{{ url('/addShoes') }}"><span>Add Shoes</span></a>
-    <a class="button" href="{{ url('/addBooks') }}"><span>Add Book</span></a>
-    <a class="button" href="{{ url('/addFunkoPops') }}"><span>Add FunkoPop</span></a>
 
     <form method="GET" action="{{ url('/editUser') }}">
         <input type="submit" value="Edit Profile" />
@@ -25,7 +21,7 @@
     @else
     <p> No addresses found</p>
     @endisset
-    
+
     @isset(Auth::user()->paymentInfo->card_number)
     <p>{{ Auth::user()->paymentInfo->card_number }} </p>
     @else

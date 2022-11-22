@@ -34,55 +34,58 @@ class BookController extends Controller
      */
     public function create(Request $request)
     {
-        $this->validate($request, [
-            'author_name'      => 'required|string|max:255',
-            'author_url'       => 'required|string',
-            'publisher_name'      => 'required|string|max:255',
-            'book_name'      => 'required|string|max:255',
-            'edition'     => 'required|integer',
-            'ISBN'       => 'required|string',
-            'price'     => 'required|integer',
-            'stock'     => 'required|integer',
-            'url'       => 'required|string',
-            'year'      => 'required|integer',
-            'sku'       => 'required|string',
-        ]);
+        if (Auth::user()->user_is_admin === true) {
+            $this->validate($request, [
+                'author_name'      => 'required|string|max:255',
+                'author_url'       => 'required|string',
+                'publisher_name'      => 'required|string|max:255',
+                'book_name'      => 'required|string|max:255',
+                'edition'     => 'required|integer',
+                'ISBN'       => 'required|string',
+                'price'     => 'required|integer',
+                'stock'     => 'required|integer',
+                'url'       => 'required|string',
+                'year'      => 'required|integer',
+                'sku'       => 'required|string',
+            ]);
 
-        $product = Product::create([
-            'name' => $request['book_name'],
-            'price' => $request['price'],
-            'stock_quantity' => $request['stock_quantity'],
-            'url' => $request['url'],
-            'year' => $request['year'],
-            'rating' => 1,
-            'sku' => $request['sku'],
-        ]);
+            $product = Product::create([
+                'name' => $request['book_name'],
+                'price' => $request['price'],
+                'stock_quantity' => $request['stock_quantity'],
+                'url' => $request['url'],
+                'year' => $request['year'],
+                'rating' => 1,
+                'sku' => $request['sku'],
+            ]);
 
-        $product->save();
+            $product->save();
 
-        $author = author::create([
-            'name' => $request['author_name'],
-            'url' => $request['author_url'],
-        ]);
+            $author = author::create([
+                'name' => $request['author_name'],
+                'url' => $request['author_url'],
+            ]);
 
-        $author->save();
+            $author->save();
 
-        $publisher = publisher::create([
-            'name' => $request['author_name'],
-            'url' => $request['author_url'],
-        ]);
+            $publisher = publisher::create([
+                'name' => $request['author_name'],
+                'url' => $request['author_url'],
+            ]);
 
-        $publisher->save();
+            $publisher->save();
 
-        $book = book::create([
-            'id_product' => $product->id_product,
-            'edition' => $request['edition'],
-            'isbn' => $request['ISBN'],
-            'id_publisher' => $publisher->id_publisher,
-        ]);
+            $book = book::create([
+                'id_product' => $product->id_product,
+                'edition' => $request['edition'],
+                'isbn' => $request['ISBN'],
+                'id_publisher' => $publisher->id_publisher,
+            ]);
 
-        $book->save();
-        
+            $book->save();
+
+            return redirect('addBooks');
+        }
         return redirect('products');
     }
 
