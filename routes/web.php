@@ -65,6 +65,6 @@ Route::get('adminUsersDashboard', 'AdminController@userDashboard')->name('adminU
 Route::get('adminEditUser', 'AdminController@userEditForm')->name('adminEditUser');
 Route::post('adminEditUser', 'AdminController@userEdit')->name('adminEditUser');
 
-Route::post('adminBanUser', 'AdminController@adminBanUser')->name('adminBanUser');
+Route::post('adminBanUser', 'AdminController@banUser')->name('adminBanUser');
 //Route::get('editUser', 'UserController@showEditForm')->name('editUser');
 //Route::post('editUser', 'UserController@edit');

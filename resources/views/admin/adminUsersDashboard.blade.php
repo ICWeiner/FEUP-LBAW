@@ -19,6 +19,7 @@
     </form>
 
     <form method="POST" action="{{ route('adminBanUser') }}">
+        {{ csrf_field() }}
         <select id="dropdown" name="id_user">
         @foreach ($users as $user )
             <option value="{{ $user->id_user }}">{{ $user->name }}</option>
