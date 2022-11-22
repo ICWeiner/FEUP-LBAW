@@ -14,14 +14,15 @@ class funkoPop extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['number_pop'];
+    protected $fillable = ['id_product', 'number_pop'];
 
     protected $casts = [
         'id_product' => 'integer',
         'number_pop' => 'integer',
     ];
 
-    public function owner() {
+    public function owner()
+    {
         return $this->belongsTo(Product::class, 'id_product');
     }
 }

@@ -37,7 +37,7 @@ class FunkoPopController extends Controller
                 'name'      => 'required|string|max:255',
                 'number_pop' => 'required|integer',
                 'price'     => 'required|integer',
-                'stock'     => 'required|integer',
+                'stock_quantity'     => 'required|integer',
                 'url'       => 'required|string',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
@@ -49,18 +49,15 @@ class FunkoPopController extends Controller
                 'stock_quantity' => $request['stock_quantity'],
                 'url' => $request['url'],
                 'year' => $request['year'],
-                'rating' => 1,
+                'rating' => 0,
                 'sku' => $request['sku'],
             ]);
 
-            $product->save();
 
-            $funkoPop = funkoPop::create([
+            funkoPop::create([
                 'id_product' => $product->id_product,
                 'number_pop' => $request['number_pop'],
             ]);
-
-            $funkoPop->save();
 
             return redirect('addFunkoPops');
         }
@@ -120,6 +117,9 @@ class FunkoPopController extends Controller
             'number_pop' => 'required|integer',
             'price'     => 'required|integer',
             'stock'     => 'required|integer',
+            'url'       => 'required|string',
+            'year'      => 'required|integer',
+            'sku'       => 'required|string',
         ]);
 
         $funko = funkoPop::find($id);

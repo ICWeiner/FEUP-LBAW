@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\book;
 use App\Models\publisher;
 use App\Models\author;
-use App\Models\product;
+use App\Models\Product;
 
 class BookController extends Controller
 {
@@ -35,6 +35,7 @@ class BookController extends Controller
     public function create(Request $request)
     {
         if (Auth::user()->user_is_admin === true) {
+
             $this->validate($request, [
                 'author_name'      => 'required|string|max:255',
                 'author_url'       => 'required|string',
@@ -43,7 +44,7 @@ class BookController extends Controller
                 'edition'     => 'required|integer',
                 'ISBN'       => 'required|string',
                 'price'     => 'required|integer',
-                'stock'     => 'required|integer',
+                'stock_quantity'     => 'required|integer',
                 'url'       => 'required|string',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
@@ -55,34 +56,25 @@ class BookController extends Controller
                 'stock_quantity' => $request['stock_quantity'],
                 'url' => $request['url'],
                 'year' => $request['year'],
-                'rating' => 1,
+                'rating' => 0,
                 'sku' => $request['sku'],
             ]);
 
-            $product->save();
-
-            $author = author::create([
+            author::create([
                 'name' => $request['author_name'],
                 'url' => $request['author_url'],
             ]);
-
-            $author->save();
 
             $publisher = publisher::create([
-                'name' => $request['author_name'],
-                'url' => $request['author_url'],
+                'name' => $request['publisher_name'],
             ]);
 
-            $publisher->save();
-
-            $book = book::create([
+            book::create([
                 'id_product' => $product->id_product,
                 'edition' => $request['edition'],
                 'isbn' => $request['ISBN'],
                 'id_publisher' => $publisher->id_publisher,
             ]);
-
-            $book->save();
 
             return redirect('addBooks');
         }
@@ -143,10 +135,12 @@ class BookController extends Controller
             'publisher_name'      => 'required|string|max:255',
             'book_name'      => 'required|string|max:255',
             'edition'     => 'required|integer',
+            'ISBN'       => 'required|string',
             'price'     => 'required|integer',
             'stock'     => 'required|integer',
             'url'       => 'required|string',
-            'year'      => 'required!integer',
+            'year'      => 'required|integer',
+            'sku'       => 'required|string',
         ]);
     }
 

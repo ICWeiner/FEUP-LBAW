@@ -10,12 +10,13 @@
     </form>
 
     <form method="GET" action="{{ url('/addBooks') }}">
-        <input type="submit" value="Add Shoe" />
+        <input type="submit" value="Add Book" />
     </form>
 
     <form method="GET" action="{{ url('/addFunkoPops') }}">
-        <input type="submit" value="Add Shoe" />
+        <input type="submit" value="Add Funko Pop" />
     </form>
+
 
     <form method="GET" action="">
         <input type="submit" value="Edit Existing Product" />
