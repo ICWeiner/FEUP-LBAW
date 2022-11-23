@@ -1,7 +1,7 @@
 <article class="card" data-id="{{ $product->id_product }}">
   <div class="productPage">
     <div class= "productImage">
-      <img src="https://i.redd.it/j7md8j11n51a1.jpg">
+      <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360">
     </div>
     <div class = "insideProductPage">
       <h2><a href="/products/{{ $product->id_product }}">{{ $product->name }}</a></h2>

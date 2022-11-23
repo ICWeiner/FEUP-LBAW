@@ -29,6 +29,8 @@ Route::post('addToCart', 'CartController@addToCart')->name('addToCart');
 
 //Orders
 Route::get('orders/{id}', 'OrdController@show');
+Route::post('createOrder', 'OrdController@create')->name('createOrder');
+Route::get('orderSuccess', 'OrdController@orderSuccess')->name('orderSuccess');
 
 //shoes
 Route::get('shoes', 'ShoeController@list');

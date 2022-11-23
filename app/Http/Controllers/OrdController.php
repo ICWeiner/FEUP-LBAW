@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ord;
+use Session;
 
 class OrdController extends Controller
 {
@@ -24,9 +25,26 @@ class OrdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+       if(Auth::check()){
+            $cart = Session::get('cart');
+            $user = Auth::user();
+            $ord = ord::create([
+                'id_user' => $user->id_user,
+                'id_status' => 1,
+                'total_price' => 0,
+                'tracking_number' => 452332,
+                'buy_date' => date('Y-m-d H:i:s'),
+            ]);
+            foreach($cart as $id){
+                $ord->products()->attach($id, ['quantity' => 1]);
+            }
+       } 
+       return redirect('/orderSuccess');
+    }
+
+    public function orderSuccess(){
+        return view('pages.orderSuccess');
     }
 
     /**
@@ -96,4 +114,6 @@ class OrdController extends Controller
     {
         //
     }
+
+
 }

@@ -13,7 +13,7 @@ class CartController extends Controller{
             $product = Product::find($id);
             $products[] = $product;
         }
-        print_r(Session::get('cart'));
+        //print_r(Session::get('cart'));
         return view('pages.cart', ['products' => $products]);
     }
 
