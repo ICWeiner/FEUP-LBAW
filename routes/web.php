@@ -90,3 +90,6 @@ Route::post('adminEditUser', 'AdminController@userEdit');
 Route::post('adminBanUser', 'AdminController@banUser')->name('adminBanUser');
 //Route::get('editUser', 'UserController@showEditForm')->name('editUser');
 //Route::post('editUser', 'UserController@edit');
+
+
+Route::get('search', 'SearchController@show') -> name('search');

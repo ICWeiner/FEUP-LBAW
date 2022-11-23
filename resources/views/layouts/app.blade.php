@@ -49,7 +49,7 @@
           </ul>
         </div>
 
-        <h1><a>ATGO</a></h1>
+        <h1><a href="{{url('/')}}">ATGO</a></h1>
 
         <div class="search">
           <form action="/search" method="get">
