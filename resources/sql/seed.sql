@@ -170,12 +170,12 @@ CREATE TABLE shoeColorSize(
 );
 
 
-INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Alyssa', 'amustoe0@bravesites.com', '$2y$10$hxGFmGPOCh3hJ7Pdjb/peeoS0lZDn5UWQTd1.oQy1d8OK1ZFbLlMW', FALSE, FALSE);
-INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Priscella', 'ptorvey1@free.fr', '$2y$10$OYREgcVnD0mk8RZrncRn1e3qylOJRXyiM9cFexlhiBovDI9UrCd4G', FALSE, FALSE);
-INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Elizabeth', 'estanex2@twitpic.com', '$2y$10$vjhz78.u1c9GGaA4jRrr9uN9rNPTO6KtcAejpM1ORzpXUWBnWyL7u', FALSE, FALSE);
-INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Angel', 'acrowne3@pcworld.com', '$2y$10$18db1YnkhGU0gS7xbOG.ouz7BlD5sVL4eTyhVkHH2hx/fgVBk4/3q', FALSE, FALSE);
-INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Pascal', 'pvivash4@webs.com', '$2y$10$VfBbgtUnClnatPptd8mBcuLHlkpgQpwXmv4t/Q064pncl9gjcZDPW', FALSE, FALSE);
-INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Lesly', 'lgarley5@printfriendly.com', '$2y$10$tNZSVJj9cY.G4HG.7Wvds.Jvg7GUgil99Id0kl6.z47L4MIW.UXZq', FALSE, FALSE);
+INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Alyssa', 'amustoe0@bravesites.com', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', TRUE, FALSE);
+INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Priscella', 'ptorvey1@free.fr', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', FALSE, TRUE);
+INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Elizabeth', 'estanex2@twitpic.com', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', FALSE, FALSE);
+INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Angel', 'acrowne3@pcworld.com', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', FALSE, FALSE);
+INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Pascal', 'pvivash4@webs.com', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', FALSE, FALSE);
+INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Lesly', 'lgarley5@printfriendly.com', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', FALSE, FALSE);
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Nydia', 'noverlow6@privacy.gov.au', '$2y$10$wfc4Nmj44890TOx46DkIcuF1KnMuGSiXpsw8QZv1kgyd0qj4MS5Wq', FALSE, FALSE);
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Beatriz', 'bboxall7@surveymonkey.com', '$2y$10$XcoAXfceonuRtEN66x1bMOBfgKK/93sUvYr0jrJdE0VSp2tWaAGVq', FALSE, FALSE);
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Lucilia', 'lbanasik8@discovery.com', '$2y$10$khdeH96eplrrnxA7WP0z/OqG6DkJ8Gmi68gv./Ha3yeIr4/6KRPbu', FALSE, FALSE);
