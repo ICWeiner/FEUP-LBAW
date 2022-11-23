@@ -25,8 +25,9 @@ class OrdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
-       if(Auth::check()){
+    public function create()
+    {
+        if (Auth::check()) {
             $cart = Session::get('cart');
             $user = Auth::user();
             $ord = ord::create([
@@ -36,15 +37,16 @@ class OrdController extends Controller
                 'tracking_number' => 452332,
                 'buy_date' => date('Y-m-d H:i:s'),
             ]);
-            foreach($cart as $id){
+            foreach ($cart as $id) {
                 $ord->products()->attach($id, ['quantity' => 1]);
             }
-       } 
-       return redirect('/orderSuccess');
+        }
+        return redirect('/orderSuccess');
     }
 
-    public function orderSuccess(){
-        return view('pages.orderSuccess');
+    public function orderSuccess()
+    {
+        return view('auth.orderSuccess');
     }
 
     /**
@@ -114,6 +116,4 @@ class OrdController extends Controller
     {
         //
     }
-
-
 }
