@@ -39,14 +39,16 @@ Route::get('addShoes', 'ShoeController@showCreateForm')->name('addShoes');
 Route::post('addShoes', 'ShoeController@create');
 Route::get('updateShoe', 'ShoeController@showUpdateForm')->name('updateShoe');
 Route::post('updateShoe', 'ShoeController@update');
+Route::post('deleteShoe', 'ShoeController@destroy')->name('deleteShoe');
 
 //books
 Route::get('books', 'BookController@list');
 Route::get('books/{id}', 'BookController@show');
 Route::get('addBooks', 'BookController@showCreateForm')->name('addBooks');
 Route::post('addBooks', 'BookController@create');
-Route::get('updateBook', 'ShoeController@showUpdateForm')->name('updateBook');
-Route::post('updateBook', 'ShoeController@update');
+Route::get('updateBook', 'BookController@showUpdateForm')->name('updateBook');
+Route::post('updateBook', 'BookController@update');
+Route::post('deleteBook', 'BookController@destroy')->name('deleteBook');
 
 //funkoPops
 Route::get('funkoPops', 'FunkoPopController@list');
@@ -55,13 +57,10 @@ Route::get('addFunkoPops', 'FunkoPopController@showCreateForm')->name('addFunkoP
 Route::post('addFunkoPops', 'FunkoPopController@create');
 Route::get('updateFunkoPop', 'FunkoPopController@showUpdateForm')->name('updateFunkoPop');
 Route::post('updateFunkoPop', 'FunkoPopController@update');
+Route::post('deleteFunkoPop', 'FunkoPopController@destroy')->name('deleteFunkoPop');
 
 // API
-#Route::put('api/cards', 'CardController@create');
-#Route::delete('api/cards/{card_id}', 'CardController@delete');
-#Route::put('api/cards/{card_id}/', 'ItemController@create');
-#Route::post('api/item/{id}', 'ItemController@update');
-#Route::delete('api/item/{id}', 'ItemController@delete');
+
 
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');;

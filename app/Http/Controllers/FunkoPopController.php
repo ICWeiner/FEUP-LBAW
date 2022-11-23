@@ -114,11 +114,7 @@ class FunkoPopController extends Controller
      */
     public function update(Request $request)
     {
-
-
         if (Auth::user()->user_is_admin === true) {
-
-
             $this->validate($request, [
                 'name'      => 'required|string|max:255',
                 'number_pop' => 'required|integer',
@@ -131,7 +127,6 @@ class FunkoPopController extends Controller
 
 
             $funko = funkoPop::find($request['id_product']);
-
             $funko->number_pop = $request['number_pop'];
             #$shoe->done = $request->input('done');
             $funko->save();
@@ -150,14 +145,15 @@ class FunkoPopController extends Controller
         return redirect('products');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(Request $request)
     {
-        //
+        $funko = funkoPop::find($request['id_product']);
+        $product = Product::find($request['id_product']);
+
+        #$product->reviews()->delete(); #TODO: changes this behaviour, we dont actually want this, we just want to showcase we can delete stuff for A8
+        $funko->delete();
+        #$product->delete();
+        return redirect('funkoPops');
     }
 }

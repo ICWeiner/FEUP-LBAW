@@ -8,9 +8,18 @@
     <li> Rating = {{ $funkoPop->owner->rating }}</li>
     <li> Stock =  {{ $funkoPop->owner->stock_quantity }}</li>
 </ul>
+@if (Auth::user()->user_is_admin === true)
 <form method="GET" action="{{ route('updateFunkoPop') }}">
     <input id="id_product" name="id_product" value={{ $funkoPop->id_product }} required hidden/>
 
     <input type="submit" value="Update FunkoPop" />
     </form>
+
+<form method="POST" action="{{ route('deleteFunkoPop') }}">
+    {{ csrf_field() }}
+    <input id="id_product" name="id_product" value={{ $funkoPop->id_product }} required hidden/>
+
+    <input type="submit" value="Delete FunkoPop" />
+    </form>
+    @endif
 </article>
