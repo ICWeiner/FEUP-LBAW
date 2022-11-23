@@ -75,7 +75,7 @@ Route::get('recoverPassword', 'Auth\RegisterController@recoverPassword')->name('
 Route::get('user', 'UserController@show')->name('user');
 Route::get('editUser', 'UserController@showEditForm')->name('editUser');
 Route::post('editUser', 'UserController@edit');
-Route::get('showOrders/{user}', 'UserController@showOrders')->name('user');
+Route::get('showOrders/{user}', 'UserController@showOrders');
 
 //Admin area
 Route::get('adminDashboard', 'AdminController@dashboard')->name('adminDashboard');
@@ -85,7 +85,7 @@ Route::get('adminItemsDashboard', 'AdminController@itemDashboard')->name('adminI
 
 Route::get('adminUsersDashboard', 'AdminController@userDashboard')->name('adminUsersDashboard');
 Route::get('adminEditUser', 'AdminController@userEditForm')->name('adminEditUser');
-Route::post('adminEditUser', 'AdminController@userEdit')->name('adminEditUser');
+Route::post('adminEditUser', 'AdminController@userEdit');
 
 Route::post('adminBanUser', 'AdminController@banUser')->name('adminBanUser');
 //Route::get('editUser', 'UserController@showEditForm')->name('editUser');
