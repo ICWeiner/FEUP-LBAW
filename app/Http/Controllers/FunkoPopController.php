@@ -142,7 +142,7 @@ class FunkoPopController extends Controller
             $product->sku = $request['sku'];
             $product->save();
         }
-        return redirect('products');
+        return redirect('funkoPops');
     }
 
 

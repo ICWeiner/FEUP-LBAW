@@ -181,7 +181,7 @@ class BookController extends Controller
             $product->sku = $request['sku'];
             $product->save();
         }*/
-        return redirect('products');
+        return redirect('books');
     }
 
     public function destroy(Request $request)

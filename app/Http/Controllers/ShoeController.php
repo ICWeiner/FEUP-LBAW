@@ -134,7 +134,7 @@ class ShoeController extends Controller
             ]);
 
             $shoe = shoe::find($request['id_product']);
-
+            $shoe->name = $request['name']; # TODO: THIS MODEL HAS THE NAME REPEATED FIIIIIIIIIIIX
             $shoe->type_name = $request['type_name'];
             $shoe->brand_name = $request['brand_name'];
             #$shoe->done = $request->input('done');
@@ -151,7 +151,7 @@ class ShoeController extends Controller
             $product->sku = $request['sku'];
             $product->save();
         }
-        return redirect('products');
+        return redirect('shoes');
     }
 
 
