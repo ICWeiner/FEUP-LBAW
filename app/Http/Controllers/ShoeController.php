@@ -135,7 +135,6 @@ class ShoeController extends Controller
 
             $shoe = shoe::find($request['id_product']);
 
-            $shoe->name = $request['name'];
             $shoe->type_name = $request['type_name'];
             $shoe->brand_name = $request['brand_name'];
             #$shoe->done = $request->input('done');

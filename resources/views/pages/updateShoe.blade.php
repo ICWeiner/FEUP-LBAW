@@ -8,7 +8,7 @@
     <form method="POST" action="{{ route('updateShoe') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 
-        <input name="id_product" value="{{ $shoe->id_product }}" required hidden>
+        <input name="id_product" value="{{ $product->id_product }}" required hidden>
 
         <div id="name" class="form-group">
             <label for="name">Name: </label>

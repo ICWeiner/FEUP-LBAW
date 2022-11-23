@@ -112,7 +112,7 @@ class FunkoPopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
 
 
@@ -123,7 +123,7 @@ class FunkoPopController extends Controller
                 'name'      => 'required|string|max:255',
                 'number_pop' => 'required|integer',
                 'price'     => 'required|numeric',
-                'stock'     => 'required|integer',
+                'stock_quantity'     => 'required|integer',
                 'url'       => 'required|string',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
@@ -132,9 +132,7 @@ class FunkoPopController extends Controller
 
             $funko = funkoPop::find($request['id_product']);
 
-            $funko->name = $request['name'];
-            $funko->type_name = $request['type_name'];
-            $funko->brand_name = $request['brand_name'];
+            $funko->number_pop = $request['number_pop'];
             #$shoe->done = $request->input('done');
             $funko->save();
 
@@ -150,15 +148,6 @@ class FunkoPopController extends Controller
             $product->save();
         }
         return redirect('products');
-
-
-        $funko = funkoPop::find($id);
-        $funko->done = $request->input('done');
-        $funko->save();
-        $product = Product::find($id);
-        $product->done = $request->input('done');
-        $product->save();
-        return $funko;
     }
 
     /**
