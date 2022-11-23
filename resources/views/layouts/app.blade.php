@@ -40,6 +40,8 @@
             <li>
               @if (Auth::check())
                 <a class="menu_item" href="{{ url('/logout') }}">Logout</a>
+                @else
+                <a class="menu_item" href="{{ url('/login') }}">Login</a>
               @endif
             <li>
                 <a class="menu_item" href="{{ url('/cart') }}">Cart</a>
@@ -57,7 +59,7 @@
         </div>
 
         @if (Auth::check())
-        <!--<a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a><a class="button" href="{{ url('/logout') }}"> Logout </a>--> 
+        <!--<a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a><a class="button" href="{{ url('/logout') }}"> Logout </a>-->
         @endif
       </header>
       <section id="content">

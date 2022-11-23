@@ -3,9 +3,14 @@
 @section('content')
     <h1>Cart</h1>
     <section id="admin">
-      @each('partials.cartItem', $products, 'product')
-      <form method="POST" action="{{ route('createOrder') }}">
-        <input type="submit" value="Checkout" />
-      </form>
+        @isset($products)
+            @each('partials.cartItem', $products, 'product')
+            <form method="POST" action="{{ route('createOrder') }}">
+                <input type="submit" value="Checkout" />
+            </form>
+            @else
+            <p>No products on cart</p>
+        @endisset
+
     </section>
 @endsection
