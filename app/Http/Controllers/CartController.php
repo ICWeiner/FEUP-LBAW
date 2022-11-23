@@ -18,7 +18,7 @@ class CartController extends Controller
             }
         }
         //print_r(Session::get('cart'));
-        return view('auth.cart', ['products' => $products]);
+        return view('pages.cart', ['products' => $products]);
     }
 
     public function addToCart()
