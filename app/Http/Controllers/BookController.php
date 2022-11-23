@@ -189,7 +189,7 @@ class BookController extends Controller
         $book = book::find($request['id_product']);
         $product = Product::find($request['id_product']);
 
-        $book->options()->delete();
+        #$book->options()->delete();
         #$product->reviews()->delete(); #TODO: changes this behaviour, we dont actually want this, we just want to showcase we can delete stuff for A8
         $book->delete();
         #$product->delete();
