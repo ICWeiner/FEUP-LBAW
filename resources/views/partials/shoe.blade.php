@@ -10,5 +10,9 @@
     <li> Year = {{ $shoe->owner->year }}</li>
     <li> Stock = {{ $shoe->owner->stock_quantity }}</li>
 </ul>
-<a class="button" href="{{ url('/updateShoe') }}/{{ $shoe->id_product }}"><span>Update Shoes</span></a>
+<form method="GET" action="{{ route('updateShoe') }}">
+    <input id="id_product" name="id_product" value={{ $shoe->id_product }} required hidden/>
+
+    <input type="submit" value="Update Shoes" />
+    </form>
 </article>

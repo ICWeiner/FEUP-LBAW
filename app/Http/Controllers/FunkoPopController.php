@@ -98,9 +98,11 @@ class FunkoPopController extends Controller
         return view('pages.funkoPops', ['funkoPops' => $funkoPops]);
     }
 
-    public function showUpdateForm()
+    public function showUpdateForm(Request $request)
     {
-        return view('pages.updateFunkoPop');
+        $funko = funkoPop::find($request['id_product']);
+        $product = product::find($request['id_product']);
+        return view('pages.updateFunkoPop', ['funko' => $funko, 'product' => $product]);
     }
 
     /**
@@ -112,15 +114,43 @@ class FunkoPopController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name'      => 'required|string|max:255',
-            'number_pop' => 'required|integer',
-            'price'     => 'required|integer',
-            'stock'     => 'required|integer',
-            'url'       => 'required|string',
-            'year'      => 'required|integer',
-            'sku'       => 'required|string',
-        ]);
+
+
+        if (Auth::user()->user_is_admin === true) {
+
+
+            $this->validate($request, [
+                'name'      => 'required|string|max:255',
+                'number_pop' => 'required|integer',
+                'price'     => 'required|numeric',
+                'stock'     => 'required|integer',
+                'url'       => 'required|string',
+                'year'      => 'required|integer',
+                'sku'       => 'required|string',
+            ]);
+
+
+            $funko = funkoPop::find($request['id_product']);
+
+            $funko->name = $request['name'];
+            $funko->type_name = $request['type_name'];
+            $funko->brand_name = $request['brand_name'];
+            #$shoe->done = $request->input('done');
+            $funko->save();
+
+            $product = Product::find($request['id_product']);
+            #$product->done = $request->input('done');
+            $product->name = $request['name'];
+            $product->price = $request['price'];
+            $product->stock_quantity = $request['stock_quantity'];
+            $product->url = $request['url'];
+            $product->year = $request['year'];
+            #$product->rating = $request['rating'];
+            $product->sku = $request['sku'];
+            $product->save();
+        }
+        return redirect('products');
+
 
         $funko = funkoPop::find($id);
         $funko->done = $request->input('done');
