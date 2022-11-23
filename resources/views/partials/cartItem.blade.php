@@ -1,4 +1,4 @@
-<article class="cartItemPage" data-id="{{ $product->id_product }}">
+<article class="cartItemPage">
   <div class="cartItem">
     <div class= "productImage">
       <img src="https://i.redd.it/j7md8j11n51a1.jpg">
