@@ -10,5 +10,19 @@
     <li> Year = {{ $shoe->owner->year }}</li>
     <li> Stock = {{ $shoe->owner->stock_quantity }}</li>
 </ul>
-<a class="button" href="{{ url('/updateShoe') }}/{{ $shoe->id_product }}"><span>Update Shoes</span></a>
+
+@if (Auth::user()->user_is_admin === true)
+<form method="GET" action="{{ route('updateShoe') }}">
+    <input id="id_product" name="id_product" value={{ $shoe->id_product }} required hidden/>
+
+    <input type="submit" value="Update Shoes" />
+    </form>
+
+<form method="POST" action="{{ route('deleteShoe') }}">
+    {{ csrf_field() }}
+    <input id="id_product" name="id_product" value={{ $shoe->id_product }} required hidden/>
+
+    <input type="submit" value="Delete Shoe" />
+    </form>
+    @endif
 </article>

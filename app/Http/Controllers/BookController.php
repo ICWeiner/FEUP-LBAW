@@ -104,6 +104,8 @@ class BookController extends Controller
         return view('pages.book', ['book' => $book]);
     }
 
+
+
     /**
      * Shows all products
      *
@@ -115,9 +117,13 @@ class BookController extends Controller
         return view('pages.books', ['books' => $books]);
     }
 
-    public function showUpdateForm()
+
+
+    public function showUpdateForm(Request $request)
     {
-        return view('pages.updateBook');
+        $book = book::find($request['id_product']);
+        $product = product::find($request['id_product']);
+        return view('pages.updateBook', ['book' => $book, 'product' => $product]);
     }
 
     /**
@@ -129,29 +135,64 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'author_name'      => 'required|string|max:255',
-            'author_url'       => 'required|string',
-            'publisher_name'      => 'required|string|max:255',
-            'book_name'      => 'required|string|max:255',
-            'edition'     => 'required|integer',
-            'ISBN'       => 'required|string',
-            'price'     => 'required|integer',
-            'stock'     => 'required|integer',
-            'url'       => 'required|string',
-            'year'      => 'required|integer',
-            'sku'       => 'required|string',
-        ]);
+        /*TODO: WIP, finish this
+        if (Auth::user()->user_is_admin === true) {
+
+
+            $this->validate($request, [
+                'name'      => 'required|string|max:255',
+                'number_pop' => 'required|integer',
+                'price'     => 'required|numeric',
+                'stock_quantity'     => 'required|integer',
+                'url'       => 'required|string',
+                'year'      => 'required|integer',
+                'sku'       => 'required|string',
+            ]);
+
+            $this->validate($request, [
+                'author_name'      => 'required|string|max:255',
+                'author_url'       => 'required|string',
+                'publisher_name'      => 'required|string|max:255',
+                'name'      => 'required|string|max:255',
+                'edition'     => 'required|integer',
+                'ISBN'       => 'required|string',
+                'price'     => 'required|numeric',
+                'stock_quantity'     => 'required|integer',
+                'url'       => 'required|string',
+                'year'      => 'required|integer',
+                'sku'       => 'required|string',
+            ]);
+
+
+            $funko = funkoPop::find($request['id_product']);
+
+            $funko->number_pop = $request['number_pop'];
+            #$shoe->done = $request->input('done');
+            $funko->save();
+
+            $product = Product::find($request['id_product']);
+            #$product->done = $request->input('done');
+            $product->name = $request['name'];
+            $product->price = $request['price'];
+            $product->stock_quantity = $request['stock_quantity'];
+            $product->url = $request['url'];
+            $product->year = $request['year'];
+            #$product->rating = $request['rating'];
+            $product->sku = $request['sku'];
+            $product->save();
+        }*/
+        return redirect('products');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $book = book::find($request['id_product']);
+        $product = Product::find($request['id_product']);
+
+        $book->options()->delete();
+        #$product->reviews()->delete(); #TODO: changes this behaviour, we dont actually want this, we just want to showcase we can delete stuff for A8
+        $book->delete();
+        #$product->delete();
+        return redirect('books');
     }
 }

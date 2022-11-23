@@ -103,9 +103,11 @@ class ShoeController extends Controller
         return view('pages.shoes', ['shoes' => $shoes]);
     }
 
-    public function showUpdateForm()
+    public function showUpdateForm(Request $request)
     {
-        return view('pages.updateShoe');
+        $shoe = shoe::find($request['id_product']);
+        $product = product::find($request['id_product']);
+        return view('pages.updateShoe', ['shoe' => $shoe, 'product' => $product]);
     }
 
     /**
@@ -115,7 +117,7 @@ class ShoeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
 
         if (Auth::user()->user_is_admin === true) {
@@ -124,35 +126,44 @@ class ShoeController extends Controller
                 'name'      => 'required|string|max:255',
                 'type_name' => 'required|string|max:255',
                 'brand_name' => 'required|string|max:255',
-                'price'     => 'required|integer',
+                'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
                 'url'       => 'required|string',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
             ]);
 
+            $shoe = shoe::find($request['id_product']);
 
-            $shoes = shoe::find($id);
-            $shoes->done = $request->input('done');
-            $shoes->save();
+            $shoe->type_name = $request['type_name'];
+            $shoe->brand_name = $request['brand_name'];
+            #$shoe->done = $request->input('done');
+            $shoe->save();
 
-            $product = Product::find($id);
-            $product->done = $request->input('done');
+            $product = Product::find($request['id_product']);
+            #$product->done = $request->input('done');
+            $product->name = $request['name'];
+            $product->price = $request['price'];
+            $product->stock_quantity = $request['stock_quantity'];
+            $product->url = $request['url'];
+            $product->year = $request['year'];
+            #$product->rating = $request['rating'];
+            $product->sku = $request['sku'];
             $product->save();
-
-            return redirect('updateShoe');
         }
         return redirect('products');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(Request $request)
     {
-        //
+        $shoe = shoe::find($request['id_product']);
+        $product = Product::find($request['id_product']);
+
+        $shoe->options()->delete();
+        #$product->reviews()->delete(); #TODO: changes this behaviour, we dont actually want this, we just want to showcase we can delete stuff for A8
+        $shoe->delete();
+        #$product->delete();
+        return redirect('shoes');
     }
 }
