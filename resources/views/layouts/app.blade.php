@@ -32,16 +32,22 @@
 
           <ul class="menu__box">
             <li><a class="menu__item" href="{{ url('/') }}">Home</a></li>
-            <li>
+            <li><a class="menuitem" href="{{ url('/shoes') }}">Shoes</a></li>
+            <li><a class="menuitem" href="{{ url('/funkoPops') }}">FunkoPops</a></li>
+            <li><a class="menu__item" href="{{ url('/books') }}">Books</a></li>
               @if (Auth::check())
+              <li>
                 <a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a>
+              </li>
               @endif
-            </li>
-            <li>
               @if (Auth::check())
+              <li>
                 <a class="menu_item" href="{{ url('/logout') }}">Logout</a>
+              </li>
                 @else
+                <li>
                 <a class="menu_item" href="{{ url('/login') }}">Login</a>
+                </li>
               @endif
             <li>
                 <a class="menu_item" href="{{ url('/cart') }}">Cart</a>
