@@ -14,6 +14,9 @@
         <input name="id_product" value="{{ $product->id_product }}" hidden required>
       </form>
     </div>
+    <form method="GET" action="">
+      <input type="submit" value="View Reviews" />
+    </form>
     <a><p>Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 
       lobortis, dictum commodo nisi. Duis mattis, metus ac rutrum congue, metus nisl sagittis massa, eget laoreet odio 
       libero nec neque. Fusce fermentum ut leo tristique ultricies. Curabitur in ex a nunc interdum tempus. 
