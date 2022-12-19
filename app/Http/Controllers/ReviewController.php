@@ -15,15 +15,15 @@ class ReviewController extends Controller
         //
     }
 
-    public function create()
+    public function create(Request $request)
     {
         if (Auth::check()) {
             $user = Auth::user();
             $review = review::create([
                 'id_review' => $user->id_user,
-                'rating' => 1,
-                'review_date' => 0,
-                'id_product' => 452332,
+                'rating' => $request->rating,
+                'review_date' => date('Y-m-d H:i:s'),
+                'id_product' => $request->id_product,
                 'id_user' => date('Y-m-d H:i:s'),
             ]);
         }
