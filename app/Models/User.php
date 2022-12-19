@@ -54,12 +54,12 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany(comment::class);
+        return $this->hasMany(comment::class, 'id_user');
     }
 
     public function reviews()
     {
-        return $this->hasMany(review::class, 'id_user');
+        return $this->belongsTo(review::class, 'id_user');
     }
 
     public function address()

@@ -36,7 +36,7 @@ class review extends Model
     }
 
     public function reviewOwner() {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class, 'id_user');
     }
 
     public function comments() {

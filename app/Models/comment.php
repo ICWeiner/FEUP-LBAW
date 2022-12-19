@@ -35,6 +35,6 @@ class comment extends Model
     }
 
     public function usersOwner() {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasOne(User::class, 'id_user');
     }
 }
