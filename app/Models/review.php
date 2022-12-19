@@ -40,7 +40,7 @@ class review extends Model
     }
 
     public function comments() {
-        return $this->hasMany('App\Models\comment');
+        return $this->hasMany(comment::class, 'id_review');
     }
 
     public function flagged() {

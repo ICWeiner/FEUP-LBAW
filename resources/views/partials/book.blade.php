@@ -34,6 +34,12 @@
         <a> <p> {{$review->comment}} </p> </a>
         <a> <p> {{$review->rating}} </p> </a>
         <a> <p> {{$review->review_date}} </p> </a>
+
+        <h3>Comments</h3>
+        @foreach($review->comments as $comment)
+            <a> <p>{{$comment->content}} </p> </a>
+            <a> <p>{{$comment->rating}} </p> </a>
+        @endforeach
     @endforeach
 
 </article>
