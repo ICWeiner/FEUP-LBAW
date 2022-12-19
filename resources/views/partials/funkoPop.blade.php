@@ -22,4 +22,12 @@
     <input type="submit" value="Delete FunkoPop" />
     </form>
     @endif
+
+    <h3>Some Reviews</h3>
+    @foreach($funkoPop->owner->reviews as $review)
+        <a> <p> {{$review->comment}} </p> </a>
+        <a> <p> {{$review->rating}} </p> </a>
+        <a> <p> {{$review->review_date}} </p> </a>
+    @endforeach
+
 </article>

@@ -14,9 +14,6 @@
         <input name="id_product" value="{{ $product->id_product }}" hidden required>
       </form>
     </div>
-    <form method="GET" action="">
-      <input type="submit" value="View Reviews" />
-    </form>
     <a><p>Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 
       lobortis, dictum commodo nisi. Duis mattis, metus ac rutrum congue, metus nisl sagittis massa, eget laoreet odio 
       libero nec neque. Fusce fermentum ut leo tristique ultricies. Curabitur in ex a nunc interdum tempus. 
@@ -25,5 +22,13 @@
       Pellentesque faucibus ligula sed ex malesuada, nec posuere tellus varius. Interdum et malesuada fames ac 
       ante ipsum primis in faucibus. Phasellus nec cursus mauris, eu lobortis sem. 
     </p></a>
+
+    <h3>Some Reviews</h3>
+    <li> @foreach($product->reviews as $review)
+          <a> <p> {{$review->comment}} </p> </a>
+          <a> <p> {{$review->rating}} </p> </a>
+          <a> <p> {{$review->review_date}} </p> </a>
+        @endforeach </li>
+
   </div>
 </article>
