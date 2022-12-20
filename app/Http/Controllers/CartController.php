@@ -68,7 +68,7 @@ class CartController extends Controller
     public function removeProductFromCart(Request $request){
         $user = Auth::user();
         
-        $product = $user->cart()->where('id_product',$request->id)->first();
+        $product = $user->cart()->where('product.id_product',$request->id)->first();
 
         if ($product != null){
             $user->cart()->detach($product,array('quantity' => 1));
@@ -85,7 +85,7 @@ class CartController extends Controller
     public function updateCartProduct(Request $request){
         $user = Auth::user();
 
-        $product = $user->cart()->where('id_product',$request->id)->first();
+        $product = $user->cart()->where('product.id_product',$request->id)->first();
 
         if ($product != null){
             $product->pivot->quantity = intval($request->quantity);
