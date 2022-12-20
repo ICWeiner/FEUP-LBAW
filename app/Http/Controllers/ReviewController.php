@@ -19,13 +19,14 @@ class ReviewController extends Controller
     {
         if (Auth::check()) {
             $user = Auth::user();
-            $review = review::create([
-                'id_review' => $user->id_user,
-                'rating' => $request->rating,
-                'review_date' => date('Y-m-d H:i:s'),
-                'id_product' => $request->id_product,
-                'id_user' => date('Y-m-d H:i:s'),
+            review::create([
+                'comment' => $request['reviewText'],
+                'rating' => $request['rating'],
+                'review_date' => now(),
+                'id_product' => $request['id_product'],
+                'id_user' =>  $user->id_user,
             ]);
+            
         }
         return redirect()->back();
     }

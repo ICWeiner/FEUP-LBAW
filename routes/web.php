@@ -59,6 +59,10 @@ Route::get('updateFunkoPop', 'FunkoPopController@showUpdateForm')->name('updateF
 Route::post('updateFunkoPop', 'FunkoPopController@update');
 Route::post('deleteFunkoPop', 'FunkoPopController@destroy')->name('deleteFunkoPop');
 
+
+//Review
+Route::post('addReview', 'ReviewController@create')->name('addReview');;
+
 // API
 
 
