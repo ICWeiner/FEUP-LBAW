@@ -6,5 +6,6 @@
     <div class = "insideCartItem">
       <h2><a href="/products/{{ $product->id_product }}">{{ $product->name }}</a></h2>
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->price }} $</a></h2>
+      <h3><a href="/products/{{ $product->id_product }}">{{ $product->pivot->quantity }}</a></h2>
   </div>
 </article>

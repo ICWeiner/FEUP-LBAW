@@ -16,11 +16,14 @@ class CartController extends Controller
 
         $products = $user->cart()->get();
 
+        #$products['stock_quantity'] = $products['pivot'];
+        echo($products);
+
         $total = $products->sum(function($t){ 
             return $t->price*$t->pivot->quantity; 
         });
 
-        #TODO get adress here?
+        #TODO get address here?
 
         return view('pages.cart',['total'=> $total, 'products'=> $products]);
         /*
