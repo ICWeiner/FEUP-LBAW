@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\Client\Request as ClientRequest;
 use Session;
-use Request;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -21,8 +22,9 @@ class CartController extends Controller
         return view('pages.cart', ['products' => $products]);
     }
 
-    public function addToCart()
+    public function addToCart(Request $request)
     {
+        /*
         if (!Session::has('cart')) {
             $cart = array(Request::post('id_product'));
         }
@@ -31,6 +33,12 @@ class CartController extends Controller
 
         Session::push('cart', Request::post('id_product'));
 
-        return redirect('/');
+        return redirect('/');*/
+
+        session()->put('cart', $request->post('cart'));
+
+        return response()->json([
+            'status' => 'added'
+        ]);
     }
 }

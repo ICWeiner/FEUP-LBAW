@@ -14,15 +14,15 @@
         <input name="id_product" value="{{ $product->id_product }}" hidden required>
       </form>
     </div>
-    <a><p>Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 
-      lobortis, dictum commodo nisi. Duis mattis, metus ac rutrum congue, metus nisl sagittis massa, eget laoreet odio 
-      libero nec neque. Fusce fermentum ut leo tristique ultricies. Curabitur in ex a nunc interdum tempus. 
-      Vestibulum vitae velit vestibulum, eleifend nulla eget, fringilla est. Praesent purus sem, convallis sit 
-      amet neque ut, congue hendrerit neque. Phasellus elementum quam magna, id mattis velit auctor vitae. 
-      Pellentesque faucibus ligula sed ex malesuada, nec posuere tellus varius. Interdum et malesuada fames ac 
-      ante ipsum primis in faucibus. Phasellus nec cursus mauris, eu lobortis sem. 
-    </p></a>
-
+      <a><p>Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 
+        lobortis, dictum commodo nisi. Duis mattis, metus ac rutrum congue, metus nisl sagittis massa, eget laoreet odio 
+        libero nec neque. Fusce fermentum ut leo tristique ultricies. Curabitur in ex a nunc interdum tempus. 
+        Vestibulum vitae velit vestibulum, eleifend nulla eget, fringilla est. Praesent purus sem, convallis sit 
+        amet neque ut, congue hendrerit neque. Phasellus elementum quam magna, id mattis velit auctor vitae. 
+        Pellentesque faucibus ligula sed ex malesuada, nec posuere tellus varius. Interdum et malesuada fames ac 
+        ante ipsum primis in faucibus. Phasellus nec cursus mauris, eu lobortis sem. 
+      </p></a>
+    </div>
     <h3>Some Reviews</h3>
     <li> @foreach($product->reviews as $review)
           <a> <p> {{$review->comment}} </p> </a>
@@ -37,6 +37,14 @@
             <a> <p>{{$comment->usersOwner->name}} </p> </a>
           @endforeach
         @endforeach </li>
-
-  </div>
+    @if (Auth::check())
+    <textarea id="confirmationText" class="text" cols="86" rows ="20" name="reviewText" form="reviewForm"></textarea>
+    <form method="POST" class="add_review" id="reviewForm" name="reviewForm" action="{{ route('addReview') }}">
+      {{ csrf_field() }}
+      <label for="rating">Rating (between 1 and 5):</label>
+      <input type="number" id="rating" name="rating" min="1" max="5">
+      <input name="id_product" value="{{ $product->id_product }}" hidden required>
+      <input type="submit" name="submitReview" value="Submit Review">
+    </form>
+    @endif
 </article>
