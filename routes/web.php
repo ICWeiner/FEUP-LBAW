@@ -61,7 +61,8 @@ Route::post('deleteFunkoPop', 'FunkoPopController@destroy')->name('deleteFunkoPo
 
 
 //Review
-Route::post('addReview', 'ReviewController@create')->name('addReview');;
+Route::post('addReview', 'ReviewController@create')->name('addReview');
+Route::post('addComment', 'CommentController@create')->name('addComment');
 
 // API
 
