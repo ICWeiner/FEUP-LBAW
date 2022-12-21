@@ -38,21 +38,47 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
 
-        $user = Auth::user();
+        try{
 
-        $product = Product::findOrFail($request->id_product);
+            if (!Product::where('id_product', $request->id_product )->exists()){
+                return response()->json([
+                    'Message' => 'Product not found',
+                ],404);
+            }
+        
+            $user = Auth::user();
+        
 
-        if ($user->cart()->where('product.id_product', $request->id_product)->count() > 0){#TODO: make this better
-            return response(json_decode("Product already in cart"),500);
+            if($user->cart()->where('product.id_product',$request->id_product)->exists()){
+                return response()->json([
+                    'Message' => 'Product already in cart',
+                    ],500);
+            }else{
+                $user->cart()->attach($request->id_product,array('quantity' => 1));
+                return response()->json([
+                    'Message' => 'Product added to cart',
+                    ],200);
+            }
+
+        }catch (\Exception $e) {
+            return response()->json([
+                'Message' => 'Error adding product to cart',
+            ],400);
         }
-
+        
+    
+        /*
+        if ($user->cart()->where('product.id_product', $request->id_product)->exists()){#TODO: make this better
+            return response(json_encode("Product already in cart"),500);
+        }
+        
         if ($product != null){
-            $user->cart()->attach($product,array('quantity' => 1));
-            return response(json_decode("Product added to cart"),200);
+            //$user->cart()->attach($product,array('quantity' => 1));
+            return response(json_encode("Product added to cart"),200);
         }else{
-            return response(json_decode("Product doesn't exist"),404);
+            return response(json_encode("Product doesn't exist"),404);
         }
-
+        
         /*
         if (!Session::has('cart')) {
             $cart = array(Request::post('id_product'));
@@ -61,8 +87,9 @@ class CartController extends Controller
         //$cart->array_push(Request::post('id_product'));
 
         Session::push('cart', Request::post('id_product'));
-        */
         return redirect('/');
+        */
+        
     }
 
     public function removeProductFromCart(Request $request){

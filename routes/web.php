@@ -25,7 +25,7 @@ Route::get('products/{id}', 'ProductController@show');
 
 //Cart
 Route::get('cart', 'CartController@showCart')->name('cart');
-Route::post('addToCart', 'CartController@addToCart')->name('addToCart');
+
 
 //Orders
 Route::get('orders/{id}', 'OrdController@show');
@@ -60,7 +60,10 @@ Route::post('updateFunkoPop', 'FunkoPopController@update');
 Route::post('deleteFunkoPop', 'FunkoPopController@destroy')->name('deleteFunkoPop');
 
 // API
-
+Route::get('api/cart', 'CartController@showCart')->name('cart');
+Route::put('api/cart/{id_product}', 'CartController@addToCart');
+Route::post('api/cart/{id_product}', 'CartController@updateCartProduct');
+Route::delete('api/cart/{id_product}','CartController@removeProductFromCart');
 
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');;

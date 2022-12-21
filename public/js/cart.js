@@ -1,10 +1,6 @@
-function addToCart(obj,id){
+function addToCart(id){
 
-    let product_data = {};
-    product_data.id = id;
-
-
-    sendAjaxRequest('post','addToCart',null,null)
+    sendAjaxRequest('put','/api/cart/' + id  ,null,null)
 }
 
 function encodeForAjax(data) {
@@ -20,8 +16,9 @@ function encodeForAjax(data) {
     request.open(method, url, true);
     request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.addEventListener('load', handler);
+    //request.addEventListener('load', handler);
     request.send(encodeForAjax(data));
+    //alert("Product added to cart");
   }
   
 
