@@ -6,6 +6,15 @@
     <div class = "insideCartItem">
       <h2><a href="/products/{{ $product->id_product }}">{{ $product->name }}</a></h2>
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->price }} $</a></h2>
-      <h3><a href="/products/{{ $product->id_product }}">{{ $product->pivot->quantity }}</a></h2>
+
+      <script>
+        function getQuantity(){
+          return document.getElementById('quantity').value;
+        }
+      </script>
+      <label for="quantity">quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="{{ $product->pivot->quantity }}" min="0" max="{{$product->pivot->quantity}}">
+      <input type="button" value="Update Quantity" onclick="return updateCartProduct( {{$product->id_product}},getQuantity() )">
+
   </div>
 </article>

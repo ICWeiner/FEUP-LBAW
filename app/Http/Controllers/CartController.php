@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,33 +17,17 @@ class CartController extends Controller
 
         $products = $user->cart()->get();
 
-        #$products['stock_quantity'] = $products['pivot'];
-        echo($products);
-
         $total = $products->sum(function($t){ 
             return $t->price*$t->pivot->quantity; 
         });
 
-        #TODO get address here?
-
         return view('pages.cart',['total'=> $total, 'products'=> $products]);
-        /*
-        $products = [];
-        if (Null !== Session::get('cart')) {
-            foreach (Session::get('cart') as $id) {
-                $product = Product::find($id);
-                $products[] = $product;
-            }
-        }
-        //print_r(Session::get('cart'));
-        return view('pages.cart', ['products' => $products]);*/
+
     }
 
     public function addToCart(Request $request)
     {
-
         try{
-
             if (!Product::where('id_product', $request->id_product )->exists()){
                 return response()->json([
                     'Message' => 'Product not found',
@@ -50,7 +35,6 @@ class CartController extends Controller
             }
         
             $user = Auth::user();
-        
 
             if($user->cart()->where('product.id_product',$request->id_product)->exists()){
                 return response()->json([
@@ -68,68 +52,45 @@ class CartController extends Controller
                 'Message' => 'Error adding product to cart',
             ],400);
         }
-        
-    
-        /*
-        if ($user->cart()->where('product.id_product', $request->id_product)->exists()){#TODO: make this better
-            return response(json_encode("Product already in cart"),500);
-        }
-        
-        if ($product != null){
-            //$user->cart()->attach($product,array('quantity' => 1));
-            return response(json_encode("Product added to cart"),200);
-        }else{
-            return response(json_encode("Product doesn't exist"),404);
-        }
-        
-        /*
-        if (!Session::has('cart')) {
-            $cart = array(Request::post('id_product'));
-        }
-        $cart = Session::get('cart');
-        //$cart->array_push(Request::post('id_product'));
-
-        Session::push('cart', Request::post('id_product'));
-        return redirect('/');
-        */
-        
-    }
-
-    public function removeProductFromCart(Request $request){
-        $user = Auth::user();
-        
-        $product = $user->cart()->where('product.id_product',$request->id)->first();
-
-        if ($product != null){
-            $user->cart()->detach($product,array('quantity' => 1));
-            $products = $user->cart()->get();
-            $total = $products->sum(function($t){ 
-                return $t->price*$t->pivot->quantity; 
-            });
-            return response(json_encode(array("Product removed from cart","Price" => $total)),200);
-        }else{
-            return response(json_encode(array("Product doesn't exist in cart","Price"=> null)),404);
-        }
     }
 
     public function updateCartProduct(Request $request){
-        $user = Auth::user();
 
-        $product = $user->cart()->where('product.id_product',$request->id)->first();
+        try{
+            $user = Auth::user();
 
-        if ($product != null){
-            $product->pivot->quantity = intval($request->quantity);
-            $product->pivot->update();
+            $product = $user->cart()->where('product.id_product',$request->id_product)->first();
+            
+            if ($product != null){
+                if($request->quantity === 0){
+                    $product->pivot->delete();
+                }else{
+                    $product->pivot->quantity = intval($request->quantity);
+                    $product->pivot->update();
+                }
+    
+                $products = $user->cart()->get();
+                $total = $products->sum(function($t){ 
+                    return $t->price*$t->pivot->quantity; 
+                });
 
-            $products = $user->cart()->get();
-            $total = $products->sum(function($t){ 
-                return $t->price*$t->pivot->quantity; 
-            });
+                return response()->json([
+                    'Message' => 'Cart updated',
+                    'total' => $total,
+                    ],200);
+            }else{
+                return response()->json([
+                    'Message' => "Product doesn't exist in cart",
+                    #'total' => $total,
+                    ],404);
+            }
 
-            return response(json_encode(array("Product removed from cart","Price" => $total)),200);
-        }else{
-            return response(json_encode(array("Product doesn't exist in cart","Price"=> null)),404);
-
+        }catch (\Exception $e) {
+            return response()->json([
+                'Message' => 'Error adding product to cart',
+                'error'=> $e,
+            ],400);
         }
+        
     }
 }
