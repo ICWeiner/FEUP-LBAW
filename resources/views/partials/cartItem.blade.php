@@ -9,11 +9,11 @@
 
       <script>
         function getQuantity(){
-          return document.getElementById('quantity').value;
+          return document.getElementById('quantity_{{ $product->id_product }}').value;
         }
       </script>
       <label for="quantity">quantity:</label>
-      <input type="number" id="quantity" name="quantity" value="{{ $product->pivot->quantity }}" min="0" max="{{$product->pivot->quantity}}">
+      <input type="number" id="quantity_{{ $product->id_product }}" name="quantity" value="{{ $product->pivot->quantity }}" min="0" max="{{$product->pivot->quantity}}">
       <input type="button" value="Update Quantity" onclick="return updateCartProduct( {{$product->id_product}},getQuantity() )">
 
   </div>

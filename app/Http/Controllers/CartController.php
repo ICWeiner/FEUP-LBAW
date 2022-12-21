@@ -59,14 +59,18 @@ class CartController extends Controller
         try{
             $user = Auth::user();
 
-            $product = $user->cart()->where('product.id_product',$request->id_product)->first();
+            $products = $user->cart()->where('product.id_product',$request->id_product)->first();
             
-            if ($product != null){
+            if ($products != null){
                 if($request->quantity == 0){
                     $user->cart()->detach($request->id_product);
+                    return response()->json([
+                        'Message' => "Product removed",
+                        #'total' => $total,
+                        ],200);
                 }else{
-                    $product->pivot->quantity = intval($request->quantity);
-                    $product->pivot->update();
+                    $products->pivot->quantity = intval($request->quantity);
+                    $products->pivot->update();
                 }
     
                 $products = $user->cart()->get();
@@ -79,6 +83,7 @@ class CartController extends Controller
                     'total' => $total,
                     'new_quantity' => $request->quantity,
                     'id' => $request->id_product,
+                    'array' => $products,
                     ],200);
             }else{
                 return response()->json([
