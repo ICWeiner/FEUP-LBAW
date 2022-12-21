@@ -62,8 +62,8 @@ class CartController extends Controller
             $product = $user->cart()->where('product.id_product',$request->id_product)->first();
             
             if ($product != null){
-                if($request->quantity === 0){
-                    $product->pivot->delete();
+                if($request->quantity == 0){
+                    $user->cart()->detach($request->id_product);
                 }else{
                     $product->pivot->quantity = intval($request->quantity);
                     $product->pivot->update();
@@ -87,7 +87,7 @@ class CartController extends Controller
 
         }catch (\Exception $e) {
             return response()->json([
-                'Message' => 'Error adding product to cart',
+                'Message' => 'Error updating product on cart',
                 'error'=> $e,
             ],400);
         }
