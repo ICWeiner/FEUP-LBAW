@@ -10,7 +10,7 @@ function updateCartProduct(id,quant){
 
 function cartUpdatedHandler() {
     let item = JSON.parse(this.responseText);
-    let element = document.querySelector('#cartTotal').value = 20;
+    let element = document.querySelector('#cartTotal').innerHTML = "Total : " + item.total + "$";
     //let input = element.querySelector('input[type=checkbox]');
     //element.checked = item.done == "true";
   }
