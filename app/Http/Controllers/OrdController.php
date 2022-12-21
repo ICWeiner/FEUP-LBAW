@@ -46,6 +46,8 @@ class OrdController extends Controller
             foreach ($cart as $product) {
                 $ord->products()->attach($product->id_product, ['quantity' => $product->pivot->quantity]);
             }
+
+            $user->cart()->detach();
         }
         return redirect('/orderSuccess');
     }
