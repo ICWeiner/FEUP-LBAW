@@ -74,7 +74,7 @@ class UserController extends Controller
         $user = Auth::user();
         return view('pages.userEdit', ['user' => $user]);
         #}
-    }
+        $request->session()->invalidate();   }
 
     public function edit(Request $request)
     {
@@ -99,11 +99,34 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request)
     {
-        //
+        $user = Auth::user();
+        $user->name  = "deleted";
+        $user->email = "deleted" . $user->id_user;
+        $user->update();
+
+
+        auth()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home');
+
+
+        #Auth::logout();
+
+
+
+        #$request->session()->invalidate();
+
+        #$request->session()->regenerateToken();
+
+        #return redirect('/');
     }
 }

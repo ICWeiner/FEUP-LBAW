@@ -34,6 +34,10 @@
       <input type="submit" value="Order History" />
     </form>
 
+    <form method="GET" action="{{ url('/deleteUser') }}">
+      <input type="submit" value="Delete Account" />
+    </form>
+
     @if (Auth::user()->user_is_admin === true)
         <form method="GET" action="{{ url('adminDashboard') }}">
             <input type="submit" value="Administration Area" />

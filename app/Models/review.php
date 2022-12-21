@@ -14,33 +14,31 @@ class review extends Model
 
     public $timestamps = false;
 
+    #protected $dateFormat = 'yyyy-mm-dd';
+
     protected $fillable = [
         'comment', 'rating', 'review_date', 'id_product', 'id_user',
-    ];
-
-    protected $hidden = [
-        'url',
     ];
 
     protected $casts = [
         'id_review' => 'integer',
         'comment' => 'string',
         'rating' => 'float',
-        'review_date' => 'datetime:d-m-Y',
+        'review_date' => 'datetime:Y-m-d',
         'id_product' => 'integer',
         'id_user' => 'integer',
     ];
 
     public function productOwner() {
-        return $this->belongsTo('App\Models\Product');
+        return $this->belongsTo(product::class);
     }
 
     public function reviewOwner() {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasOne(User::class, 'id_user');
     }
 
     public function comments() {
-        return $this->hasMany('App\Models\comment');
+        return $this->hasMany(comment::class, 'id_review');
     }
 
     public function flagged() {

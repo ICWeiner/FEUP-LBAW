@@ -31,10 +31,10 @@ class comment extends Model
     ];
 
     public function reviewOwner() {
-        return $this->belongsTo('App\Models\review');
+        return $this->belongsTo(product::class);
     }
 
     public function usersOwner() {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasOne(User::class, 'id_user');
     }
 }

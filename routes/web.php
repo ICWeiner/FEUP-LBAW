@@ -11,7 +11,7 @@
 |
 */
 // Home
-Route::get('/', 'ProductController@list');
+Route::get('/', 'ProductController@list')->name('home');;
 
 //static pages
 Route::get('about', 'StaticController@about');
@@ -59,6 +59,11 @@ Route::get('updateFunkoPop', 'FunkoPopController@showUpdateForm')->name('updateF
 Route::post('updateFunkoPop', 'FunkoPopController@update');
 Route::post('deleteFunkoPop', 'FunkoPopController@destroy')->name('deleteFunkoPop');
 
+
+//Review
+Route::post('addReview', 'ReviewController@create')->name('addReview');
+Route::post('addComment', 'CommentController@create')->name('addComment');
+
 // API
 Route::get('api/cart', 'CartController@showCart')->name('cart');
 Route::put('api/cart/{id_product}', 'CartController@addToCart');
@@ -78,6 +83,7 @@ Route::get('user', 'UserController@show')->name('user');
 Route::get('editUser', 'UserController@showEditForm')->name('editUser');
 Route::post('editUser', 'UserController@edit');
 Route::get('showOrders/{user}', 'UserController@showOrders');
+Route::get('deleteUser', 'UserController@destroy')->name('deleteUser');
 
 //Admin area
 Route::get('adminDashboard', 'AdminController@dashboard')->name('adminDashboard');

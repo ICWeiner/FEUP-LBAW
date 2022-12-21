@@ -50,7 +50,7 @@ class Product extends Model
 
     public function reviews()
     {
-        return $this->hasMany('App\Models\review');
+        return $this->hasMany(review::class, 'id_product');
     }
 
     public function ownerCollection()
