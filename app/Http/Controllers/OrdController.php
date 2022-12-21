@@ -27,19 +27,27 @@ class OrdController extends Controller
      */
     public function create()
     {
+        
         if (Auth::check()) {
-            $cart = Session::get('cart');
             $user = Auth::user();
+            $cart = $user->cart()->get();
+            $total = $cart->sum(function($t){ 
+                return $t->price*$t->pivot->quantity; 
+            });
+
             $ord = ord::create([
                 'id_user' => $user->id_user,
                 'id_status' => 1,
-                'total_price' => 0,
-                'tracking_number' => 452332,
-                'buy_date' => date('Y-m-d H:i:s'),
+                'total_price' => $total,
+                'tracking_number' => 452333,
+                'buy_date' => now(),
             ]);
-            foreach ($cart as $id) {
-                $ord->products()->attach($id, ['quantity' => 1]);
+
+            foreach ($cart as $product) {
+                $ord->products()->attach($product->id_product, ['quantity' => $product->pivot->quantity]);
             }
+
+            $user->cart()->detach();
         }
         return redirect('/orderSuccess');
     }

@@ -25,7 +25,7 @@ Route::get('products/{id}', 'ProductController@show');
 
 //Cart
 Route::get('cart', 'CartController@showCart')->name('cart');
-Route::post('addToCart', 'CartController@addToCart')->name('addToCart');
+
 
 //Orders
 Route::get('orders/{id}', 'OrdController@show');
@@ -65,6 +65,9 @@ Route::post('addReview', 'ReviewController@create')->name('addReview');
 Route::post('addComment', 'CommentController@create')->name('addComment');
 
 // API
+Route::get('api/cart', 'CartController@showCart')->name('cart');
+Route::put('api/cart/{id_product}', 'CartController@addToCart');
+Route::post('api/cart/{id_product}', 'CartController@updateCartProduct');
 
 
 // Authentication

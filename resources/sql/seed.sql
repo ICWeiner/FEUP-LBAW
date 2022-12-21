@@ -22,6 +22,8 @@ DROP TABLE IF EXISTS shoe CASCADE;
 DROP TABLE IF EXISTS color CASCADE;
 DROP TABLE IF EXISTS size CASCADE;
 DROP TABLE IF EXISTS shoeColorSize CASCADE;
+DROP TABLE IF EXISTS productCart CASCADE;
+
 
 CREATE TABLE users( --table name is plural because "user" is a reserved keyword
   id_user SERIAL PRIMARY KEY,
@@ -46,6 +48,7 @@ CREATE TABLE addressBook(
   name TEXT NOT NULL,
   id_user INTEGER REFERENCES users (id_user) ON UPDATE CASCADE
 );
+
 
 CREATE TABLE paymentInfo(
   id_payment_info SERIAL PRIMARY KEY,
@@ -74,6 +77,15 @@ CREATE TABLE product(
   year INTEGER NOT NULL,
   rating FLOAT NOT NULL CHECK (rating >=0 AND rating <= 5),
   sku TEXT NOT NULL
+);
+
+CREATE TABLE productCart(
+    id_cart serial PRIMARY KEY,
+    id_user integer NOT NULL REFERENCES users(id_user) ON DELETE CASCADE,
+    id_product integer NOT NULL REFERENCES product(id_product) ON DELETE CASCADE,
+    quantity integer NOT NULL,
+    CONSTRAINT quantity CHECK ((quantity > 0)),
+    UNIQUE(id_user, id_product)
 );
 
 CREATE TABLE review(

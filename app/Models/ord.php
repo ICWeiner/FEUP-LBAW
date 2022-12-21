@@ -26,9 +26,9 @@ class ord extends Model
         'id_ord' => 'integer',
         'total_price' => 'float',
         'tracking_number' => 'string',
-        'buy_date' => 'datetime:d-m-Y',
-        'shipping_date' => 'datetime:d-m-Y',
-        'arrival_date' => 'datetime:d-m-Y',
+        'buy_date' => 'datetime:Y-m-d',
+        'shipping_date' => 'datetime:Y-m-dY',
+        'arrival_date' => 'datetime:Y-m-d',
         'id_user' => 'integer',
     ];
 
