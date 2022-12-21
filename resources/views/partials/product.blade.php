@@ -23,6 +23,20 @@
         ante ipsum primis in faucibus. Phasellus nec cursus mauris, eu lobortis sem. 
       </p></a>
     </div>
+    <h3>Some Reviews</h3>
+    <li> @foreach($product->reviews as $review)
+          <a> <p> {{$review->comment}} </p> </a>
+          <a> <p> {{$review->rating}} </p> </a>
+          <a> <p> {{$review->review_date}} </p> </a>
+          <a> <p> {{$review->reviewOwner->name}} </p> </a>
+
+          <h3>Comments</h3>
+          @foreach($review->comments as $comment)
+            <a> <p>{{$comment->content}} </p> </a>
+            <a> <p>{{$comment->rating}} </p> </a>
+            <a> <p>{{$comment->usersOwner->name}} </p> </a>
+          @endforeach
+        @endforeach </li>
     @if (Auth::check())
     <textarea id="confirmationText" class="text" cols="86" rows ="20" name="reviewText" form="reviewForm"></textarea>
     <form method="POST" class="add_review" id="reviewForm" name="reviewForm" action="{{ route('addReview') }}">

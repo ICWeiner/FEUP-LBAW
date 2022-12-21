@@ -28,4 +28,20 @@
     <input type="submit" value="Delete Book" />
     </form>
 @endif
+
+<h3>Some Reviews</h3>
+    @foreach($book->owner->reviews as $review)
+        <a> <p> {{$review->comment}} </p> </a>
+        <a> <p> {{$review->rating}} </p> </a>
+        <a> <p> {{$review->review_date}} </p> </a>
+        <a> <p> {{$review->reviewOwner->name}} </p> </a>
+
+        <h3>Comments</h3>
+        @foreach($review->comments as $comment)
+            <a> <p>{{$comment->content}} </p> </a>
+            <a> <p>{{$comment->rating}} </p> </a>
+            <a> <p>{{$comment->usersOwner->name}} </p> </a>
+        @endforeach
+    @endforeach
+
 </article>

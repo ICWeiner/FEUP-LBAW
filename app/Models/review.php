@@ -30,15 +30,15 @@ class review extends Model
     ];
 
     public function productOwner() {
-        return $this->belongsTo('App\Models\Product');
+        return $this->belongsTo(product::class);
     }
 
     public function reviewOwner() {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasOne(User::class, 'id_user');
     }
 
     public function comments() {
-        return $this->hasMany('App\Models\comment');
+        return $this->hasMany(comment::class, 'id_review');
     }
 
     public function flagged() {
