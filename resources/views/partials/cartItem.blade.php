@@ -1,4 +1,4 @@
-<article class="cartItemPage">
+<article class="cartItemPage" id="CartItem_{{$product->id_product}}">
   <div class="cartItem">
     <div class= "productImage">
       <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360">

@@ -77,6 +77,8 @@ class CartController extends Controller
                 return response()->json([
                     'Message' => 'Cart updated',
                     'total' => $total,
+                    'new_quantity' => $request->quantity,
+                    'id' => $request->id_product,
                     ],200);
             }else{
                 return response()->json([
