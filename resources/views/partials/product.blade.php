@@ -8,7 +8,19 @@
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->rating }} Stars</a></h2>
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->price }} $</a></h2>
       <!--<a href="#" class="delete">&#10761;</a>-->
-      <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}} )">
+
+      @if($product->stock_quantity === 0)
+      <p>Sorry, product is currently out of stock</p>
+      @else
+      <script>
+        function getQuantity(){
+          return document.getElementById('quantity').value;
+        }
+      </script>
+      <label for="quantity">quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{$product->stock_quantity}}">
+      <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
+      @endif
 
     </div>
     <a><p>Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 

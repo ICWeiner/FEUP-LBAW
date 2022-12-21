@@ -54,7 +54,7 @@ class CartController extends Controller
                     'Message' => 'Product already in cart',
                     ],500);
             }else{
-                $user->cart()->attach($request->id_product,array('quantity' => 1));
+                $user->cart()->attach($request->id_product,array('quantity' => $request->quantity));
                 return response()->json([
                     'Message' => 'Product added to cart',
                     ],200);

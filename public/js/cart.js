@@ -1,6 +1,6 @@
-function addToCart(id){
+function addToCart(id,quant){
 
-    sendAjaxRequest('put','/api/cart/' + id  ,null,null)
+    sendAjaxRequest('put','/api/cart/' + id  ,{quantity: quant},null)
 }
 
 function encodeForAjax(data) {
