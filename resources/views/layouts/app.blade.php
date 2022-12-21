@@ -39,7 +39,7 @@
                 @endif
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categories
+                    Products
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{ url('/books') }}">Books</a></li>
@@ -74,34 +74,31 @@
           </div>
         </nav>
       </header>
-
         <section id="content">
           @yield('content')
         </section>
-
-
     </main>
-        <footer class="text-center text-lg-start bg-light text-muted">
+        <footer class="text-center text-lg-start text-muted" style="background-color: rgba(0, 0, 0, 0.05);">
           <section class="">
-            <div class="container text-center text-md-start mt-5">
-              <div class="row mt-3">
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <h6 class="text-uppercase fw-bold mb-4">
+            <div class="container text-center text-md-start">
+              <div class="row">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto ">
+                  <h6 class="text-uppercase fw-bold ">
                     <a href="{{ url('/faq') }}">FAQ</a>
                   </h6>
                 </div>
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <h6 class="text-uppercase fw-bold mb-4">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto ">
+                  <h6 class="text-uppercase fw-bold ">
                     <a href="{{ url('/about') }}">About</a>
                   </h6>
                 </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <h6 class="text-uppercase fw-bold mb-4">
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto ">
+                  <h6 class="text-uppercase fw-bold ">
                     <a href="{{ url('/services') }}">Services</a>
                   </h6>
                 </div>
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                  <h6 class="text-uppercase fw-bold mb-4">
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
+                  <h6 class="text-uppercase fw-bold ">
                     <a href="{{ url('/contact') }}">Contact Us</a>
                   </h6>
                 </div>

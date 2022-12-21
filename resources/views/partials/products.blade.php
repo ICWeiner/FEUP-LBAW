@@ -11,5 +11,6 @@
   </ul>
   <div class="card-body">
     <a href="/products/{{ $product->id_product }}" class="card-link">More details</a>
+    <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},1 )">
   </div>
 </div>
