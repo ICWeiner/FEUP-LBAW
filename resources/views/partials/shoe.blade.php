@@ -41,4 +41,16 @@
         @endforeach
     @endforeach
 
+    <h4>Add a Review</h4>
+    @if (Auth::check())
+    <textarea id="confirmationText" class="text" cols="86" rows ="20" name="reviewText" form="reviewForm"></textarea>
+    <form method="POST" class="add_review" id="reviewForm" name="reviewForm" action="{{ route('addReview') }}">
+      {{ csrf_field() }}
+      <label for="rating">Rating (between 1 and 5):</label>
+      <input type="number" id="rating" name="rating" min="1" max="5">
+      <input name="id_product" value="{{ $shoe->id_product }}" hidden required>
+      <input type="submit" name="submitReview" value="Submit Review">
+    </form>
+    @endif
+
 </article>

@@ -37,6 +37,8 @@
             <a> <p>{{$comment->usersOwner->name}} </p> </a>
           @endforeach
         @endforeach </li>
+
+    <h4>Add a Review</h4>    
     @if (Auth::check())
     <textarea id="confirmationText" class="text" cols="86" rows ="20" name="reviewText" form="reviewForm"></textarea>
     <form method="POST" class="add_review" id="reviewForm" name="reviewForm" action="{{ route('addReview') }}">
