@@ -3,8 +3,8 @@ function addToCart(id,quant){
     sendAjaxRequest('put','/api/cart/' + id  ,{quantity: quant},null)
 }
 
-function updateCartProduct(id,quant){
-
+function updateCartProduct(id){
+    quant= document.querySelector('#quantity_'+id).value;
     sendAjaxRequest('post','/api/cart/' + id  ,{quantity: quant},cartUpdatedHandler)
 }
 

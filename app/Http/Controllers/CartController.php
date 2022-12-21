@@ -64,10 +64,6 @@ class CartController extends Controller
             if ($products != null){
                 if($request->quantity == 0){
                     $user->cart()->detach($request->id_product);
-                    return response()->json([
-                        'Message' => "Product removed",
-                        #'total' => $total,
-                        ],200);
                 }else{
                     $products->pivot->quantity = intval($request->quantity);
                     $products->pivot->update();
