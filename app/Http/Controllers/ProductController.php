@@ -144,8 +144,14 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
-        //
+        if (!Auth::check()) return redirect('/login');
+        if (Auth::user()->user_is_admin === true) {
+            $product = Product::find($request['id_product']);
+            $product->delete();
+            return redirect('products/');
+        }
+        return redirect('/');
     }
 }
