@@ -59,6 +59,15 @@
                 @endif
                 @if (Auth::check())
                 <li class="nav-item">
+                  <a class="nav-link active" href="{{ url('/wishlist') }}">Wishlist</a>
+                </li>
+                  @else
+                  <li clss="nav-item">
+                  <a class="nav-link disabled" href="{{ url('/wishlist') }}">Wishlist</a>
+                  </li>
+                @endif
+                @if (Auth::check())
+                <li class="nav-item">
                   <a class="nav-link active" href="{{ url('/logout') }}">Logout</a>
                 </li>
                   @else

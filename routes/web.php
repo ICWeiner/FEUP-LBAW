@@ -24,8 +24,10 @@ Route::get('products', 'ProductController@list');
 Route::get('products/{id}', 'ProductController@show');
 
 //Cart
-Route::get('cart', 'CartController@showCart')->name('cart');
+Route::get('cart', 'CartController@show')->name('cart');
 
+//Wishlist
+Route::get('wishlist', 'WishlistController@list')->name('wishlist');
 
 //Orders
 Route::get('orders/{id}', 'OrdController@show');
@@ -65,11 +67,12 @@ Route::post('addReview', 'ReviewController@create')->name('addReview');
 Route::post('addComment', 'CommentController@create')->name('addComment');
 
 // API
-Route::get('api/cart', 'CartController@showCart')->name('cart');
 Route::put('api/cart/{id_product}', 'CartController@addToCart');
 Route::post('api/cart/{id_product}', 'CartController@updateCartProduct');
 
 Route::put('api/wishlist/{id_product}', 'WishlistController@updateWishlist');
+
+
 
 
 // Authentication
