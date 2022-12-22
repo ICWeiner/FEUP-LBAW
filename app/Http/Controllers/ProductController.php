@@ -20,19 +20,20 @@ class ProductController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * 
-     */
-    public static function create(Request $request) {
+    public function showCreateForm()
+    {
+        if (!Auth::check()) return redirect('/login');
+        if (Auth::user()->user_is_admin !== true) return redirect('/');
+        return view('admin.adminNewProductForm');
+    }
+
+    public function create(Request $request) {
 
         if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
 
             $this->validate($request, [
                 'name'      => 'required|string|max:255',
-                'number_pop'=> 'required|integer',
                 'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
                 'url'       => 'required|string',
@@ -40,17 +41,19 @@ class ProductController extends Controller
                 'sku'       => 'required|string',
             ]);
 
-            $product = Product::find($product_data['id_product']);
-            #$product->done = $product_data->input('done');
-            $product->name = $product_data['name'];
-            $product->price = $product_data['price'];
-            $product->stock_quantity = $product_data['stock_quantity'];
-            $product->url = $product_data['url'];
-            $product->year = $product_data['year'];
-            #$product->rating = $request['rating'];
-            $product->sku = $product_data['sku'];
-            return redirect()->back();
+            
+            $product = Product::create([
+            'name' => $request['name'],
+            'price' => $request['price'],
+            'stock_quantity' => $request['stock_quantity'],
+            'url' => $request['url'],
+            'year' =>  $request['year'],
+            'sku' => $request['sku'],
+            ]);
+
+            return redirect('products/' . $product->id_product);      
         }
+        return redirect('/');
     }
 
     /**

@@ -23,9 +23,12 @@ Route::get('contact', 'StaticController@contact');
 Route::get('products', 'ProductController@list');
 Route::get('products/{id}', 'ProductController@show');
 
+
 Route::get('updateProduct', 'ProductController@showUpdateForm')->name('updateProduct');
 Route::post('updateProduct', 'ProductController@update');
 Route::post('deleteProduct', 'ProductController@destroy')->name('deleteProduct');
+Route::get('addProduct', 'ProductController@showCreateForm');
+Route::post('addProduct', 'ProductController@create')->name('addProduct');
 
 //Cart
 Route::get('cart', 'CartController@show')->name('cart');
