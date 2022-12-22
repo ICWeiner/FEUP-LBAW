@@ -1,4 +1,5 @@
-<div class="card" style="width: 18rem;" data-id="{{ $product->id_product }}">
+@extends('products', ['page_id' => $page_id] )
+<div class="card" style="width: 18rem;" id="{{ $page_id }}_product_{{ $product->id_product }}" data-id="{{ $product->id_product }}">
   <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{ $product->name }}</h5>

@@ -52,6 +52,7 @@ class WishlistController extends Controller
                 return response()->json([
                     'Message' => 'Product removed to wishlist',
                     'Product removed' => $product->name,
+                    'id' => $request->id_product,
                     ],200);
             }
 
