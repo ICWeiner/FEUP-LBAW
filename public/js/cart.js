@@ -24,7 +24,7 @@ function cartUpdatedHandler() {
 
 function wishlistUpdatedHandler() {
     let item = JSON.parse(this.responseText);
-    document.querySelector('#wishlist_product_'+item.id).outerHTML = "";
+    document.querySelector('#product_'+item.id).outerHTML = "";
     
     //let input = element.querySelector('input[type=checkbox]');
     //element.checked = item.done == "true";
