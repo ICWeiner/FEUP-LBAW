@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\funkoPop;
 use App\Models\Product;
+use App\Http\Controllers\ProductController;
 
 class FunkoPopController extends Controller
 {
@@ -117,11 +118,13 @@ class FunkoPopController extends Controller
      */
     public function update(Request $request)
     {
+        /*
         if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
+
             $this->validate($request, [
                 'name'      => 'required|string|max:255',
-                'number_pop' => 'required|integer',
+                'number_pop'=> 'required|integer',
                 'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
                 'url'       => 'required|string',
@@ -129,22 +132,24 @@ class FunkoPopController extends Controller
                 'sku'       => 'required|string',
             ]);
 
+            $product_data = ['id_product'     => $request['id_product'],
+                             'name'           => $request['name'],
+                             'price'          =>  $request['price'],
+                             'stock_quantity' => $request['stock_quantity'],
+                             'url'            => $request['url'],
+                             'year'           => $request['year'],
+                             #'rating'=> ,
+                             'sku'            => $request['sku'],];
+
+            if(!ProductController::update($product_data)) return;#TODO couldnt save, do something
+
+
 
             $funko = funkoPop::find($request['id_product']);
             $funko->number_pop = $request['number_pop'];
             #$shoe->done = $request->input('done');
-            $funko->save();
+            $funko->save();*/
 
-            $product = Product::find($request['id_product']);
-            #$product->done = $request->input('done');
-            $product->name = $request['name'];
-            $product->price = $request['price'];
-            $product->stock_quantity = $request['stock_quantity'];
-            $product->url = $request['url'];
-            $product->year = $request['year'];
-            #$product->rating = $request['rating'];
-            $product->sku = $request['sku'];
-            $product->save();
         }
         return redirect('funkoPops');
     }

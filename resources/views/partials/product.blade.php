@@ -22,6 +22,20 @@
       <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
       <input type="button" value="Add to Wishlist" onclick="return addToWishlist( {{$product->id_product}} )">
       @endif
+      @if (Auth::user()->user_is_admin === true)
+        <form method="GET" action="{{ route('updateProduct') }}">
+            <input id="id_product" name="id_product" value={{ $product->id_product }} required hidden/>
+
+            <input type="submit" value="Update Product" />
+            </form>
+
+        <form method="POST" action="{{ route('deleteProduct') }}">
+            {{ csrf_field() }}
+            <input id="id_product" name="id_product" value={{ $product->id_product }} required hidden/>
+
+            <input type="submit" value="Delete Product" />
+            </form>
+      @endif
 
     </div>
       <a><p>Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 

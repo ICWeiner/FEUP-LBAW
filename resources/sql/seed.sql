@@ -77,6 +77,7 @@ CREATE TABLE product(
   url TEXT NOT NULL,
   year INTEGER NOT NULL,
   rating FLOAT NOT NULL CHECK (rating >=0 AND rating <= 5),
+  deleted_at DATE,
   sku TEXT NOT NULL
 );
 
