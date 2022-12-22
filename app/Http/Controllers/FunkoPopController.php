@@ -22,6 +22,7 @@ class FunkoPopController extends Controller
 
     public function showCreateForm()
     {
+        if (!Auth::check()) return redirect('/login');
         return view('pages.addFunkoPops');
     }
 
@@ -32,6 +33,7 @@ class FunkoPopController extends Controller
      */
     public function create(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
             $this->validate($request, [
                 'name'      => 'required|string|max:255',
@@ -100,6 +102,7 @@ class FunkoPopController extends Controller
 
     public function showUpdateForm(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         $funko = funkoPop::find($request['id_product']);
         $product = product::find($request['id_product']);
         return view('pages.updateFunkoPop', ['funko' => $funko, 'product' => $product]);
@@ -114,6 +117,7 @@ class FunkoPopController extends Controller
      */
     public function update(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
             $this->validate($request, [
                 'name'      => 'required|string|max:255',
@@ -148,6 +152,7 @@ class FunkoPopController extends Controller
 
     public function destroy(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         $funko = funkoPop::find($request['id_product']);
         $product = Product::find($request['id_product']);
 

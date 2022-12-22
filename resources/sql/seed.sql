@@ -23,6 +23,7 @@ DROP TABLE IF EXISTS color CASCADE;
 DROP TABLE IF EXISTS size CASCADE;
 DROP TABLE IF EXISTS shoeColorSize CASCADE;
 DROP TABLE IF EXISTS productCart CASCADE;
+DROP TABLE IF EXISTS wishlist CASCADE;
 
 
 CREATE TABLE users( --table name is plural because "user" is a reserved keyword
@@ -85,6 +86,14 @@ CREATE TABLE productCart(
     id_product integer NOT NULL REFERENCES product(id_product) ON DELETE CASCADE,
     quantity integer NOT NULL,
     CONSTRAINT quantity CHECK ((quantity > 0)),
+    UNIQUE(id_user, id_product)
+);
+
+CREATE TABLE wishlist(
+    id_wishlist serial PRIMARY KEY,
+    id_user integer NOT NULL REFERENCES users(id_user) ON DELETE CASCADE,
+    id_product integer NOT NULL REFERENCES product(id_product) ON DELETE CASCADE,
+    date_added DATE NOT NULL,
     UNIQUE(id_user, id_product)
 );
 

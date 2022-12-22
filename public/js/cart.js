@@ -1,11 +1,14 @@
 function addToCart(id,quant){
-
     sendAjaxRequest('put','/api/cart/' + id  ,{quantity: quant},null)
 }
 
 function updateCartProduct(id){
     quant= document.querySelector('#quantity_'+id).value;
     sendAjaxRequest('post','/api/cart/' + id  ,{quantity: quant},cartUpdatedHandler)
+}
+
+function addToWishlist(id,quant){
+  sendAjaxRequest('put','/api/wishlist/' + id  ,null,wishlistUpdatedHandler)
 }
 
 function cartUpdatedHandler() {
@@ -15,6 +18,14 @@ function cartUpdatedHandler() {
     if (item.new_quantity == 0){
       document.querySelector('#CartItem_'+item.id).outerHTML = ""
     }
+    //let input = element.querySelector('input[type=checkbox]');
+    //element.checked = item.done == "true";
+  }
+
+function wishlistUpdatedHandler() {
+    let item = JSON.parse(this.responseText);
+    document.querySelector('#wishlist_product_'+item.id).outerHTML = "";
+    
     //let input = element.querySelector('input[type=checkbox]');
     //element.checked = item.done == "true";
   }

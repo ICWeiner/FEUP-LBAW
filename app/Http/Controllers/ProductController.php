@@ -57,7 +57,6 @@ class ProductController extends Controller
         return view('pages.reviews');
     }
 
-    #com o id procurar o shoe que tem id correspondente e depois mandar pra view
 
     /**
      * Shows all products
@@ -66,8 +65,6 @@ class ProductController extends Controller
      */
     public function list()
     {
-        //if (!Auth::check()) return redirect('/login');
-        //$this->authorize('list', Card::class);
         $products = Product::all();//products()->orderBy('id')->get();
         return view('pages.products', ['products' => $products]);
     }

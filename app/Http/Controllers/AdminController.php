@@ -13,12 +13,14 @@ class AdminController extends Controller
 
     public function dashboard()
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true)
             return view('admin.adminDashboard');
     }
 
     public function itemDashboard()
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
             return view('admin.adminItemsDashboard');
         }
@@ -26,6 +28,7 @@ class AdminController extends Controller
 
     public function userDashboard()
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
             $users = User::all();
             return view('admin.adminUsersDashboard', ['users' => $users]);
@@ -34,6 +37,7 @@ class AdminController extends Controller
 
     public function userEditForm()
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
             return view('admin.adminEditUserForm',)->with("id_user", Request::get('id_user'));
         }
@@ -41,6 +45,7 @@ class AdminController extends Controller
 
     public function userEdit()
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
             $user = User::find(Request::post('id_user'));
             $user->name = Request::post('name');
@@ -51,6 +56,7 @@ class AdminController extends Controller
 
     public function banUser()
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
             $user = User::find(Request::post('id_user'));
             $user->user_is_banned = true;

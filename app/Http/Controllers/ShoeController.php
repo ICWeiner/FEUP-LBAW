@@ -22,6 +22,7 @@ class ShoeController extends Controller
 
     public function showCreateForm()
     {
+        if (!Auth::check()) return redirect('/login');
         return view('pages.addShoes');
     }
 
@@ -32,6 +33,7 @@ class ShoeController extends Controller
      */
     public function create(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
 
             $this->validate($request, [
@@ -105,6 +107,7 @@ class ShoeController extends Controller
 
     public function showUpdateForm(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         $shoe = shoe::find($request['id_product']);
         $product = product::find($request['id_product']);
         return view('pages.updateShoe', ['shoe' => $shoe, 'product' => $product]);
@@ -120,6 +123,7 @@ class ShoeController extends Controller
     public function update(Request $request)
     {
 
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
 
             $this->validate($request, [
