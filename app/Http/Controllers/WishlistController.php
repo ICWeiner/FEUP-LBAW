@@ -15,7 +15,6 @@ class WishlistController extends Controller
     public function updateWishlist(Request $request){
 
         try{
-
             if (!Auth::check()) return response()->json([
                 'Message' => "You can´t do that >:(" ,
                 ],400);;
@@ -27,15 +26,11 @@ class WishlistController extends Controller
                     'Message' => 'Product not found',
                 ],404);
             }
-
-            /*return response()->json([
-                'Message' => 'cool',
-            ],200);*/
             
-            $product = Product::where('id_product', $request->id_product )->first();
+            $product = Product::find($request->id_product);
             
-            if ($product !== null){
-                $user->wishlist()->attach($request->id_product);
+            if (!$user->wishlist()->where('product.id_product',$request->id_product)->exists() ){
+                $user->wishlist()->attach($request->id_product,['date_added' => now()]);
                 return response()->json([
                     'Message' => 'Product added to wishlist',
                     'Product added' => $product->name,
@@ -45,13 +40,12 @@ class WishlistController extends Controller
                 return response()->json([
                     'Message' => 'Product removed to wishlist',
                     'Product removed' => $product->name,
-                    ],404);
+                    ],200);
             }
 
         }catch (\Exception $e) {
             return response()->json([
-                'Message' => 'Error on wishlist operation',
-                'error'=> $e,
+                'Message' => 'Internal server error on wishlist operation',
             ],400);
         }
         

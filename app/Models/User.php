@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function wishlist()
     {
-        return $this->belongsToMany('App\Models\Product','wishlist','id_user','id_product')->withPivot('date');
+        return $this->belongsToMany('App\Models\Product','wishlist','id_user','id_product')->withPivot('date_added');
     }
 
     public function comments()
