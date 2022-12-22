@@ -881,27 +881,6 @@ CREATE INDEX order_iduser_idx ON ord USING hash (id_user);
 CREATE INDEX search_product_name_idx ON product USING GIST (to_tsvector('english', name));
 
 
--- TRIGGER01
--- This trigger will make it so a user can only make a review on a previously purchased item. (ABR.01)
-
-CREATE OR REPLACE FUNCTION check_user_ownership() RETURNS TRIGGER AS
-    $BODY$
-    BEGIN
-        IF NOT EXISTS (
-            SELECT *
-            FROM productOrd WHERE productOrd.id_product = New.id_product AND
-            productOrd.id_user = New.id_user) THEN
-        RAISE EXCEPTION 'User doesn''t own this product so he can''t review it.';
-       END IF;
-       RETURN NEW;
-    END
-    $BODY$
-LANGUAGE plpgsql;
-
-CREATE TRIGGER check_review
-        BEFORE INSERT OR UPDATE ON review
-        FOR EACH ROW
-        EXECUTE PROCEDURE check_user_ownership();
 
 -- TRIGGER02
 -- This trigger will it so a user can't buy more than the available quantity. (ABR.02)
