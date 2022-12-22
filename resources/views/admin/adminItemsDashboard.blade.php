@@ -4,23 +4,19 @@
 
 @section('content')
 
-<section id="admin">
-    <form method="GET" action="{{ url('/addShoes') }}">
-        <input type="submit" value="Add Shoe" />
-    </form>
 
-    <form method="GET" action="{{ url('/addBooks') }}">
-        <input type="submit" value="Add Book" />
-    </form>
+<div class="mb-5">
+    <p class="lead fw-normal mb-1">Actions</p>
+    <div class="p-4" style="background-color: #f8f9fa;">
+    @if (Auth::user()->user_is_admin === true)
+    <div class="mx-auto">
+        <form method="GET" style="margin-bottom:1.5em"  action="{{ url('/addProduct') }}">
+        <input class="btn btn-primary" type="submit" value="Add Product" />
+        </form>
+    </div>
+    @endif
+</div>
 
-    <form method="GET" action="{{ url('/addFunkoPops') }}">
-        <input type="submit" value="Add Funko Pop" />
-    </form>
 
-
-    <form method="GET" action="">
-        <input type="submit" value="Edit Existing Product" />
-    </form>
-</section>
 
 @endsection
