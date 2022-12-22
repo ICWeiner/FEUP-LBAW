@@ -10,7 +10,7 @@
           <!--name-->
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" class="form-control bg-info bg-opacity-10 border border-primary" id="name" aria-describedby="name" required autofocus>
+            <input type="text" name="name" class="form-control bg-info bg-opacity-10 border border-primary" id="name" aria-describedby="name" pattern="[a-zA-Z0-9]+[a-zA-Z0-9 ]+" required autofocus>
             @if ($errors->has('name'))
               <span class="error">
                   {{ $errors->first('name') }}
