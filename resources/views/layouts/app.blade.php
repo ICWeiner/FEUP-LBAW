@@ -11,8 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script type="text/javascript">
         // Fix for Firefox autofocus CSS bug
         // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
@@ -24,60 +25,93 @@
   <body>
     <main>
       <header>
-
-        <div class="hamburger-menu">
-          <input id="menu__toggle" type="checkbox" />
-          <label class="menu__btn" for="menu__toggle">
-            <span></span>
-          </label>
-
-          <ul class="menu__box">
-            <li><a class="menu__item" href="{{ url('/') }}">Home</a></li>
-            <li><a class="menuitem" href="{{ url('/shoes') }}">Shoes</a></li>
-            <li><a class="menuitem" href="{{ url('/funkoPops') }}">FunkoPops</a></li>
-            <li><a class="menu__item" href="{{ url('/books') }}">Books</a></li>
-              @if (Auth::check())
-              <li>
-                <a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a>
-              </li>
-              @endif
-              @if (Auth::check())
-              <li>
-                <a class="menu_item" href="{{ url('/logout') }}">Logout</a>
-              </li>
-                @else
-                <li>
-                <a class="menu_item" href="{{ url('/login') }}">Login</a>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{{url('/')}}">ATGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                @if (Auth::check())
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a>
+                    </li>
+                @endif
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Products
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ url('/books') }}">Books</a></li>
+                    <li><a class="dropdown-item" href="{{ url('/funkoPops') }}">FunkoPops</a></li>
+                    <li><a class="dropdown-item" href="{{ url('/shoes') }}">Shoes</a></li>
+                  </ul>
                 </li>
-              @endif
-            <li>
-                <a class="menu_item" href="{{ url('/cart') }}">Cart</a>
-            </li>
-          </ul>
-        </div>
-
-        <h1><a href="{{url('/')}}">ATGO</a></h1>
-
-        <div class="search">
-          <form action="/search" method="get">
-            <input type="text" name="search" placeholder="Search...">
-            <button type="submit">Go</button>
-          </form>
-        </div>
-
-        @if (Auth::check())
-        <!--<a href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a><a class="button" href="{{ url('/logout') }}"> Logout </a>-->
-        @endif
+                 @if (Auth::check())
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{ url('/cart') }}">Cart</a>
+                </li>
+                  @else
+                  <li clss="nav-item">
+                  <a class="nav-link disabled" href="{{ url('/cart') }}">Cart</a>
+                  </li>
+                @endif
+                @if (Auth::check())
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{ url('/logout') }}">Logout</a>
+                </li>
+                  @else
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url('/login') }}">Login</a>
+                  </li>
+                @endif
+              </ul>
+              <form class="d-flex" role="search" action="/search" method="get">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
       </header>
-      <section id="content">
-        @yield('content')
-      </section>
+        <section id="content">
+          @yield('content')
+        </section>
     </main>
-      <footer>
-        <h6><a href="{{ url('/about') }}">About</a></h6>
-        <h6><a href="{{ url('/services') }}">Services</a></h6>
-        <h6><a href="{{ url('/faq') }}">FAQ</a></h6>
-        <h6><a href="{{ url('/contact') }}">Contact Us</a></h6>
-      </footer>
-  </body>
+        <footer class="text-center text-lg-start text-muted" style="background-color: rgba(0, 0, 0, 0.05);">
+          <section class="">
+            <div class="container text-center text-md-start">
+              <div class="row">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto ">
+                  <h6 class="text-uppercase fw-bold ">
+                    <a href="{{ url('/faq') }}">FAQ</a>
+                  </h6>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto ">
+                  <h6 class="text-uppercase fw-bold ">
+                    <a href="{{ url('/about') }}">About</a>
+                  </h6>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto ">
+                  <h6 class="text-uppercase fw-bold ">
+                    <a href="{{ url('/services') }}">Services</a>
+                  </h6>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
+                  <h6 class="text-uppercase fw-bold ">
+                    <a href="{{ url('/contact') }}">Contact Us</a>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2023 Copyright:
+            <a class="text-reset fw-bold">LBAW2292</a>
+          </div>
+        </footer>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    </body>
 </html>

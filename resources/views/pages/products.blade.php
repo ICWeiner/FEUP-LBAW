@@ -4,10 +4,8 @@
 
 @section('content')
 
-<section id="products">
+<div class="d-flex flex-wrap flex-row p-2 ms-2">
   @each('partials.products', $products, 'product')
-  <article class="product">
-  </article>
-</section>
+</div>
 
 @endsection
