@@ -54,7 +54,7 @@ class UserController extends Controller
     public function show()
     {
         //
-        #if (Auth::check())
+        if (!Auth::check()) return redirect('/login');
         $user = Auth::user();
         return view('pages.user', ['user' => $user]);
         #}
@@ -62,6 +62,7 @@ class UserController extends Controller
 
     public function showOrders()
     {
+        if (!Auth::check()) return redirect('/login');
         $user = Auth::user();
         return view('pages.orders', ['user' => $user]);
     }
@@ -69,8 +70,7 @@ class UserController extends Controller
 
     public function showEditForm()
     {
-        //
-        #if (Auth::check()) { TODO: change this, or else users will see other users :^)
+        if (!Auth::check()) return redirect('/login');
         $user = Auth::user();
         return view('pages.userEdit', ['user' => $user]);
         #}
@@ -78,6 +78,7 @@ class UserController extends Controller
 
     public function edit(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         $this->validate($request, [
             'name'      => 'required|string|max:255',
             'email'     => 'required|string|email|max:255|unique:users',
@@ -104,6 +105,7 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         $user = Auth::user();
         $user->name  = "deleted";
         $user->email = "deleted" . $user->id_user;

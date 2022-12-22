@@ -12,8 +12,20 @@ use Illuminate\Support\Facades\Auth;
 class WishlistController extends Controller
 {
 
-    public function updateWishlist(Request $request){
+    /**
+     * Shows all wishlisted products
+     *
+     * @return Response
+     */
+    public function list()
+    {
+        if (!Auth::check()) return redirect('/login');
+        $user = Auth::user();
+        $products = $user->wishlist()->get();//products()->orderBy('id')->get();
+        return view('pages.products', ['products' => $products]);
+    }
 
+    public function updateWishlist(Request $request){
         try{
             if (!Auth::check()) return response()->json([
                 'Message' => "You can´t do that >:(" ,

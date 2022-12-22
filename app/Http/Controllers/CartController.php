@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function showCart()
+    public function show()
     {
+        if (!Auth::check()) return redirect('/login');
         $user = Auth::user();
 
         $products = $user->cart()->get();
@@ -27,7 +28,12 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
+        
         try{
+            if (!Auth::check()) return response()->json([
+                'Message' => "You can´t do that >:(" ,
+                ],400);
+
             if (!Product::where('id_product', $request->id_product )->exists()){
                 return response()->json([
                     'Message' => 'Product not found',
@@ -56,6 +62,7 @@ class CartController extends Controller
 
     public function updateCartProduct(Request $request){
 
+        if (!Auth::check()) return redirect('/login');
         try{
             $user = Auth::user();
 

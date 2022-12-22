@@ -24,6 +24,7 @@ class BookController extends Controller
 
     public function showCreateForm()
     {
+        if (!Auth::check()) return redirect('/login');
         return view('pages.addBooks');
     }
 
@@ -34,6 +35,7 @@ class BookController extends Controller
      */
     public function create(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
 
             $this->validate($request, [
@@ -121,6 +123,7 @@ class BookController extends Controller
 
     public function showUpdateForm(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         $book = book::find($request['id_product']);
         $product = product::find($request['id_product']);
         return view('pages.updateBook', ['book' => $book, 'product' => $product]);
@@ -186,6 +189,7 @@ class BookController extends Controller
 
     public function destroy(Request $request)
     {
+        if (!Auth::check()) return redirect('/login');
         $book = book::find($request['id_product']);
         $product = Product::find($request['id_product']);
 
