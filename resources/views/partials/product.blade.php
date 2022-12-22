@@ -20,6 +20,7 @@
       <label for="quantity">quantity:</label>
       <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{$product->stock_quantity}}">
       <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
+      <input type="button" value="Add to Wishlist" onclick="return addToWishlist( {{$product->id_product}} )">
       @endif
 
     </div>

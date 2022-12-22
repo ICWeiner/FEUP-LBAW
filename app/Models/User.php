@@ -52,9 +52,14 @@ class User extends Authenticatable
         return $this->hasMany(ord::class, 'id_user');
     }
 
-    public function cart(){
+    public function cart()
+    {
         return $this->belongsToMany('App\Models\Product','productcart','id_user','id_product')->withPivot('quantity');
+    }
 
+    public function wishlist()
+    {
+        return $this->belongsToMany('App\Models\Product','wishlist','id_user','id_product')->withPivot('date');
     }
 
     public function comments()

@@ -69,6 +69,8 @@ Route::get('api/cart', 'CartController@showCart')->name('cart');
 Route::put('api/cart/{id_product}', 'CartController@addToCart');
 Route::post('api/cart/{id_product}', 'CartController@updateCartProduct');
 
+Route::put('api/wishlist/{id_product}', 'WishlistController@updateWishlist');
+
 
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');;
