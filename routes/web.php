@@ -82,7 +82,7 @@ Route::get('recoverPassword', 'Auth\RegisterController@recoverPassword')->name('
 Route::get('user', 'UserController@show')->name('user');
 Route::get('editUser', 'UserController@showEditForm')->name('editUser');
 Route::post('editUser', 'UserController@edit');
-Route::get('showOrders/{user}', 'UserController@showOrders');
+Route::get('showOrders', 'UserController@showOrders');
 Route::get('deleteUser', 'UserController@destroy')->name('deleteUser');
 
 //Admin area

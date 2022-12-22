@@ -11,45 +11,38 @@ use Session;
 class OrdController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        
-        if (Auth::check()) {
-            $user = Auth::user();
-            $cart = $user->cart()->get();
-            $total = $cart->sum(function($t){ 
-                return $t->price*$t->pivot->quantity; 
-            });
+        if (!Auth::check()) return redirect('/login');
 
-            $ord = ord::create([
-                'id_user' => $user->id_user,
-                'id_status' => 1,
-                'total_price' => $total,
-                'tracking_number' => 452333,
-                'buy_date' => now(),
-            ]);
+        $user = Auth::user();
+        $cart = $user->cart()->get();
+        $total = $cart->sum(function($t){ 
+            return $t->price*$t->pivot->quantity; 
+        });
 
-            foreach ($cart as $product) {
-                $ord->products()->attach($product->id_product, ['quantity' => $product->pivot->quantity]);
-            }
+        $ord = ord::create([
+            'id_user' => $user->id_user,
+            'id_status' => 1,
+            'total_price' => $total,
+            'tracking_number' => 452333,
+            'buy_date' => now(),
+        ]);
 
-            $user->cart()->detach();
+        $this->authorize('create', $ord);
+
+        foreach ($cart as $product) {
+            $ord->products()->attach($product->id_product, ['quantity' => $product->pivot->quantity]);
         }
+
+        $user->cart()->detach();
         return redirect('/orderSuccess');
+            
+        
     }
 
     public function orderSuccess()
@@ -76,7 +69,9 @@ class OrdController extends Controller
      */
     public function show($id)
     {
+        if (!Auth::check()) return redirect('/login');
         $ord = ord::find($id);
+        $this->authorize('view', $ord);
         return view('pages.ord', ['ord' => $ord]);
     }
 
@@ -87,41 +82,9 @@ class OrdController extends Controller
      */
     public function list()
     {
-        $ords = ord::all();
+        if (!Auth::check()) return redirect('/login');
+        $this->authorize('list', Ord::class);
+        $ords = Auth::user()->orders()->orderBy('id')->get();
         return view('pages.ords', ['ords' => $ords]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

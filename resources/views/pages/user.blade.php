@@ -28,9 +28,8 @@
     <p> no payment methods found</p>
     @endisset
     
-    <a class="button" href="{{ url('/showOrders') }}/{{ $user->id_user }}"><span>View Orders</span></a>
 
-    <form method="GET" action="">
+    <form method="GET" action="{{ url('/showOrders') }}">
       <input type="submit" value="Order History" />
     </form>
 

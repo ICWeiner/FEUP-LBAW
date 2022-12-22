@@ -117,16 +117,5 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('home');
-
-
-        #Auth::logout();
-
-
-
-        #$request->session()->invalidate();
-
-        #$request->session()->regenerateToken();
-
-        #return redirect('/');
     }
 }
