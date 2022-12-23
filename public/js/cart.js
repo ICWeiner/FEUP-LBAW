@@ -17,7 +17,7 @@ function productAddedHandler(){
 
     console.log("higi");
     if(item.operation == 'login'){
-      document.querySelector('#cartLogin_'+item.id).style.display = 'block';
+      document.querySelector('#login_'+item.id).style.display = 'block';
     }else{
       document.querySelector('#cartAdded_'+item.id).style.display = 'block';
     }
@@ -30,9 +30,6 @@ function cartUpdatedHandler() {
     if (item.new_quantity == 0){
       document.querySelector('#CartItem_'+item.id).outerHTML = ""
     }
-
-    //let input = element.querySelector('input[type=checkbox]');
-    //element.checked = item.done == "true";
   }
 
 function wishlistUpdatedHandler() {
@@ -46,8 +43,7 @@ function wishlistUpdatedHandler() {
     let unwatchMSG = document.querySelector('#unwatchMSG_'+item.id);
     
     if (item.operation == 'login'){
-      let loginMSG = document.querySelector('#watchLogin_'+item.id);
-      loginMSG.style.display = 'block';
+      document.querySelector('#login_'+item.id).style.display = 'block';;
     }else if(item.operation == 'add'){
       unwatchMSG.style.display = 'none';
       watchMSG.style.display = 'block';
