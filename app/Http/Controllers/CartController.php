@@ -32,11 +32,15 @@ class CartController extends Controller
         try{
             if (!Auth::check()) return response()->json([
                 'Message' => "You can´t do that >:(" ,
+                'operation' => 'login',
+                'id' => $request->id_product,
                 ],400);
 
             if (!Product::where('id_product', $request->id_product )->exists()){
                 return response()->json([
                     'Message' => 'Product not found',
+                    'operation' => 'error',
+                    'id' => $request->id_product,
                 ],404);
             }
         
@@ -45,17 +49,23 @@ class CartController extends Controller
             if($user->cart()->where('product.id_product',$request->id_product)->exists()){
                 return response()->json([
                     'Message' => 'Product already in cart',
+                    'operation' => 'error',
+                    'id' => $request->id_product,
                     ],500);
             }else{
                 $user->cart()->attach($request->id_product,array('quantity' => $request->quantity));
                 return response()->json([
                     'Message' => 'Product added to cart',
+                    'operation' => 'add',
+                    'id' => $request->id_product,
                     ],200);
             }
 
         }catch (\Exception $e) {
             return response()->json([
                 'Message' => 'Error adding product to cart',
+                'operation' => 'error',
+                'id' => $request->id_product,
             ],400);
         }
     }
