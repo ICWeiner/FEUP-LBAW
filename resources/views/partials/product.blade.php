@@ -69,3 +69,52 @@
     <h4>Login to post a review!</h4>  
     @endif
 </article>
+
+
+<div class="container mt-5 mb-5">
+  <article class="card" data-id="{{ $product->id_product }}">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="images p-3">
+                            <div class="text-center p-4"> <img id="main-image" src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360" width="250" /> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product p-4">
+                            <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Brand Name se quiserem deixar</span>
+                                <h5 class="text-uppercase" href="/products/{{ $product->id_product }}">{{ $product->name }}</h5>
+                                <div class="price d-flex flex-row align-items-center"> 
+                                  <span class="act-price text-warning fw-bold"><h4 href="/products/{{ $product->id_product }}">{{ $product->price }}€</h4></span>
+                                </div>
+                            </div>
+                            <p class="about">Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.</p>
+                            @if($product->stock_quantity === 0)
+                            <p>Sorry, product is currently out of stock</p>
+                            @else
+                            <script>
+                              function getQuantity(){
+                                return document.getElementById('quantity').value;
+                              }
+                            </script>
+                            <label for="quantity">quantity:</label>
+
+                            <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
+                            @endif
+                            <div class="quantity">
+                                <i class="fa-solid fa-minus"></i>
+                                <span class="qty">1</span>
+                                <i class="far fa-plus"></i>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </article>
+</div>
