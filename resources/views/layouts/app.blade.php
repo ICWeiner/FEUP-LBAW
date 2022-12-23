@@ -90,8 +90,8 @@
     </main>
         <footer class="text-center text-lg-start text-muted" style="background-color: rgba(0, 0, 0, 0.05);">
           <section class="">
-            <div class="container text-center text-md-start">
-              <div class="row">
+            <div class="container text-center ">
+              <div class="d-flex flex-row justify-content-between align-items-center">
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto ">
                   <h6 class="text-uppercase fw-bold ">
                     <a href="{{ url('/faq') }}">FAQ</a>
