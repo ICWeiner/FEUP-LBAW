@@ -22,7 +22,7 @@
       <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
       <input type="button" value="Add to Wishlist" onclick="return addToWishlist( {{$product->id_product}} )">
       @endif
-      @if (Auth::user()->user_is_admin === true)
+      @if (Auth::check() && Auth::user()->user_is_admin === true)
         <form method="GET" action="{{ route('updateProduct') }}">
             <input id="id_product" name="id_product" value={{ $product->id_product }} required hidden/>
 
