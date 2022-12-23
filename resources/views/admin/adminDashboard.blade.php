@@ -4,14 +4,24 @@
 
 @section('content')
 
-<section id="admin">
-    <form method="GET" action="{{ url('adminUsersDashboard') }}">
-        <input type="submit" value="Admin User Area" />
-    </form>
+<div class="mb-5">
+    <p class="lead fw-normal mb-1">Actions</p>
+    <div class="p-4" style="background-color: #f8f9fa;">
+    @if (Auth::user()->user_is_admin === true)
+    <div class="mx-auto">
+        <form method="GET" style="margin-bottom:1.5em"  action="{{ url('/adminUsersDashboard') }}">
+        <input class="btn btn-primary" type="submit" value="Admin User Area" />
+        </form>
+    </div>
 
-    <form method="GET" action="{{ url('adminItemsDashboard') }}">
-        <input type="submit" value="Admin Product Area" />
-    </form>
-</section>
-
+    <div class="mx-auto">
+        <div class="d-grid">
+            <form method="GET" action="{{ url('adminItemsDashboard') }}">
+            <input class="btn btn-primary" type="submit" value="Admin Product Area" />
+            </form>
+        </div>
+    @endif
+    </div>
+    </div>
+</div>
 @endsection

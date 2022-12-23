@@ -22,7 +22,7 @@
       <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
       <input type="button" value="Add to Wishlist" onclick="return addToWishlist( {{$product->id_product}} )">
       @endif
-      @if (Auth::user()->user_is_admin === true)
+      @if (Auth::check() && Auth::user()->user_is_admin === true)
         <form method="GET" action="{{ route('updateProduct') }}">
             <input id="id_product" name="id_product" value={{ $product->id_product }} required hidden/>
 
@@ -54,9 +54,9 @@
           <a> <p> {{$review->review_date}} </p> </a>
           <a> <p> {{$review->reviewOwner->name}} </p> </a>
         @endforeach </li>
-
-    <h4>Add a Review</h4>    
+    
     @if (Auth::check())
+    <h4>Add a Review</h4>    
     <textarea id="confirmationText" class="text" cols="86" rows ="20" name="reviewText" form="reviewForm"></textarea>
     <form method="POST" class="add_review" id="reviewForm" name="reviewForm" action="{{ route('addReview') }}">
       {{ csrf_field() }}
@@ -65,5 +65,7 @@
       <input name="id_product" value="{{ $product->id_product }}" hidden required>
       <input type="submit" name="submitReview" value="Submit Review">
     </form>
+    @else
+    <h4>Login to post a review!</h4>  
     @endif
 </article>
