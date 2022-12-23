@@ -18,7 +18,7 @@
           <h5 class="mb-0">
             <p class="btn btn-link" style="text-decoration:none; color:black"> How can I use All Things Good Online? </p>
             <br>
-            <p class="btn btn-link" style="text-decoration:none; color:black; margin-bottom:0px;"> There are many ways you can use the shop found on the All Good Things Online.</p>
+            <p class="btn btn-link" style="text-decoration:none; color:black; margin-bottom:0px;"> To purchase on All Good Things Online just create an account, add the products you desire to the cart and proceed to the checkout page.</p>
           </h5>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <h5 class="mb-0">
             <p class="btn btn-link" style="text-decoration:none; color:black"> How can I search just for a specific product? </p>
             <br>
-            <p class="btn btn-link" style="text-decoration:none; color:black; margin-bottom:0px;"> You can use the searchbar to look for a specific product and also observe some similar to it. </p>
+            <p class="btn btn-link" style="text-decoration:none; color:black; margin-bottom:0px;"> You can use the search functionality at the top of any page or you can use the various categories to look for a specific product and also observe some similar to it. </p>
           </h5>
         </div>
       </div>
@@ -54,7 +54,7 @@
           <h5 class="mb-0">
             <p class="btn btn-link" style="text-decoration:none; color:black"> How can I purchase an item? </p>
             <br>
-            <p class="btn btn-link" style="text-decoration:none; color:black; margin-bottom:0px;"> You can purchase as many products you want as long they are in stock and also as long as you have an account for the website. </p>
+            <p class="btn btn-link" style="text-decoration:none; color:black; margin-bottom:0px;"> You can purchase as many products you want as long they are in stock and you have an account for the website. </p>
           </h5>
         </div>
       </div>
@@ -63,7 +63,7 @@
           <h5 class="mb-0">
             <p class="btn btn-link" style="text-decoration:none; color:black"> How can I give a review on an item? </p>
             <br>
-            <p class="btn btn-link" style="text-decoration:none; color:black; margin-bottom:0px;"> You need to have the order of the item associated with your account. </p>
+            <p class="btn btn-link" style="text-decoration:none; color:black; margin-bottom:0px;"> You may only review items that you have bought with your account. </p>
           </h5>
         </div>
       </div>
