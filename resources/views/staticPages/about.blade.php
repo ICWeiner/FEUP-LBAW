@@ -32,7 +32,7 @@
           <div class="card text-center" style="width: 14rem;">
             <div class="card-body">
               <h5 class="card-title">Diogo Nunes</h5>
-              <p class="card-text">Back-End and also wears googles</p>
+              <p class="card-text">Back-End, Front-end, everything really from Lisbon and also wears googles</p>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
           <div class="card" style="width: 14rem;">
             <div class="card-body">
               <h5 class="card-title">Diogo Almeida</h5>
-              <p class="card-text">Back-End, helper to front-end and has very cool kicks</p>
+              <p class="card-text">Back-End(??), helper to front-end and has very cool kicks</p>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
           <div class="card" style="width: 14rem;">
             <div class="card-body">
               <h5 class="card-title">Rafael Morgado</h5>
-              <p class="card-text">Front-End, very tall and from Lisbon</p>
+              <p class="card-text">Front-End, very tall and also from Lisbon</p>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <div class="card text-center" style="width: 14rem;">
             <div class="card-body">
               <h5 class="card-title">Francisco Nunes</h5>
-              <p class="card-text">Back-End, older and boulder</p>
+              <p class="card-text">Back-End Search engine developer</p>
             </div>
           </div>
         </div>
