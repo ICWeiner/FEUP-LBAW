@@ -93,8 +93,8 @@
             <div class="container text-center ">
               <div class="d-flex flex-row justify-content-between align-items-center">
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto ">
-                  <h6 class="text-uppercase fw-bold ">
-                    <a href="{{ url('/faq') }}">FAQ</a>
+                  <h6 class="text-uppercase fw-bold " style="margin:auto">
+                    <a href="{{ url('/faq') }}" style="margin:auto">FAQ</a>
                   </h6>
                 </div>
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto ">
@@ -102,12 +102,7 @@
                     <a href="{{ url('/about') }}">About</a>
                   </h6>
                 </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto ">
-                  <h6 class="text-uppercase fw-bold ">
-                    <a href="{{ url('/services') }}">Services</a>
-                  </h6>
-                </div>
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-md-0">
                   <h6 class="text-uppercase fw-bold ">
                     <a href="{{ url('/contact') }}">Contact Us</a>
                   </h6>
