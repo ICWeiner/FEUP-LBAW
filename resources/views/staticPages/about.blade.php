@@ -32,7 +32,7 @@
           <div class="card text-center" style="width: 14rem;">
             <div class="card-body">
               <h5 class="card-title">Diogo Nunes</h5>
-              <p class="card-text">Back-End, Front-end, everything really from Lisbon and also wears googles</p>
+              <p class="card-text">Back-End, Front-end, everything really, from Lisbon and also wears googles</p>
             </div>
           </div>
         </div>
