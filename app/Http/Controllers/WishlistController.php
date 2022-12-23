@@ -29,6 +29,8 @@ class WishlistController extends Controller
         try{
             if (!Auth::check()) return response()->json([
                 'Message' => "You can´t do that >:(" ,
+                'id' => $request->id_product,
+                'operation' => 'login'
                 ],400);;
 
             $user = Auth::user();
@@ -36,6 +38,8 @@ class WishlistController extends Controller
             if (!Product::where('id_product', $request->id_product )->exists()){
                 return response()->json([
                     'Message' => 'Product not found',
+                    'id' => $request->id_product,
+                    'operation' => 'error'
                 ],404);
             }
             
@@ -46,6 +50,8 @@ class WishlistController extends Controller
                 return response()->json([
                     'Message' => 'Product added to wishlist',
                     'Product added' => $product->name,
+                    'id' => $request->id_product,
+                    'operation' => 'add'
                     ],200);
             }else{
                 $user->wishlist()->detach($request->id_product);
@@ -53,6 +59,7 @@ class WishlistController extends Controller
                     'Message' => 'Product removed to wishlist',
                     'Product removed' => $product->name,
                     'id' => $request->id_product,
+                    'operation' => 'remove'
                     ],200);
             }
 

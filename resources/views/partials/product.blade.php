@@ -21,6 +21,11 @@
       <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{$product->stock_quantity}}">
       <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
       <input type="button" value="Add to Wishlist" onclick="return addToWishlist( {{$product->id_product}} )">
+      <span id="unwatchMSG_{{ $product->id_product }}" class="text-danger" style="display:none">Removed from Wishlist!</span>
+      <span id="watchMSG_{{ $product->id_product }}"   class="text-danger" style="display:none">Added to Wishlist!</span>
+      <span id="watchLogin_{{ $product->id_product }}" class="text-danger" style="display:none">Please Login to use this feature</span>
+      <span id="cartAdded_{{ $product->id_product }}" class="text-danger" style="display:none">Added to cart!</span>
+      <span id="cartLogin_{{ $product->id_product }}" class="text-danger" style="display:none">Please Login to use this feature</span>
       @endif
       @if (Auth::check() && Auth::user()->user_is_admin === true)
         <form method="GET" action="{{ route('updateProduct') }}">

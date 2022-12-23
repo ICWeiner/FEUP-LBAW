@@ -13,5 +13,10 @@
     <a href="/products/{{ $product->id_product }}" class="card-link">More details</a>
     <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},1 )">
     <input type="button" value="Add to Wishlist" onclick="return addToWishlist( {{$product->id_product}} )">
+    <span id="unwatchMSG_{{ $product->id_product }}" class="text-danger" style="display:none">Removed from Wishlist!</span>
+    <span id="watchMSG_{{ $product->id_product }}"   class="text-danger" style="display:none">Added to Wishlist!</span>
+    <span id="watchLogin_{{ $product->id_product }}" class="text-danger" style="display:none">Please Login to use this feature</span>
+    <span id="cartAdded_{{ $product->id_product }}" class="text-danger" style="display:none">Added to cart!</span>
+    <span id="cartLogin_{{ $product->id_product }}" class="text-danger" style="display:none">Please Login to use this feature</span>
   </div>
 </div>
