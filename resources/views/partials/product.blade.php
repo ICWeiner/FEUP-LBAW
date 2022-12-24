@@ -18,7 +18,7 @@
         }
       </script>
       <label for="quantity">quantity:</label>
-      <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{$product->stock_quantity}}">
+
       <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
       <input type="button" value="Add to Wishlist" onclick="return addToWishlist( {{$product->id_product}} )">
       @endif
@@ -99,17 +99,43 @@
                                 return document.getElementById('quantity').value;
                               }
                             </script>
-                            <label for="quantity">quantity:</label>
+                            <div class="d-flex flex-row justify-content-between align-items-center">
+                              <label for="quantity">quantity:</label>
+                              <div class="input-group">
+                                <div class="input-group-btn">
+                                  <button id="down" class="btn btn-default" onclick=" down('0')"><span class="fa-solid fa-minus text-warning"></span></button>
+                                </div>
+                                <div class="cart mt-4 align-items-center"> 
+                                  <input style="width: 5em; " type="text" id="quantity" name="quantity" value="1" min="1" class="form-control input-number mr-2 px4" value="1" max="{{$product->stock_quantity}}">
+                                </div>
+                                <div class="input-group-btn">
+                                  <button id="up" class="btn btn-default" onclick="up('100')"><span class="fa-solid fa-plus text-warning"></span></button>
+                                </div>
+                              </div>
 
-                            <input type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
-                            @endif
-                            <div class="quantity">
-                                <i class="fa-solid fa-minus"></i>
-                                <span class="qty">1</span>
-                                <i class="far fa-plus"></i>
-                                <i class="fa-solid fa-plus"></i>
+
+                                                        <div class="col-lg-2">
+                                        <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                          <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="10" min="1" max="100">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                        </div>
+
+
                             </div>
-                            <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                            @endif
+                            <div class="cart mt-4 align-items-center"> 
+                              <input class="btn btn-danger text-uppercase mr-2 px-4" type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
+                            </div>
                         </div>
                     </div>
                 </div>
