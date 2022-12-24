@@ -20,7 +20,7 @@
     </script>
     <script type="text/javascript" src={{ asset('js/app.js') }} defer></script>
     <script type="text/javascript" src={{ asset('js/cart.js') }} defer></script>
-    <script src="https://kit.fontawesome.com/42e31a210b.js" crossorigin="anonymous"></script><--font awsome-->
+    <script src="https://kit.fontawesome.com/42e31a210b.js" crossorigin="anonymous"></script><!--font awsome-->
   </head>
   <body>
     <main>
