@@ -12,7 +12,7 @@
     </td>
     <td data-th="Price">{{ $product->price }} $</td>
     <td data-th="Quantity">
-      <input type="number" class="form-control form-control-lg text-center" value="{{ $product->pivot->quantity }}">
+      <input type="number" id="quantity_{{ $product->id_product }}" name="quantity" value="{{ $product->pivot->quantity }}" min="0" max="{{$product->pivot->quantity}}" class="form-control form-control-lg text-center">
     </td>
     <td class="actions" data-th="">
       <div class="insideCartItem">
@@ -21,3 +21,4 @@
     </td>
   </tr>
 </article>
+
