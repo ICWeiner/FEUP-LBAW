@@ -36,21 +36,32 @@ class ProductController extends Controller
                 'name'      => 'required|string|max:255',
                 'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
-                'url'       => 'required|string',
+                'url'       => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
             ]);
 
             
+            $imagePath = null;
+            if ( $request->url !== null){
+                $imageName = time().'.'.$request->url->extension();   
+                $request->url->move(public_path('images/products'), $imageName);
+
+                $imagePath ='images/products/'.$imageName;
+            }
+
             $product = Product::create([
             'name' => $request['name'],
             'price' => $request['price'],
             'rating' => 0,
             'stock_quantity' => $request['stock_quantity'],
-            'url' => $request['url'],
+            'url' => $imagePath,
             'year' =>  $request['year'],
             'sku' => $request['sku'],
             ]);
+            
+
+            
 
             return redirect('products/' . $product->id_product);      
         }
@@ -119,18 +130,26 @@ class ProductController extends Controller
                 'name'      => 'required|string|max:255',
                 'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
-                'url'       => 'required|string',
+                'url'       => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
             ]);
 
 
             $product = Product::find($request['id_product']);
+
+            
+            if ( $request->url !== null){
+                $imageName = time().'.'.$request->url->extension();   
+                $request->url->move(public_path('images/products'), $imageName);
+                
+                $product->url ='images/products/'.$imageName;
+            }
+
             #$product->done = $request->input('done');
             $product->name = $request['name'];
             $product->price = $request['price'];
             $product->stock_quantity = $request['stock_quantity'];
-            $product->url = $request['url'];
             $product->year = $request['year'];
             #$product->rating = $request['rating'];
             $product->sku = $request['sku'];

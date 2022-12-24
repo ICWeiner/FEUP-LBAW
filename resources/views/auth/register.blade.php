@@ -5,7 +5,7 @@
 <div class="vh-100 d-flex justify-content-center align-items-center">
   <div class="col-md-4 p-5 shadow-sm border rounded-5 border-primary">
     <h2 class="text-center mb-4 text-primary">Register</h2>
-      <form method="POST" action="{{ route('register') }}">
+      <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
           <!--name-->
           <div class="mb-3">
@@ -42,6 +42,8 @@
             <label for="password_confirmation" class="form-label">Confirm Password</label>
             <input type="password" name="password_confirmation" class="form-control bg-info bg-opacity-10 border border-primary" id="password_confirmation" required>
           </div>
+
+          
             
           <div class="d-grid">
             <button class="btn btn-primary" type="submit">Register</button>

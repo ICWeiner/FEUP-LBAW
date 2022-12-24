@@ -6,7 +6,7 @@
 <div class="vh-100 d-flex justify-content-center align-items-center">
   <div class="col-md-4 p-5 shadow-sm border rounded-5 border-primary">
     <h2 class="text-center mb-4 text-primary">Create new product</h2>
-      <form method="POST" action="{{ route('addProduct') }}">
+      <form method="POST" action="{{ route('addProduct') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
 
           <div class="mb-3">
@@ -39,10 +39,9 @@
 
 
           <div class="mb-3">
-            <label for="url" class="form-label">URL </label>
-            <input type="text" name="url"  class="form-control bg-info bg-opacity-10 border border-primary" id="url"  required>
+            <label for="url" class="form-label">Upload a product picture</label>
+            <input type="file" name="url" class="form-control bg-info bg-opacity-10 border border-primary" id="url" accept=".jpeg,.png,.jpg,.gif" >
           </div>
-
 
             
           <div class="d-grid">
