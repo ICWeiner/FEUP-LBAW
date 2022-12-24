@@ -41,12 +41,13 @@ class ProductController extends Controller
                 'sku'       => 'required|string',
             ]);
 
+            
             $imagePath = null;
             if ( $request->url !== null){
                 $imageName = time().'.'.$request->url->extension();   
                 $request->url->move(public_path('images/products'), $imageName);
 
-                $imagePath ='images/users/'.$imageName;
+                $imagePath ='images/products/'.$imageName;
             }
 
             $product = Product::create([
@@ -136,8 +137,6 @@ class ProductController extends Controller
 
 
             $product = Product::find($request['id_product']);
-
-            $imagePath = null;
 
             
             if ( $request->url !== null){
