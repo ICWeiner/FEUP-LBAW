@@ -1,7 +1,11 @@
 <article class="card" data-id="{{ $product->id_product }}">
   <div class="productPage">
     <div class= "productImage">
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360">
+    @if ($product->url === null)
+      <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+    @else
+      <img src="{{ $product->url }}" alt="product image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+    @endif
     </div>
     <div class = "insideProductPage">
       <h2><a href="/products/{{ $product->id_product }}">{{ $product->name }}</a></h2>

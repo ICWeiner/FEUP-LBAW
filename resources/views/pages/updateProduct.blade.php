@@ -6,7 +6,7 @@
 <div class="vh-100 d-flex justify-content-center align-items-center">
   <div class="col-md-4 p-5 shadow-sm border rounded-5 border-primary">
     <h2 class="text-center mb-4 text-primary">Update product</h2>
-      <form method="POST" action="{{ route('updateProduct') }}">
+      <form method="POST" action="{{ route('updateProduct') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
           <input name="id_product" value="{{ $product->id_product }}" required hidden>
 
@@ -38,10 +38,9 @@
             <input type="number" name="year" value="{{ $product->year}}" class="form-control bg-info bg-opacity-10 border border-primary" id="year"  min="1900" step="1" required>
           </div>
 
-
           <div class="mb-3">
-            <label for="url" class="form-label">URL </label>
-            <input type="text" name="url" value="{{ $product->url}}" class="form-control bg-info bg-opacity-10 border border-primary" id="url"  required>
+            <label for="url" class="form-label">Upload a profile picture</label>
+            <input type="file" name="url" class="form-control bg-info bg-opacity-10 border border-primary" id="url" accept=".jpeg,.png,.jpg,.gif" >
           </div>
 
 
