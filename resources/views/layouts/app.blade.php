@@ -53,7 +53,7 @@
                     <li><a class="dropdown-item" href="{{ url('/shoes') }}">Shoes</a></li>
                   </ul>
                 </li>
-                 @if (Auth::check())
+                @if (Auth::check())
                 <li class="nav-item">
                   <a class="nav-link active" href="{{ url('/cart') }}">Cart</a>
                 </li>
