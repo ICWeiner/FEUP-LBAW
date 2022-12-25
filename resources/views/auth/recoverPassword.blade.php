@@ -1,20 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<form method="POST" action="{{ route('recoverPassword') }}">
-    {{ csrf_field() }}
-
-    <label for="email">E-Mail Address</label>
-    <input id="email" type="email" name="email" value="{{ old('email') }}" required>
-    @if ($errors->has('email')===False)
-      <span class="error">
-          {{ $errors->first('email') }}
-      </span>
-    @endif
-    
-    <button type="submit">
-      Change
-    </button>
-    <a class="button button-outline" href="{{ route('login') }}">Login</a>
-</form>
+<<div class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="col-md-4 p-5 shadow-sm border rounded-5 border-primary">
+            <h2 class="text-center mb-4 text-primary">Login</h2>
+                <form method="POST" action="{{ route('recoverPassword') }}">
+                    {{ csrf_field() }}
+                    <!--email-->
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">E-mail Address</label>
+                        <input type="email" name ="email" class="form-control bg-info bg-opacity-10 border border-primary" id="exampleInputEmail1" aria-describedby="emailHelp" required autofocus>
+                        @if ($errors->has('email'))
+                            <span class="error">
+                            {{ $errors->first('email') }}
+                            </span>
+                        @endif
+                    </div>
+                    <div class="d-grid">
+                      <button class="btn btn-primary" type="submit">Send recovery e-mail</button>
+                    </div>
+                </form>
+                <div class="mt-3">
+                    <a href="{{ route('login') }}" class="text-primary fw-bold text-decoration-none" > Login</a></p>
+                </div>               
+        </div>
+    </div>
 @endsection
+
+
