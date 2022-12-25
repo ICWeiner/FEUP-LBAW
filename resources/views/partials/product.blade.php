@@ -9,6 +9,7 @@
     </div>
     <div class = "insideProductPage">
       <h2><a href="/products/{{ $product->id_product }}">{{ $product->name }}</a></h2>
+      <h3><a href="/products/{{ $product->id_product }}">{{ $product->stock_quantity }}</a></h2>
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->rating }} Stars</a></h2>
       <h3><a href="/products/{{ $product->id_product }}">{{ $product->price }} $</a></h2>
       <!--<a href="#" class="delete">&#10761;</a>-->
