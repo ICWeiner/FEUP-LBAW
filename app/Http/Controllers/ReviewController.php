@@ -17,8 +17,18 @@ class ReviewController extends Controller
 
     public function create(Request $request)
     {
+
+        
         if (!Auth::check()) return redirect('/login');
+
+        $this->validate($request, [
+            'comment'      => 'required|string|max:2048',
+            'rating'     => 'required|numeric',
+            'id_product'  => 'required|integer',
+        ]);
+
         $user = Auth::user();
+
         review::create([
             'comment' => $request['reviewText'],
             'rating' => $request['rating'],
@@ -26,6 +36,7 @@ class ReviewController extends Controller
             'id_product' => $request['id_product'],
             'id_user' =>  $user->id_user,
         ]);
+        
         return redirect()->back();
     }
 
