@@ -26,6 +26,7 @@ function cartUpdatedHandler() {
     let element = document.querySelector('#cartTotal').innerHTML = item.total + "$";
 
     if (item.new_quantity == 0){
+      console.log("hihi")
       document.querySelector('#CartItem_'+item.id).outerHTML = ""
     }
   }
