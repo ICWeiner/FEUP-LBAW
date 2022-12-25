@@ -10,4 +10,28 @@ header{
 footer a{
     text-decoration: none;
 }
+
+header a{
+    color:yellow;
+}
+
+
+
+.navbar .navbar-nav .nav-link:hover {
+    background-color: #fff;
+    color: #ffacb7;
+    padding: 0.5em;
+    border-radius: 4px;
+  }  
+.navbar .navbar-nav .nav-link {
+  transition: all 0.5s;
+}
+.navbar .navbar-brand {
+  padding: 0 0.6em;
+
+  font-weight: bold;
+}
+
+
+
 /*f1d00a
