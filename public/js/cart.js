@@ -14,8 +14,6 @@ function addToWishlist(id,quant){
 function productAddedHandler(){
     let item = JSON.parse(this.responseText);
 
-
-    console.log("higi");
     if(item.operation == 'login'){
       document.querySelector('#login_'+item.id).style.display = 'block';
     }else{
@@ -25,7 +23,7 @@ function productAddedHandler(){
 
 function cartUpdatedHandler() {
     let item = JSON.parse(this.responseText);
-    let element = document.querySelector('#cartTotal').innerHTML = "Total : " + item.total + "$";
+    let element = document.querySelector('#cartTotal').innerHTML = item.total + "$";
 
     if (item.new_quantity == 0){
       document.querySelector('#CartItem_'+item.id).outerHTML = ""

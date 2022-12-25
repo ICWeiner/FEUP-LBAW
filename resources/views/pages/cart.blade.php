@@ -25,7 +25,7 @@
                         </table>
                         <div class="float-right text-right">
                             <h4>Subtotal:</h4>
-                            <h1>{{ $total }}$</h1>
+                            <h1 id="cartTotal">{{ $total }}$</h1>
                         </div>
                     </div>
                 </div>

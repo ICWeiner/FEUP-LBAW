@@ -20,7 +20,7 @@
               <div class="col-md-6">
                 <div class="product p-4">
                   <div class="mt-4 mb-3"> 
-                    <span class="text-uppercase text-muted brand">Brand Name se quiserem deixar</span>
+                    <span class="text-uppercase text-muted brand">SKU:{{ $product->sku }}</span>
                     <h5 class="text-uppercase" href="/products/{{ $product->id_product }}">{{ $product->name }}</h5>
                     <div class="price d-flex flex-row align-items-center"> 
                       <span class="act-price text-warning fw-bold">
@@ -37,6 +37,10 @@
                     libero nec neque. Fusce fermentum ut leo tristique ultricies. Curabitur in ex a nunc interdum tempus. 
                     Vestibulum vitae velit vestibulum, eleifend nulla eget, fringilla est.
                   </p>
+                  <span id="unwatchMSG_{{ $product->id_product }}" class="text-danger" style="display:none">Removed from Wishlist!</span>
+                  <span id="watchMSG_{{ $product->id_product }}"   class="text-danger" style="display:none">Added to Wishlist!</span>
+                  <span id="cartAdded_{{ $product->id_product }}" class="text-danger" style="display:none">Added to cart!</span>
+                  <span id="login_{{ $product->id_product }}" class="text-danger" style="display:none">Please Login to use this feature</span>
                   @if($product->stock_quantity === 0)
                   <p>Sorry, product is currently out of stock</p>
                   @else
