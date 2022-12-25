@@ -15,7 +15,6 @@ Route::get('/', 'ProductController@list')->name('home');;
 
 //static pages
 Route::get('about', 'StaticController@about');
-Route::get('services', 'StaticController@services');
 Route::get('faq', 'StaticController@faq');
 Route::get('contact', 'StaticController@contact');
 

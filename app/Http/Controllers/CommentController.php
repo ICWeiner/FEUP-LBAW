@@ -8,13 +8,6 @@ use App\Models\comment;
 
 class CommentController extends Controller
 {
-
-
-    public function index()
-    {
-        //
-    }
-
     public function create(Request $request)
     {
         if (Auth::check()) {
@@ -30,33 +23,4 @@ class CommentController extends Controller
         return redirect()->back();
     }
 
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
-    }
 }

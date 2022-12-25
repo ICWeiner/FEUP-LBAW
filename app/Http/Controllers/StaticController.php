@@ -5,14 +5,6 @@ namespace App\Http\Controllers;
 
 class StaticController extends Controller
 {
-    /**
-     * Show the application home page.
-     *
-     */
-    public function index() //TODO: This is unused
-    {
-        //return view('staticPages.home');
-    }
 
     /**
      * Show the application about page.
