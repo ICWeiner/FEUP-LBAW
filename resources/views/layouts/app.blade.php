@@ -31,59 +31,59 @@
     <main>
       <header>
         <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="{{url('/')}}">ATGO</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <div class="container-fluid text-warningZ">
+            <a class="navbar-brand text-warning " href="{{url('/')}}">ATGO</a>
+            <button class="navbar-toggler border-1 btn-outline-warning text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 @if (Auth::check())
                     <li class="nav-item">
-                      <a class="nav-link active" href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a>
+                      <a class="nav-link active text-warning" href="{{ url('/user') }}"><span>{{ Auth::user()->name }}</span></a>
                     </li>
                 @endif
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle dropdown-outline-warning text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Products
                   </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url('/books') }}">Books</a></li>
-                    <li><a class="dropdown-item" href="{{ url('/funkoPops') }}">FunkoPops</a></li>
-                    <li><a class="dropdown-item" href="{{ url('/shoes') }}">Shoes</a></li>
+                  <ul class="dropdown-menu" style="background-color: #f8f9fa;">
+                    <li><a class="dropdown-item text-warning" href="{{ url('/books') }}">Books</a></li>
+                    <li><a class="dropdown-item text-warning" href="{{ url('/funkoPops') }}">FunkoPops</a></li>
+                    <li><a class="dropdown-item text-warning" href="{{ url('/shoes') }}">Shoes</a></li>
                   </ul>
                 </li>
                 @if (Auth::check())
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ url('/cart') }}">Cart</a>
+                  <a class="nav-link active text-warning" href="{{ url('/cart') }}">Cart</a>
                 </li>
                   @else
                   <li clss="nav-item">
-                  <a class="nav-link disabled" href="{{ url('/cart') }}">Cart</a>
+                  <a class="nav-link disabled text-warning" href="{{ url('/cart') }}">Cart</a>
                   </li>
                 @endif
                 @if (Auth::check())
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ url('/wishlist') }}">Wishlist</a>
+                  <a class="nav-link active text-warning" href="{{ url('/wishlist') }}">Wishlist</a>
                 </li>
                   @else
                   <li clss="nav-item">
-                  <a class="nav-link disabled" href="{{ url('/wishlist') }}">Wishlist</a>
+                  <a class="nav-link disabled text-warning" href="{{ url('/wishlist') }}">Wishlist</a>
                   </li>
                 @endif
                 @if (Auth::check())
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ url('/logout') }}">Logout</a>
+                  <a class="nav-link active text-warning" href="{{ url('/logout') }}">Logout</a>
                 </li>
                   @else
                   <li class="nav-item">
-                  <a class="nav-link active" href="{{ url('/login') }}">Login</a>
+                  <a class="nav-link active text-warning" href="{{ url('/login') }}">Login</a>
                   </li>
                 @endif
               </ul>
               <form class="d-flex" role="search" action="/search" method="get">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class=" search btn btn-outline-warning text-white" type="submit">Search</button>
               </form>
             </div>
           </div>
