@@ -11,7 +11,11 @@
                 <div class="ms-4 mt-6 d-flex flex-column" style="width: 150px;">
                   {{ csrf_field() }}
                   
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                  @if ($user->image === null)
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                  @else
+                    <img src="{{ $user->image }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                  @endif
                   <button type="submit" href="{{ url('/editUser') }}" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="z-index: 1 ;margin-top: 29px;">
                       Edit profile
                   </button>

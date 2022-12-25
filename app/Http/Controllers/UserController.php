@@ -15,37 +15,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\User  $user
@@ -74,7 +43,8 @@ class UserController extends Controller
         $user = Auth::user();
         return view('pages.userEdit', ['user' => $user]);
         #}
-        $request->session()->invalidate();   }
+        $request->session()->invalidate();   
+    }
 
     public function edit(Request $request)
     {
@@ -82,10 +52,20 @@ class UserController extends Controller
         $this->validate($request, [
             'name'      => 'required|string|max:255',
             'email'     => 'required|string|email|max:255|unique:users',
-            'password'  => 'required|string|min:6|confirmed'
+            'password'  => 'required|string|min:6|confirmed',
+            'image'     => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+
         $user = Auth::user();
+
+        if ( $request->image !== null){
+            $imageName = time().'.'.$request->image->extension();   
+            $request->image->move(public_path('images/users'), $imageName);
+
+            $user->image ='images/users/'.$imageName;
+        }
+
         $user->name     = $request->get('name');
         $user->email    = $request->get('email');
         if ($request->get('password') !== '') {

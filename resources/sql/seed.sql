@@ -31,6 +31,7 @@ CREATE TABLE users( --table name is plural because "user" is a reserved keyword
   name TEXT NOT NULL,
   email TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL,
+  image TEXT,
   user_is_banned BOOLEAN DEFAULT FALSE,
   user_is_admin BOOLEAN DEFAULT FALSE
 );
@@ -74,7 +75,7 @@ CREATE TABLE product(
   price FLOAT NOT NULL CHECK (price >=0),
   stock_quantity INTEGER NOT NULL CHECK (stock_quantity >= 0),
   name TEXT NOT NULL,
-  url TEXT NOT NULL,
+  url TEXT ,
   year INTEGER NOT NULL,
   rating FLOAT NOT NULL CHECK (rating >=0 AND rating <= 5),
   deleted_at DATE,
