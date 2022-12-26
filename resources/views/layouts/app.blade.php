@@ -48,9 +48,9 @@
                     Products
                   </a>
                   <ul class="dropdown-menu" style="background-color: #f8f9fa;">
-                    <li><a class="dropdown-item text-warning" href="{{ url('/books') }}">Books</a></li>
-                    <li><a class="dropdown-item text-warning" href="{{ url('/funkoPops') }}">FunkoPops</a></li>
-                    <li><a class="dropdown-item text-warning" href="{{ url('/shoes') }}">Shoes</a></li>
+                    <li><a class="dropdown-item text-warning" href="{{ url('/products/shoes') }}">Shoes</a></li>
+                    <li><a class="dropdown-item text-warning" href="{{ url('/products/books') }}">Books</a></li>
+                    <li><a class="dropdown-item text-warning" href="{{ url('/products/funkoPops') }}">FunkoPops</a></li>
                   </ul>
                 </li>
                 @if (Auth::check())

@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
-
+use App\Models\book;
+use App\Models\funkoPop;
+use App\Models\shoe;
 
 class ProductController extends Controller
 {
@@ -28,6 +30,7 @@ class ProductController extends Controller
                 'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
                 'url'       => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                'description'       => 'required|string|max:2048',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
             ]);
@@ -46,12 +49,11 @@ class ProductController extends Controller
             'price' => $request['price'],
             'rating' => 0,
             'stock_quantity' => $request['stock_quantity'],
+            'description' => $request['description'],
             'url' => $imagePath,
             'year' =>  $request['year'],
             'sku' => $request['sku'],
             ]);
-            
-
             
 
             return redirect('products/' . $product->id_product);      
@@ -92,7 +94,42 @@ class ProductController extends Controller
      */
     public function list()
     {
-        $products = Product::all();//products()->orderBy('id')->get();
+        $products = Product::all();
+        return view('pages.products', ['products' => $products]);
+    }
+
+    public function listBooks()
+    {
+        $books = book::all();
+        $products = array();
+        foreach ($books as $book){
+            $product = Product::find($book->id_product);
+            $products[] = $product;
+        }
+        return view('pages.products', ['products' => $products]);
+    }
+
+    public function listFunkos()
+    {
+        $funkoPops = funkoPop::all();
+        $products = array();
+        foreach ($funkoPops as $funkoPop){
+            $product = Product::find($funkoPop->id_product);
+            $products[] = $product;
+        }
+        return view('pages.products', ['products' => $products]);
+    }
+
+    public function listShoes()
+    {
+
+        $shoes = shoe::all();
+        $products = array();
+        foreach ($shoes as $shoe){
+            $product = Product::find($shoe->id_product);
+            $products[] = $product;
+        }
+        
         return view('pages.products', ['products' => $products]);
     }
 
@@ -111,6 +148,7 @@ class ProductController extends Controller
                 'name'      => 'required|string|max:255',
                 'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
+                'description'       => 'required|string|max:2048',
                 'url'       => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
@@ -127,12 +165,11 @@ class ProductController extends Controller
                 $product->url ='images/products/'.$imageName;
             }
 
-            #$product->done = $request->input('done');
             $product->name = $request['name'];
             $product->price = $request['price'];
             $product->stock_quantity = $request['stock_quantity'];
             $product->year = $request['year'];
-            #$product->rating = $request['rating'];
+            $product->description = $request['description'];
             $product->sku = $request['sku'];
             $product->save();
 

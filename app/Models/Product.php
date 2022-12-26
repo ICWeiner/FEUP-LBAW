@@ -17,7 +17,7 @@ class Product extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'name', 'price', 'stock_quantity', 'url', 'year', 'rating', 'sku',
+        'name', 'price', 'stock_quantity', 'description','url', 'year', 'rating', 'sku',
     ];
 
     protected $hidden = [
@@ -28,6 +28,7 @@ class Product extends Model
         'id_product' => 'integer',
         'name' => 'string',
         'price' => 'float',
+        'description' => 'string',
         'stock_quantity' => 'integer',
         'url' => 'string',
         'year' => 'integer',

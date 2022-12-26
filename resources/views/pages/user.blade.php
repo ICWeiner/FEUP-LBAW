@@ -12,13 +12,10 @@
                   {{ csrf_field() }}
                   
                   @if ($user->image === null)
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                    <img src="images/users/placeholder_user.png" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
                   @else
-                    <img src="{{ $user->image }}" alt="User profile image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                    <img src="{{ $user->image }}" alt="User profile image" class="img-fluid d-none d-md-block rounded mb-2 shadow my-auto center-block">
                   @endif
-                  <button type="submit" href="{{ url('/editUser') }}" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="z-index: 1 ;margin-top: 29px;">
-                      Edit profile
-                  </button>
                 </div>
     </form>
               <div class="ms-3" style="margin-top: 130px;">
@@ -28,6 +25,9 @@
             </div>
 
             <div class="p-4 text-black" style="background-color: #f8f9fa;">
+            <button type="submit" href="{{ url('/editUser') }}" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="z-index: 1 ;margin-top: 29px;">
+                      Edit profile
+                  </button>
               <div class="d-flex justify-content-end text-center py-1">
                 <div>
                   <p class="mb-1 h5"></p>

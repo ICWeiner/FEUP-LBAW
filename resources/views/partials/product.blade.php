@@ -10,7 +10,7 @@
                 <div class="images p-3">
                   <div class="text-center p-4"> 
                     @if ($product->url === null)
-                      <img id="main-image" width="250" src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                      <img id="main-image" width="250" src="images/products/placeholder_product.png" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
                     @else
                       <img id="main-image" width="250" src="../{{ $product->url }}" alt="product image" class="img-fluid img-thumbnail mt-4 mb-2" >
                     @endif
@@ -32,10 +32,7 @@
                     </div>
                   </div>
                   <p class="about">
-                    Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 
-                    lobortis, dictum commodo nisi. Duis mattis, metus ac rutrum congue, metus nisl sagittis massa, eget laoreet odio 
-                    libero nec neque. Fusce fermentum ut leo tristique ultricies. Curabitur in ex a nunc interdum tempus. 
-                    Vestibulum vitae velit vestibulum, eleifend nulla eget, fringilla est.
+                    {{ $product->description }}
                   </p>
                   <span id="unwatchMSG_{{ $product->id_product }}" class="text-danger" style="display:none">Removed from Wishlist!</span>
                   <span id="watchMSG_{{ $product->id_product }}"   class="text-danger" style="display:none">Added to Wishlist!</span>
