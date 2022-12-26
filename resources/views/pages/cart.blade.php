@@ -5,8 +5,8 @@
   <div class="container">
     <div class="row w-100">
         <div class="col-lg-12 col-md-12 col-12">
-            <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
-            @isset($products)
+            @if(count($products) > 0)
+                <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
                     <form method="POST" action="{{ route('createOrder') }}">
                         {{csrf_field()}}
                         <p class="mb-5 text-center">
@@ -36,7 +36,7 @@
                 </div>
                 </form>
             @else
-                <p>No products on cart</p>
+                <p class="display-5 mb-2 text-center">No products on Shopping cart</p>
             @endisset
 </div>
 </section>
