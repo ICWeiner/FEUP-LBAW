@@ -20,9 +20,9 @@ Route::get('contact', 'StaticController@contact');
 
 //products
 Route::get('products', 'ProductController@list');
-Route::get('products/shoes', 'ProductController@listBooks');
-Route::get('products/books', 'ProductController@listFunkos');
-Route::get('products/funkoPops', 'ProductController@listShoes');
+Route::get('products/shoes', 'ProductController@listShoes');
+Route::get('products/books', 'ProductController@listBooks');
+Route::get('products/funkoPops', 'ProductController@listFunkos');
 Route::get('products/{id}', 'ProductController@show');
 
 
