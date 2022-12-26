@@ -25,7 +25,7 @@
                 <p class="text-muted">Tracking number: <span class="text-body">{{ $order->tracking_number }}</span></p>
               </div>
             </div>
-            <ul id="progressbar-1" class="d-flex flex-row justify-content-between align-items-center">
+            <ul id="progressbar-1" style="list-style-type: none" class="d-flex flex-row justify-content-between align-items-center">
               <li class="step0 active" id="step1"><span style="margin-left: 22px; margin-top: 12px;">PLACED</span></li>
               <li class="step0 active text-center" id="step2"><span>SHIPPED</span></li>
               <li class="step0 text-muted text-end" id="step3"><span style="margin-right: 22px;">DELIVERED</span></li>
