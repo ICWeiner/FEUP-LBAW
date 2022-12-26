@@ -11,15 +11,7 @@ use App\Http\Controllers\ProductController;
 
 class FunkoPopController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+
 
     public function showCreateForm()
     {
@@ -65,17 +57,6 @@ class FunkoPopController extends Controller
             return redirect('addFunkoPops');
         }
         return redirect('products');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**

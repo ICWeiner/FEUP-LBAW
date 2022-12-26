@@ -15,7 +15,6 @@ Route::get('/', 'ProductController@list')->name('home');;
 
 //static pages
 Route::get('about', 'StaticController@about');
-Route::get('services', 'StaticController@services');
 Route::get('faq', 'StaticController@faq');
 Route::get('contact', 'StaticController@contact');
 
@@ -102,14 +101,11 @@ Route::get('adminDashboard', 'AdminController@dashboard')->name('adminDashboard'
 
 Route::get('adminItemsDashboard', 'AdminController@itemDashboard')->name('adminItemsDashboard');
 
-
 Route::get('adminUsersDashboard', 'AdminController@userDashboard')->name('adminUsersDashboard');
 Route::get('adminEditUser', 'AdminController@userEditForm')->name('adminEditUser');
 Route::post('adminEditUser', 'AdminController@userEdit');
 
 Route::post('adminBanUser', 'AdminController@banUser')->name('adminBanUser');
-//Route::get('editUser', 'UserController@showEditForm')->name('editUser');
-//Route::post('editUser', 'UserController@edit');
 
-
+//Search
 Route::get('search', 'SearchController@show')->name('search');
