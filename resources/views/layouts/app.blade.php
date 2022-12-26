@@ -27,7 +27,7 @@
     <script type="text/javascript" src={{ asset('js/prodPage.js') }} defer>
     </script>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <main>
       <header>
         <nav class="navbar navbar-expand-lg">
@@ -93,7 +93,7 @@
           @yield('content')
         </section>
     </main>
-        <footer class="text-center text-lg-start text-muted" style="background-color: rgba(0, 0, 0, 0.05);">
+        <footer class="text-center text-lg-start text-muted mt-auto" style="background-color: rgba(0, 0, 0, 0.05);">
           <section class="">
             <div class="container text-center ">
               <div class="d-flex flex-row justify-content-between align-items-center">

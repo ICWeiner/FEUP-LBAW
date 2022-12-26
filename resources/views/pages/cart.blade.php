@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="pt-5 pb-5">
-  <div class="container">
+  <div class="container h-100">
     <div class="row w-100">
         <div class="col-lg-12 col-md-12 col-12">
             @if(count($products) > 0)
@@ -38,6 +38,6 @@
             @else
                 <p class="display-5 mb-2 text-center">No products on Shopping cart</p>
             @endisset
-</div>
+    </div>
 </section>
 @endsection
