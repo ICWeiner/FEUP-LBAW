@@ -27,7 +27,7 @@
     <script type="text/javascript" src={{ asset('js/prodPage.js') }} defer>
     </script>
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body class="d-flex flex-column min-vh-100" style="background-color: rgba(219, 217, 211, 1);">
     <main>
       <header>
         <nav class="navbar navbar-expand-lg">

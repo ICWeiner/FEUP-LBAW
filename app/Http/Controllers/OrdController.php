@@ -40,7 +40,7 @@ class OrdController extends Controller
         }
 
         $user->cart()->detach();
-        return redirect('/orderSuccess');
+        return view('auth.orderSuccess',['id_ord'=> $ord->id_ord]);
             
         
     }
