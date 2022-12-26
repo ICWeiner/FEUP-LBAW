@@ -14,7 +14,7 @@
                   @if ($user->image === null)
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
                   @else
-                    <img src="{{ $user->image }}" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+                    <img src="{{ $user->image }}" alt="User profile image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
                   @endif
                   <button type="submit" href="{{ url('/editUser') }}" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="z-index: 1 ;margin-top: 29px;">
                       Edit profile
@@ -71,11 +71,11 @@
               
               <div class="row g-2">
                 <div class="col">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+                  <img alt="Generic placeholder image" src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
                     alt="image 1" class="w-100 rounded-3">
                 </div>
                 <div class="col">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
+                  <img alt="Generic placeholder image" src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
                     alt="image 1" class="w-100 rounded-3">
                 </div>
               </div>

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<<div class="vh-100 d-flex justify-content-center align-items-center">
+<div class="vh-100 d-flex justify-content-center align-items-center">
         <div class="col-md-4 p-5 shadow-sm border rounded-5 border-primary">
-            <h2 class="text-center mb-4 text-primary">Login</h2>
+            <h2 class="text-center mb-4 text-primary">Recover Password</h2>
                 <form method="POST" action="{{ route('recoverPassword') }}">
                     {{ csrf_field() }}
                     <!--email-->
