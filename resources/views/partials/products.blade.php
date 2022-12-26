@@ -1,6 +1,6 @@
 <div class="card" style="width: 18rem;" id="product_{{ $product->id_product }}" data-id="{{ $product->id_product }}">
     @if ($product->url === null)
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
+      <img src="images/products/placeholder_product.png" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
     @else
       <img src="{{ $product->url }}" alt="product image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
     @endif

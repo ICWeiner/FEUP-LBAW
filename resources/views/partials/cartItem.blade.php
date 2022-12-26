@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-3 text-left">
       @if ($product->url === null)
-        <img id="main-image" src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-4_large.png?format=jpg&quality=90&v=1530129360" alt="Generic placeholder image" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+        <img id="main-image" src="images/products/placeholder_product.png" alt="Generic placeholder image" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
       @else
         <img id="main-image" src="../{{ $product->url }}" alt="product image" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
       @endif

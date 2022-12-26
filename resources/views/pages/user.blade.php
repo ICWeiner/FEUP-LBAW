@@ -12,7 +12,7 @@
                   {{ csrf_field() }}
                   
                   @if ($user->image === null)
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Generic placeholder image" class="img-fluid d-none d-md-block rounded mb-2 shadow my-auto center-block">
+                    <img src="images/users/placeholder_user.png" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
                   @else
                     <img src="{{ $user->image }}" alt="User profile image" class="img-fluid d-none d-md-block rounded mb-2 shadow my-auto center-block">
                   @endif
