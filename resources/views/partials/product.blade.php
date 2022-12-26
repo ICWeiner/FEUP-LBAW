@@ -53,13 +53,13 @@
                     <label for="quantity">Quantity:</label>
                     <div class="input-group d-flex flex-row mt-2 justify-content-center">
                       <div class="input-group-btn">
-                        <button id="down" class="btn btn-default" onclick=" down('0')">
+                        <button id="down" class="btn btn-default" onclick=" down('1')">
                         <span class="fa-solid fa-minus text-warning"></span>
                       </button>
                     </div>
                     <input size="6" style="border-radius: 4px;" type="text" id="quantity" name="quantity" value="1" min="1" class="btn btn-primary input-number mr-2 px4" value="1" max="{{$product->stock_quantity}}">
                     <div class="input-group-btn align-items-center">
-                      <button id="up" class="btn btn-default" onclick="up('100')">
+                      <button id="up" class="btn btn-default" onclick="up('{{$product->stock_quantity}}')">
                         <span class="fa-solid fa-plus text-warning"></span>
                       </button>
                     </div>
