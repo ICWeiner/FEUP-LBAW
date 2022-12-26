@@ -20,8 +20,11 @@
   </td>
   <td class="actions" data-th="">
     <div class="insideCartItem">
-      <input type="button" value="Update Quantity" onclick="return updateCartProduct( {{$product->id_product}})">
+      <input class="btn btn-danger text-uppercase mr-2 px-4" type="button" value="Update Quantity" onclick="return updateCartProduct( {{$product->id_product}})">
     </div>
+ 
+  
+  
   </td>
 </tr>
 
