@@ -28,6 +28,7 @@ class ProductController extends Controller
                 'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
                 'url'       => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                'description'       => 'required|string|max:2048',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
             ]);
@@ -46,12 +47,11 @@ class ProductController extends Controller
             'price' => $request['price'],
             'rating' => 0,
             'stock_quantity' => $request['stock_quantity'],
+            'description' => $request['description'],
             'url' => $imagePath,
             'year' =>  $request['year'],
             'sku' => $request['sku'],
             ]);
-            
-
             
 
             return redirect('products/' . $product->id_product);      
@@ -111,6 +111,7 @@ class ProductController extends Controller
                 'name'      => 'required|string|max:255',
                 'price'     => 'required|numeric',
                 'stock_quantity'     => 'required|integer',
+                'description'       => 'required|string|max:2048',
                 'url'       => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'year'      => 'required|integer',
                 'sku'       => 'required|string',
@@ -132,6 +133,7 @@ class ProductController extends Controller
             $product->price = $request['price'];
             $product->stock_quantity = $request['stock_quantity'];
             $product->year = $request['year'];
+            $product->description = $request['description'];
             #$product->rating = $request['rating'];
             $product->sku = $request['sku'];
             $product->save();

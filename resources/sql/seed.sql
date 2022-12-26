@@ -74,6 +74,7 @@ CREATE TABLE product(
   id_product SERIAL PRIMARY KEY,
   price FLOAT NOT NULL CHECK (price >=0),
   stock_quantity INTEGER NOT NULL CHECK (stock_quantity >= 0),
+  description TEXT ,
   name TEXT NOT NULL,
   url TEXT ,
   year INTEGER NOT NULL,

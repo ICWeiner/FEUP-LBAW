@@ -32,10 +32,7 @@
                     </div>
                   </div>
                   <p class="about">
-                    Curabitur finibus dui nisi, et auctor libero congue eu. Nulla facilisi. Aliquam eros nunc, hendrerit sed nibh 
-                    lobortis, dictum commodo nisi. Duis mattis, metus ac rutrum congue, metus nisl sagittis massa, eget laoreet odio 
-                    libero nec neque. Fusce fermentum ut leo tristique ultricies. Curabitur in ex a nunc interdum tempus. 
-                    Vestibulum vitae velit vestibulum, eleifend nulla eget, fringilla est.
+                    {{ $product->description }}
                   </p>
                   <span id="unwatchMSG_{{ $product->id_product }}" class="text-danger" style="display:none">Removed from Wishlist!</span>
                   <span id="watchMSG_{{ $product->id_product }}"   class="text-danger" style="display:none">Added to Wishlist!</span>
