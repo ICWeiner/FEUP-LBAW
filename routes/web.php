@@ -20,7 +20,12 @@ Route::get('contact', 'StaticController@contact');
 
 //products
 Route::get('products', 'ProductController@list');
+Route::get('products/shoes', 'ProductController@listBooks');
+Route::get('products/books', 'ProductController@listFunkos');
+Route::get('products/funkoPops', 'ProductController@listShoes');
 Route::get('products/{id}', 'ProductController@show');
+
+
 
 
 Route::get('updateProduct', 'ProductController@showUpdateForm')->name('updateProduct');
@@ -40,34 +45,6 @@ Route::get('orders/{id}', 'OrdController@show');
 Route::post('createOrder', 'OrdController@create')->name('createOrder');
 Route::get('orderSuccess', 'OrdController@orderSuccess')->name('orderSuccess');
 
-//shoes
-Route::get('shoes', 'ShoeController@list');
-Route::get('shoes/{id}', 'ShoeController@show');
-Route::get('addShoes', 'ShoeController@showCreateForm')->name('addShoes');
-Route::post('addShoes', 'ShoeController@create');
-Route::get('updateShoe', 'ShoeController@showUpdateForm')->name('updateShoe');
-Route::post('updateShoe', 'ShoeController@update');
-Route::post('deleteShoe', 'ShoeController@destroy')->name('deleteShoe');
-
-//books
-Route::get('books', 'BookController@list');
-Route::get('books/{id}', 'BookController@show');
-Route::get('addBooks', 'BookController@showCreateForm')->name('addBooks');
-Route::post('addBooks', 'BookController@create');
-Route::get('updateBook', 'BookController@showUpdateForm')->name('updateBook');
-Route::post('updateBook', 'BookController@update');
-Route::post('deleteBook', 'BookController@destroy')->name('deleteBook');
-
-//funkoPops
-Route::get('funkoPops', 'FunkoPopController@list');
-Route::get('funkoPops/{id}', 'FunkoPopController@show');
-Route::get('addFunkoPops', 'FunkoPopController@showCreateForm')->name('addFunkoPops');
-Route::post('addFunkoPops', 'FunkoPopController@create');
-Route::get('updateFunkoPop', 'FunkoPopController@showUpdateForm')->name('updateFunkoPop');
-Route::post('updateFunkoPop', 'FunkoPopController@update');
-Route::post('deleteFunkoPop', 'FunkoPopController@destroy')->name('deleteFunkoPop');
-
-
 //Review
 Route::post('addReview', 'ReviewController@create')->name('addReview');
 Route::post('addComment', 'CommentController@create')->name('addComment');
@@ -77,8 +54,6 @@ Route::put('api/cart/{id_product}', 'CartController@addToCart');
 Route::post('api/cart/{id_product}', 'CartController@updateCartProduct');
 
 Route::put('api/wishlist/{id_product}', 'WishlistController@updateWishlist');
-
-
 
 
 // Authentication
