@@ -3,7 +3,7 @@
     @if ($product->url === null)
       <img src="images/products/placeholder_product.png" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
     @else
-      <a href="/products/{{ $product->id_product }}" class="card-link"><img src="{{ $product->url }}" alt="product image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"></a>
+      <a href="/products/{{ $product->id_product }}" class="card-link"><img src="../{{ $product->url }}" alt="product image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"></a>
     @endif
   </div>
   <div class="d-flex card-body align-items-center">
