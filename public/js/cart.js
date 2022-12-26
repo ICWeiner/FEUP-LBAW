@@ -42,16 +42,9 @@ function wishlistUpdatedHandler() {
       document.getElementById('wish_login_'+item.id).classList.toggle("show");   
     }else if(item.operation == 'add'){
       document.getElementById('watchMSG_'+item.id).classList.toggle("show");
-      document.getElementById('unwatchMSG_'+item.id).classList.toggle("show");
     }else{
-      document.getElementById('watchMSG_'+item.id).classList.toggle("show");
       document.getElementById('unwatchMSG_'+item.id).classList.toggle("show");
-    }
-
-    
-
-
-    
+    }  
     //let input = element.querySelector('input[type=checkbox]');
     //element.checked = item.done == "true";
   }
