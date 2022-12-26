@@ -26,7 +26,7 @@
                       <span class="act-price text-warning fw-bold">
                         <h4 href="/products/{{ $product->id_product }}" class="fw-bold">{{ $product->price }}€</h4>
                         <div class="align-items-center">
-                          <h3 href="/products/{{ $product->id_product }}">{{ $product->rating }} <i class="fa-regular  fa-star"></i></h2>
+                          <h3 href="/products/{{ $product->id_product }}">{{ $product->rating }} <i class="fa-solid  fa-star"></i></h2>
                         </div>
                       </span>
                     </div>
@@ -66,7 +66,7 @@
                 <div class="cart mt-4 align-items-center"> 
                   <input class="btn btn-danger text-uppercase mr-2 px-4" type="button" value="Add to Cart" onclick="return addToCart( {{$product->id_product}},getQuantity() )">
                   <button class="btn ms-3" type="button" value="Add to Wishlist" onclick="return addToWishlist( {{$product->id_product}} )">
-                    <i class="fa fa-heart text-warning ml-5"></i>
+                    <i class="fa-regular fa-heart fa-xl text-danger ml-5"></i>
                   </button>
                 </div>
               </div>

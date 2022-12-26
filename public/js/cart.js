@@ -15,9 +15,9 @@ function productAddedHandler(){
     let item = JSON.parse(this.responseText);
 
     if(item.operation == 'login'){
-      document.querySelector('#login_'+item.id).style.display = 'block';
+      document.getElementById('cart_login_'+item.id).classList.toggle("show");   
     }else{
-      document.querySelector('#cartAdded_'+item.id).style.display = 'block';
+      document.getElementById('cartAdded_'+item.id).classList.toggle("show");  
     }
   }
 
@@ -38,23 +38,13 @@ function wishlistUpdatedHandler() {
       document.querySelector('#product_'+item.id).outerHTML = "";
     }
 
-    let watchMSG = document.querySelector('#watchMSG_'+item.id);
-    let unwatchMSG = document.querySelector('#unwatchMSG_'+item.id);
-    
     if (item.operation == 'login'){
-      document.querySelector('#login_'+item.id).style.display = 'block';;
+      document.getElementById('wish_login_'+item.id).classList.toggle("show");   
     }else if(item.operation == 'add'){
-      unwatchMSG.style.display = 'none';
-      watchMSG.style.display = 'block';
+      document.getElementById('watchMSG_'+item.id).classList.toggle("show");
     }else{
-      watchMSG.style.display = 'none';
-      unwatchMSG.style.display = 'block';
-    }
-
-    
-
-
-    
+      document.getElementById('unwatchMSG_'+item.id).classList.toggle("show");
+    }  
     //let input = element.querySelector('input[type=checkbox]');
     //element.checked = item.done == "true";
   }
@@ -77,5 +67,6 @@ function encodeForAjax(data) {
     request.send(encodeForAjax(data));
     //alert("Product added to cart");
   }
+ 
   
 
