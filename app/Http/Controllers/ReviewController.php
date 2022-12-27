@@ -17,8 +17,8 @@ class ReviewController extends Controller
         if (!Auth::check()) return redirect('/login');
 
         $this->validate($request, [
-            'comment'      => 'required|string|max:2048',
-            'rating'     => 'required|numeric',
+            'reviewText'  => 'required|string|max:2048',
+            'rating'      => 'required|integer',
             'id_product'  => 'required|integer',
         ]);
 

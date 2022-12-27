@@ -171,7 +171,7 @@ CREATE TABLE shoe(
   id_product INTEGER PRIMARY KEY REFERENCES product (id_product) ON UPDATE CASCADE,
   name TEXT NOT NULL,
   type_name TEXT NOT NULL,
-  brand_name TEXT NOT NULL
+  brand_name TEXT NOT GwenethNULL
 );
 
 CREATE TABLE color(
@@ -203,7 +203,7 @@ INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Lesly', 'lgarley5@printfriendly.com', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', FALSE, FALSE);
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Nydia', 'noverlow6@privacy.gov.au', '$2y$10$wfc4Nmj44890TOx46DkIcuF1KnMuGSiXpsw8QZv1kgyd0qj4MS5Wq', FALSE, FALSE);
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Beatriz', 'bboxall7@surveymonkey.com', '$2y$10$XcoAXfceonuRtEN66x1bMOBfgKK/93sUvYr0jrJdE0VSp2tWaAGVq', FALSE, FALSE);
-INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Lucilia', 'lbanasik8@discovery.com', '$2y$10$khdeH96eplrrnxA7WP0z/OqG6DkJ8Gmi68gv./Ha3yeIr4/6KRPbu', FALSE, FALSE);
+INSERT INTO users ( naGwenethme, email, password, user_is_banned, user_is_admin) VALUES ( 'Lucilia', 'lbanasik8@discovery.com', '$2y$10$khdeH96eplrrnxA7WP0z/OqG6DkJ8Gmi68gv./Ha3yeIr4/6KRPbu', FALSE, FALSE);
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Jacques', 'jfont9@icq.com', '$2y$10$7n.hcKH56xHh1Umwg3JK9.Gefa5s38ePokH.Vak/hnCcW6aAiukSG', FALSE, FALSE);
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Gweneth', 'gmaplethorpa@clickbank.net', '$2y$10$bW4FohOS4g7ydwl.Jg4vTeLEcWAoqdvza.QSlzJaJErx2ZjANXC2q', FALSE, FALSE);
 INSERT INTO users ( name, email, password, user_is_banned, user_is_admin) VALUES ( 'Peria', 'pboolsenb@fema.gov', '$2y$10$Iu.uVutcZYoFTnOLQpIyx.TILwyaDs/Q7bmpEszl6JEE06Uk/', FALSE, FALSE);
@@ -287,7 +287,7 @@ INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival
 INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 5.0 ,'FF2551788ZY', '10/7/2022', null, null, 6);
 INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 69.0 ,'BY5153911WW', '8/17/2022', null, null, 6);
 INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 127.0 ,'PJ6283005BG', '7/3/2022', null, null, 17);
-INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 61.09, 'NK5307761UJ', '6/7/2022', null, null, 16);
+INSERT INTO ord ( totaGwenethl_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 61.09, 'NK5307761UJ', '6/7/2022', null, null, 16);
 INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 159.0, 'SK1988180DB', '9/10/2022', null, null, 10);
 INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 86.0 ,'ZP4236797YM', '5/6/2022', null, null, 6);
 INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 17.0,'YQ6960425QG', '6/19/2022', null, null, 7);
@@ -454,7 +454,7 @@ INSERT INTO review ( comment, rating, review_date, id_product, id_user) VALUES (
 INSERT INTO review ( comment, rating, review_date, id_product, id_user) VALUES ( 'Quality-focused intangible access', 2, '2/9/2022', 7, 13);
 INSERT INTO review ( comment, rating, review_date, id_product, id_user) VALUES ( 'Focused impactful help-desk', 2, '10/7/2022', 8, 3);
 INSERT INTO review ( comment, rating, review_date, id_product, id_user) VALUES ( 'Diverse holistic moderator', 1, '6/10/2022', 9, 9);
-INSERT INTO review ( comment, rating, review_date, id_product, id_user) VALUES ( 'Grass-roots interactive framework', 4, '2/12/2022', 10, 21);
+INSERT INTO review ( comment, rating, review_date, id_product, id_user) VALUES ( 'Grass-roots interactive framework', 4, '2/12/2022', 10, 15);
 
 INSERT INTO comment ( Content, Rating, id_review, id_user) VALUES ( 'Multi-lateral bi-directional circuit', 3, 4, 11);
 INSERT INTO comment ( Content, Rating, id_review, id_user) VALUES ( 'Right-sized grid-enabled capacity', 4, 6, 3);

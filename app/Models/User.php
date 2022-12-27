@@ -69,7 +69,7 @@ class User extends Authenticatable
 
     public function reviews()
     {
-        return $this->belongsTo(review::class, 'id_user');
+        return $this->hasMany(review::class, 'id_review');
     }
 
     public function address()
