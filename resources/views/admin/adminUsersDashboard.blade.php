@@ -20,13 +20,14 @@
 
     <div class="mx-auto">  
         <div class="d-grid">
-            <form method="GET" action="{{ route('adminBanUser') }}">
-            <select id="dropdown" name="id_user">
-            @foreach ($users as $user )
-                <option value="{{ $user->id_user }}">{{ $user->name }}</option>
-            @endforeach
-            </select>
-            <input class="btn btn-primary" type="submit" value="Ban selected user name" />
+            <form method="POST" action="{{ route('adminBanUser') }}">
+                {{ csrf_field() }}
+                <select id="dropdown" name="id_user">
+                @foreach ($users as $user )
+                    <option value="{{ $user->id_user }}">{{ $user->name }}</option>
+                @endforeach
+                </select>
+                <input class="btn btn-danger" type="submit" value="Ban selected user" />
             </form>
         </div>
     @endif

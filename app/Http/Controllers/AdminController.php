@@ -59,7 +59,12 @@ class AdminController extends Controller
         if (!Auth::check()) return redirect('/login');
         if (Auth::user()->user_is_admin === true) {
             $user = User::find(Request::post('id_user'));
-            $user->user_is_banned = true;
+            if($user->user_is_banned === null || $user->user_is_banned === false){
+                $user->user_is_banned = true;
+            }
+            else{
+                $user->user_is_banned = false;
+            }   
             $user->save();
             return redirect('adminUsersDashboard');
         }
