@@ -86,7 +86,7 @@
                   
                     <div class="mx-auto">
                       <form method="GET" style="margin-bottom:1.5em"  action="{{ url('/deleteUser') }}">
-                        <input class="btn btn-primary" type="submit" value="Delete Account" />
+                        <input class="btn btn-danger" type="submit" value="Delete Account" />
                       </form>
                     </div>
 

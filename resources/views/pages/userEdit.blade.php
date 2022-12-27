@@ -4,7 +4,7 @@
 
 <div class="vh-100 d-flex justify-content-center align-items-center">
   <div class="col-md-4 p-5 shadow-sm border rounded-5 border-primary">
-    <h2 class="text-center mb-4 text-primary">Edit</h2>
+    <h2 class="text-center mb-4 text-primary">Edit Profile</h2>
       <form method="POST" action="{{ route('editUser') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
           <!--name-->
@@ -51,13 +51,9 @@
           
             
           <div class="d-grid">
-            <button class="btn btn-primary" type="submit">Register</button>
+            <button class="btn btn-primary" type="submit">Save changes</button>
           </div>
       </form>
-
-      <div class="mt-3">
-        <p class="mb-0  text-center">Already have an account?<a href="{{ route('login') }}" class="text-primary fw-bold text-decoration-none"> Login</a></p>
-      </div>     
 
   </div>
 </div>

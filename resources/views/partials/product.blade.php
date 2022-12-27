@@ -88,7 +88,7 @@
                     <form method="POST" action="{{ route('deleteProduct') }}">
                     {{ csrf_field() }}
                       <input id="id_product" name="id_product" value={{ $product->id_product }} required hidden/>
-                      <input class="btn btn-primary" type="submit" value="Delete Product">
+                      <input class="btn btn-danger" type="submit" value="Delete Product">
                     </form>
                   </div>
                   @endif
