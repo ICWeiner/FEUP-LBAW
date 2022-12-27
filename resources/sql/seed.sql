@@ -132,6 +132,8 @@ CREATE TABLE productOrd(
   PRIMARY KEY(id_product, id_ord)
 );
 
+
+
 CREATE TABLE collection(
   id_collection SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
@@ -632,16 +634,18 @@ INSERT INTO productOrd (quantity, id_product, id_ord) VALUES (1, 30, 30);
 INSERT INTO flagged (reason, id_review, id_comment) VALUES ('Spam',1,null);
 
 -- IDX01  It's useful for searching products of a certain product that have the price lower than a certain value defined much faster,
+DROP INDEX IF EXISTS product_price_idx;
 CREATE INDEX product_price_idx ON product USING btree (price);
 
 -- IDX02  Every time we need to make a query to get the address of an user, it has to be fast, because it can be executed several times
+DROP INDEX IF EXISTS address_iduser_idx;
 CREATE INDEX address_iduser_idx ON addressBook USING hash (id_user);
 
 -- IDX03  Every time we need to make a query to get an order of any user, it has to be fast, because it can be executed several time
+DROP INDEX IF EXISTS order_iduser_idx;
 CREATE INDEX order_iduser_idx ON ord USING hash (id_user);
 
--- IDX04 To improve overall performance of full-text searches while searching for products by name.
-CREATE INDEX search_product_name_idx ON product USING GIST (to_tsvector('english', name));
-
-
-
+DROP INDEX IF EXISTS search_product_name_idx;
+CREATE INDEX search_product_name_idx
+    ON product USING GIST
+    (to_tsvector('english', name));
