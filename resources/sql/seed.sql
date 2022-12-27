@@ -365,38 +365,38 @@ INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival
 INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 178.0 ,'VL3297075AL', '12/2/2021', null, null, 20);
 INSERT INTO ord ( total_price, tracking_number, buy_date, shipping_date, arrival_date, id_user) VALUES ( 40.49, 'DW5970309JW', '4/7/2022', null, null, 4);
 
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (130.5, 72, 'Anna Karenina', 'images/products/1.jpg', 1997, 1, '497-67759-786');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (186.75, 41, 'Madame Bovary', 'images/products/2.jpg', 2000, 5, '750-60542-988');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (54.88, 60, 'War and Peace', 'images/products/3.jpg', 2003, 1, '838-83169-850');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (155.13, 62, 'Lolita', 'images/products/4.jpg', 1993, 2, '258-86221-024');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (15.53, 26, 'The Adventures of Huckleberry Finn', 'images/products/5.jpg', 1987, 4, '200-67142-363');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (68.49, 48, 'Hamlet', 'images/products/6.jpg', 1994, 2, '083-19054-202');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (5.33, 9, 'The Great Gatsby', 'images/products/7.jpg', 1996, 4, '575-48646-885');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (28.19, 79, 'In Search of Lost Time', 'images/products/8.jpg', 1991, 4, '879-65843-560');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (176.56, 74, 'The Stories of Anton Chekhov', 'images/products/9.jpg', 1992, 4, '632-88046-890');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (220.21, 48, 'Middlemarch', 'images/products/10.jpg', 2004, 3, '518-13899-459');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (130.5, 732, 'Anna Karenina', 'images/products/1.jpg', 1997, 1, '497-67759-786');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (186.75, 417, 'Madame Bovary', 'images/products/2.jpg', 2000, 5, '750-60542-988');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (54.88, 660, 'War and Peace', 'images/products/3.jpg', 2003, 1, '838-83169-850');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (155.13, 562, 'Lolita', 'images/products/4.jpg', 1993, 2, '258-86221-024');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (15.53, 216, 'The Adventures of Huckleberry Finn', 'images/products/5.jpg', 1987, 4, '200-67142-363');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (68.49, 448, 'Hamlet', 'images/products/6.jpg', 1994, 2, '083-19054-202');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (5.33, 329, 'The Great Gatsby', 'images/products/7.jpg', 1996, 4, '575-48646-885');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (28.19, 791, 'In Search of Lost Time', 'images/products/8.jpg', 1991, 4, '879-65843-560');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (176.56, 724, 'The Stories of Anton Chekhov', 'images/products/9.jpg', 1992, 4, '632-88046-890');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (220.21, 458, 'Middlemarch', 'images/products/10.jpg', 2004, 3, '518-13899-459');
 
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (80.17, 76, 'Air Jordan 1', 'images/products/11.jpg', 2006, 2, '065-23204-908');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (234.39, 52, 'Nike Zoom Mercurial Vapor 15 Elite SG-Pro Anti-Clog Traction', 'images/products/12.jpg', 2005, 4, '438-85543-820');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (42.28, 61, 'NikeCourt Legacy', 'images/products/13.jpg', 1995, 2, '758-14850-229');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (90.86, 55, 'Nike Victori One', 'images/products/14.jpg', 2010, 4, '978-94841-004');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (222.29, 3, 'Nike SB Dunk High Pro PRM', 'images/products/15.jpg', 2012, 5, '570-38209-866');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (233.36, 66, 'Nike LeBron 9 Low', 'images/products/16.jpg', 1986, 1, '274-08757-159');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (201.05, 40, 'Adidas Breaknet Plus', 'images/products/17.jpg', 2003, 5, '740-10549-260');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (96.74, 23, 'Adidoks Ultraboost 22', 'images/products/18.jpg', 2010, 3, '062-38083-212');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (93.24, 39, 'Men`s GG boot', 'images/products/19.jpg', 2011, 3, '092-74559-947');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (196.63, 90, 'Trigreca Trainers', 'images/products/20.jpg', 2008, 1, '008-67245-090');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (80.17, 746, 'Air Jordan 1', 'images/products/11.jpg', 2006, 2, '065-23204-908');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (234.39, 512, 'Nike Zoom Mercurial Vapor 15 Elite SG-Pro Anti-Clog Traction', 'images/products/12.jpg', 2005, 4, '438-85543-820');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (42.28, 612, 'NikeCourt Legacy', 'images/products/13.jpg', 1995, 2, '758-14850-229');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (90.86, 552, 'Nike Victori One', 'images/products/14.jpg', 2010, 4, '978-94841-004');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (222.29, 433, 'Nike SB Dunk High Pro PRM', 'images/products/15.jpg', 2012, 5, '570-38209-866');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (233.36, 466, 'Nike LeBron 9 Low', 'images/products/16.jpg', 1986, 1, '274-08757-159');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (201.05, 240, 'Adidas Breaknet Plus', 'images/products/17.jpg', 2003, 5, '740-10549-260');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (96.74, 233, 'Adidoks Ultraboost 22', 'images/products/18.jpg', 2010, 3, '062-38083-212');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (93.24, 393, 'Men`s GG boot', 'images/products/19.jpg', 2011, 3, '092-74559-947');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (196.63, 940, 'Trigreca Trainers', 'images/products/20.jpg', 2008, 1, '008-67245-090');
 
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (55.04, 1, 'Lebron James in 6 Jersey - Los Angeles Lakers', 'images/products/21.jpg', 1996, 3, '340-54513-892');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (177.57, 7, 'Sinister Six: Electro - Marvel', 'images/products/22.jpg', 1992, 1, '663-02819-043');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (193.53, 17, 'Hawkman with Armor - DC Comics', 'images/products/23.jpg', 1992, 4, '168-55099-585');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (87.17, 23, 'Michael Jordan in 45 Jersey - Bulls', 'images/products/24.jpg', 1994, 1, '496-51905-964');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (182.09, 72, 'Boyband Kenny - South Park', 'images/products/25.jpg', 1998, 5, '254-75345-292');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (210.34, 99, 'True Heart Bear - Care Bears 40th', 'images/products/26.jpg', 1998, 2, '780-75265-273');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (166.24, 69, 'Nobara Kugisaki in Fight Stance - Jujutsu Kaisen', 'images/products/27.jpg', 1997, 2, '483-84516-630');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (179.98, 3, 'Mikasa Ackermann with Swords - Attack on Titan', 'images/products/28.jpg', 2012, 1, '461-48982-304');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (228.83, 91, 'Eleven in Tank Suit - Stranger Things Season 4', 'images/products/29.jpg', 2003, 5, '015-43838-568');
-insert into product (price, stock_quantity, name, url, year, rating, sku) values (41.0, 5, 'Frodo Baggins - Lord of the Rings', 'images/products/30.jpg', 1987, 3, '172-24929-048');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (55.04, 549, 'Lebron James in 6 Jersey - Los Angeles Lakers', 'images/products/21.jpg', 1996, 3, '340-54513-892');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (177.57, 124, 'Sinister Six: Electro - Marvel', 'images/products/22.jpg', 1992, 1, '663-02819-043');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (193.53, 167, 'Hawkman with Armor - DC Comics', 'images/products/23.jpg', 1992, 4, '168-55099-585');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (87.17, 345, 'Michael Jordan in 45 Jersey - Bulls', 'images/products/24.jpg', 1994, 1, '496-51905-964');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (182.09, 654, 'Boyband Kenny - South Park', 'images/products/25.jpg', 1998, 5, '254-75345-292');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (210.34, 134, 'True Heart Bear - Care Bears 40th', 'images/products/26.jpg', 1998, 2, '780-75265-273');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (166.24, 654, 'Nobara Kugisaki in Fight Stance - Jujutsu Kaisen', 'images/products/27.jpg', 1997, 2, '483-84516-630');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (179.98, 112, 'Mikasa Ackermann with Swords - Attack on Titan', 'images/products/28.jpg', 2012, 1, '461-48982-304');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (228.83, 765, 'Eleven in Tank Suit - Stranger Things Season 4', 'images/products/29.jpg', 2003, 5, '015-43838-568');
+insert into product (price, stock_quantity, name, url, year, rating, sku) values (41.0, 123, 'Frodo Baggins - Lord of the Rings', 'images/products/30.jpg', 1987, 3, '172-24929-048');
 
 
 INSERT INTO collection ( name, id_product) VALUES ( 'Schmitt-Koch', 1);
