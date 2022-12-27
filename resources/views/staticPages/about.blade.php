@@ -40,7 +40,7 @@
           <div class="card" style="width: 14rem;">
             <div class="card-body">
               <h5 class="card-title">Diogo Almeida</h5>
-              <p class="card-text">Back-End(??), helper to front-end and has very cool kicks</p>
+              <p class="card-text">Back-End, helper to front-end and has very cool kicks</p>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="row text-center pb-3">
+      <div class="row text-center pb-3 justify-content-center">
         <div class="col-md-4 d-flex justify-content-center">
           <div class="card text-center" style="width: 14rem;">
             <div class="card-body">
@@ -63,4 +63,5 @@
             </div>
           </div>
         </div>
+      </div>
 @endsection
