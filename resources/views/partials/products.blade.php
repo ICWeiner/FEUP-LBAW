@@ -12,11 +12,10 @@
         {{ $product->name }}
       </a>
     </h3>
-    <p class="card-text text-truncate">{{ $product->description }}</p>
   </div>
   <div class="product p-4 pt-1">
     <div class=""> 
-      <span class="text-uppercase text-muted brand text-inline text-truncate" href="/products/{{ $product->year }}">{{ $product->description }}</span>
+      <p class="text-uppercase text-muted brand text-inline text-truncate" href="/products/{{ $product->year }}">{{ $product->description }}</p>
       <div class="price d-flex flex-row align-items-center"> 
         <span class="act-price text-warning fw-bold">
           <h4 href="/products/{{ $product->id_product }}" class="fw-bold">{{ $product->price }} €</h4>
