@@ -82,7 +82,7 @@
                 @endif
               </ul>
               <form class="d-flex" role="search" action="/search" method="get">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input name="search" id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class=" search btn btn-outline-warning text-white" type="submit">Search</button>
               </form>
             </div>

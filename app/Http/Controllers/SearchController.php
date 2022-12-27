@@ -5,21 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class SearchController extends Controller
 {
   
     public function show(Request $request){
 
-        if($request->input('search')){
-            $products = Product::where('name','like','%'.$request->input('search').'%')->get();
-            
-        }else{
-            $products = Product::all();
+        if($request->exists('search')){
+            $products = Product::where(DB::raw('lower(name)'),"LIKE", Str::lower("%{$request->search}%"))->get();
+
+            return view('pages.products',['products' => $products]);
         }
+       return redirect('/');
+        
 
 
-        return view('pages.searchResults',['products' => $products]);
+
+        
     }
  
 }
