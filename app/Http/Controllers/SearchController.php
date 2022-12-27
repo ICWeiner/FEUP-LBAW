@@ -16,13 +16,11 @@ class SearchController extends Controller
         if($request->exists('search')){
             $products = Product::where(DB::raw('lower(name)'),"LIKE", Str::lower("%{$request->search}%"))->get();
 
+            #$products = Product::whereRaw(" name @@ plainto_tsquery('" . $request->search . "')")->paginate(8);
+
             return view('pages.products',['products' => $products]);
         }
        return redirect('/');
-        
-
-
-
         
     }
  
