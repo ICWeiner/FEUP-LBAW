@@ -58,7 +58,7 @@
                   <a class="nav-link active text-warning" href="{{ url('/cart') }}">Cart</a>
                 </li>
                   @else
-                  <li clss="nav-item">
+                  <li class="nav-item">
                   <a class="nav-link disabled text-warning" href="{{ url('/cart') }}">Cart</a>
                   </li>
                 @endif
@@ -67,7 +67,7 @@
                   <a class="nav-link active text-warning" href="{{ url('/wishlist') }}">Wishlist</a>
                 </li>
                   @else
-                  <li clss="nav-item">
+                  <li class="nav-item">
                   <a class="nav-link disabled text-warning" href="{{ url('/wishlist') }}">Wishlist</a>
                   </li>
                 @endif
