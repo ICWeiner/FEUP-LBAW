@@ -42,7 +42,7 @@ class ordPolicy
      */
     public function create(User $user)
     {
-        return Auth::check() && $user->user_is_admin !== false;
+        return Auth::check() && ( $user->user_is_admin === false || $user->user_is_admin === null );
     }
 
     /**

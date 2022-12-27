@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ord;
 use Session;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class OrdController extends Controller
 {
@@ -20,29 +21,32 @@ class OrdController extends Controller
         if (!Auth::check()) return redirect('/login');
 
         $user = Auth::user();
-        $cart = $user->cart()->get();
-        $total = $cart->sum(function($t){ 
-            return $t->price*$t->pivot->quantity; 
-        });
+        if ($user->can('create', Ord::class)) {
+            // Executes the "create" method on the relevant policy...
+            $cart = $user->cart()->get();
+            $total = $cart->sum(function($t){ 
+                return $t->price*$t->pivot->quantity; 
+            });
 
-        $ord = ord::create([
-            'id_user' => $user->id_user,
-            'id_status' => 1,
-            'total_price' => $total,
-            'tracking_number' => 452333,
-            'buy_date' => now(),
-        ]);
+            $ord = ord::create([
+                'id_user' => $user->id_user,
+                'id_status' => 1,
+                'total_price' => $total,
+                'tracking_number' => 452333,
+                'buy_date' => now(),
+            ]);
 
-        $this->authorize('create', $ord);
+            $this->authorize('create', Ord::class);
 
-        foreach ($cart as $product) {
-            $ord->products()->attach($product->id_product, ['quantity' => $product->pivot->quantity]);
+            foreach ($cart as $product) {
+                $ord->products()->attach($product->id_product, ['quantity' => $product->pivot->quantity]);
+            }
+
+            $user->cart()->detach();
+            return view('auth.orderSuccess',['id_ord'=> $ord->id_ord]);
+        }else{
+            return abort(403);
         }
-
-        $user->cart()->detach();
-        return view('auth.orderSuccess',['id_ord'=> $ord->id_ord]);
-            
-        
     }
 
     public function orderSuccess()
