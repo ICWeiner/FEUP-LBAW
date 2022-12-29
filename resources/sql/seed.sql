@@ -32,6 +32,7 @@ CREATE TABLE users( --table name is plural because "user" is a reserved keyword
   email TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL,
   image TEXT,
+  remember_token VARCHAR,
   user_is_banned BOOLEAN DEFAULT FALSE,
   user_is_admin BOOLEAN DEFAULT FALSE
 );

@@ -9,6 +9,7 @@
           {{ csrf_field() }}
 
           <input name="email" value="{{  Request::get('email') }}" required hidden>
+          <input name="token" value="{{ Request::route('token') }}" required hidden>
           <!--password-->
           <div class="mb-3">
             <label for="password" class="form-label">New Password</label>
