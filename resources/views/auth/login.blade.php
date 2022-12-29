@@ -35,7 +35,7 @@
                         <label class="form-check-label" for="exampleCheck1">Remember me</label>
                     </div>-->
 
-                    <p class="small"><a class="text-decoration-none" href="{{ route('recoverPassword') }}">Recover Password</a></p>
+                    <p class="small"><a class="text-decoration-none" href="{{ route('password.email') }}">Recover Password</a></p>
 
                     <div class="d-grid">
                         <button class="btn btn-primary" type="submit">Login</button>
