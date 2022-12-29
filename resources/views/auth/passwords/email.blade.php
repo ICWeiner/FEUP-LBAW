@@ -15,6 +15,11 @@
                             {{ $errors->first('msg') }}
                             </span>
                         @endif
+                        @isset($msg)
+                        <span class="">
+                            {{ $msg }}
+                            </span>
+                        @endisset
                     </div>
                     <div class="d-grid">
                       <button class="btn btn-primary" type="submit">Send recovery e-mail</button>

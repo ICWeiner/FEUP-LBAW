@@ -66,7 +66,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
-Route::get('password/email', 'Auth\ForgotPasswordController@showEmailForm')->name('password.email');
+Route::get('password/email', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.email');
 Route::post('password/email', 'Auth\ForgotPasswordController@getEmail')->name('password.email');
 
 //User Management

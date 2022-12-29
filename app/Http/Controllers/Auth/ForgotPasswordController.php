@@ -31,26 +31,21 @@ class ForgotPasswordController extends Controller
         $this->middleware('guest');
     }
 
-    public function showEmailForm(){
-        return view('auth.forgotPassword');
-    }
-    
-
     public function getEmail(Request $request)
     {
-        $this->validate($request, ['email' => 'required|email']);
+        $this->validateEmail($request);
 
-        $status = Password::sendResetLink(
-            $request->only('email')
+        $status = $this->broker()->sendResetLink(
+            $this->credentials($request)
         );
 
         switch ($status)
         {
             case Password::RESET_LINK_SENT:
-                return view('auth.forgotPassword')->with('msg',"We can't find a user with that email address" );
+                return view('auth.passwords.email')->with('msg',"A recovery email has been sent to the provided address" );
 
             default:
-                return view('auth.forgotPassword')->withErrors(['msg' => "We can't find a user with that email address" ]);
+                return view('auth.passwords.email')->withErrors(['msg' => "We can't find a user with that email address" ]);
         }
     }
 }
