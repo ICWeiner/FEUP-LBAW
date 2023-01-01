@@ -24,6 +24,13 @@ DROP TABLE IF EXISTS size CASCADE;
 DROP TABLE IF EXISTS shoeColorSize CASCADE;
 DROP TABLE IF EXISTS productCart CASCADE;
 DROP TABLE IF EXISTS wishlist CASCADE;
+DROP TABLE IF EXISTS password_resets CASCADE;
+
+CREATE TABLE password_resets(
+  email VARCHAR NOT NULL,
+  token VARCHAR NOT NULL,
+  created_at TIMESTAMP
+);
 
 
 CREATE TABLE users( --table name is plural because "user" is a reserved keyword
