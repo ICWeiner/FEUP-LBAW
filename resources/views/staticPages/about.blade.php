@@ -31,6 +31,7 @@
         <div class="col-md-4 d-flex justify-content-center">
           <div class="card text-center" style="width: 14rem;">
             <div class="card-body">
+            <img src="images/nunes.png  " alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               <h5 class="card-title">Diogo Nunes</h5>
               <p class="card-text">Back-End, Front-end, everything really, from Lisbon and also wears googles</p>
             </div>
@@ -39,14 +40,16 @@
         <div class="col-md-4 d-flex justify-content-center">
           <div class="card" style="width: 14rem;">
             <div class="card-body">
+            <img src="images/almeida.jpg  " alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               <h5 class="card-title">Diogo Almeida</h5>
-              <p class="card-text">Back-End, helper to front-end and has very cool kicks</p>
+              <p class="card-text">Back-Ender, helper to front-end and has very cool kicks</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 d-flex justify-content-center">
           <div class="card" style="width: 14rem;">
             <div class="card-body">
+            <img src="images/rafa.png  " alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               <h5 class="card-title">Rafael Morgado</h5>
               <p class="card-text">Front-End, very tall and also from Lisbon</p>
             </div>
@@ -58,6 +61,7 @@
         <div class="col-md-4 d-flex justify-content-center">
           <div class="card text-center" style="width: 14rem;">
             <div class="card-body">
+            <img src="images/xico.png  " alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               <h5 class="card-title">Francisco Nunes</h5>
               <p class="card-text">Back-End Search engine developer</p>
             </div>
