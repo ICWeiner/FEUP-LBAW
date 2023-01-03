@@ -33,7 +33,7 @@
             <div class="card-body">
             <img src="images/nunes.png  " alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               <h5 class="card-title">Diogo Nunes</h5>
-              <p class="card-text">Back-End, Front-end, everything really, from Lisbon and also wears googles</p>
+              <p class="card-text">Main Back-End, copy-paste Front-end, from Lisbon and also wears googles</p>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="card-body">
             <img src="images/almeida.jpg  " alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1">
               <h5 class="card-title">Diogo Almeida</h5>
-              <p class="card-text">Back-Ender, helper to front-end and has very cool kicks</p>
+              <p class="card-text">Back-End and front-end helper and has very cool kicks</p>
             </div>
           </div>
         </div>
