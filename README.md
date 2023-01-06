@@ -55,3 +55,11 @@ For open source projects, say how it is licensed.
 
 ## Project status
 The project has been submited for final evaluation, and so, is now considered completed, even if there are features that were supposed to be implemented
+
+
+### In special memory of
+
+![Xico](readme_imgs/xico.png)
+
+
+
